@@ -23,4 +23,21 @@
 <script type="math/tex; mode=display">\kappa_r(p)=0,D_w\kappa_r(p)>0</script><p>我T</p>
 <script type="math/tex; mode=display">test</script>]]></content>
   </entry>
+  <entry>
+    <title>代码测试</title>
+    <url>/2022/05/28/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>字符串匹配的问题，测试一下摘要<br><span id="more"></span></p>
+<ul>
+<li><p>删掉重复元素</p>
+<p>力扣26、80，只用下标记录未重复元素</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(count &lt; <span class="number">2</span> || nums[count - <span class="number">2</span>] != x)&#123;</span><br><span class="line">                nums[count++] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>字符串匹配（暴力法）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">strStr</span><span class="params">(String haystack, String needle)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] hh = haystack.toCharArray(), nn = needle.toCharArray();</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> hh.length, n = nn.length, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hh[i] == nn[j])&#123;</span><br><span class="line">                ++i;</span><br><span class="line">                ++j;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                i -= j-<span class="number">1</span>;</span><br><span class="line">                j = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i - j;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
