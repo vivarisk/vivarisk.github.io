@@ -15,15 +15,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/posts/d87f7e0c.html</url>
-    <content><![CDATA[<ul>
-<li>试试</li>
-</ul>
-<script type="math/tex; mode=display">\kappa_r(p)=0,D_w\kappa_r(p)>0</script><p>我T</p>
-<script type="math/tex; mode=display">test</script>]]></content>
-  </entry>
-  <entry>
     <title>代码测试</title>
     <url>/posts/f8915431.html</url>
     <content><![CDATA[<p>字符串匹配的问题，测试一下摘要<br><span id="more"></span></p>
@@ -50,6 +41,15 @@
       <tags>
         <tag>测试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/posts/d87f7e0c.html</url>
+    <content><![CDATA[<ul>
+<li>试试</li>
+</ul>
+<script type="math/tex; mode=display">\kappa_r(p)=0,D_w\kappa_r(p)>0</script><p>我T</p>
+<script type="math/tex; mode=display">test</script>]]></content>
   </entry>
   <entry>
     <title>我是我的陷阱</title>
