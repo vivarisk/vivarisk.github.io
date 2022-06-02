@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/posts/d87f7e0c.html</url>
-    <content><![CDATA[<ul>
-<li>试试</li>
-</ul>
-<script type="math/tex; mode=display">\kappa_r(p)=0,D_w\kappa_r(p)>0</script><p>我T</p>
-<script type="math/tex; mode=display">test</script>]]></content>
-  </entry>
-  <entry>
-    <title>代码测试</title>
-    <url>/posts/f8915431.html</url>
-    <content><![CDATA[<p>字符串匹配的问题，测试一下摘要<br><span id="more"></span></p>
-<ul>
-<li><p>删掉重复元素</p>
-<p>力扣26、80，只用下标记录未重复元素</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(count &lt; <span class="number">2</span> || nums[count - <span class="number">2</span>] != x)&#123;</span><br><span class="line">                nums[count++] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>字符串匹配（暴力法）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">strStr</span><span class="params">(String haystack, String needle)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] hh = haystack.toCharArray(), nn = needle.toCharArray();</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> hh.length, n = nn.length, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hh[i] == nn[j])&#123;</span><br><span class="line">                ++i;</span><br><span class="line">                ++j;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                i -= j-<span class="number">1</span>;</span><br><span class="line">                j = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == n)&#123;</span><br><span class="line">            <span class="keyword">return</span> i - j;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>图像测试</title>
-    <url>/posts/3ec8abbf.html</url>
-    <content><![CDATA[<p>测试一下图片<br><span id="more"></span></p>
-<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/white.jpg" alt="公路白" style="zoom:25%;" /></p>
-<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/avatar.jpg" alt="甜梅号" style="zoom:50%;" /></p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我是我的陷阱</title>
-    <url>/posts/b2ce8681.html</url>
-    <content><![CDATA[<p>2022/05/29</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>随便写写</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World!</title>
     <url>/posts/1c291ca3.html</url>
     <content><![CDATA[<p>世界，你好！</p>
@@ -57,5 +8,93 @@
       <categories>
         <category>生活</category>
       </categories>
+  </entry>
+  <entry>
+    <title>二分查找</title>
+    <url>/posts/e8eb0481.html</url>
+    <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
+<p><em>参考邓俊辉老师的《数据结构》56页</em></p>
+<ol>
+<li><p>返回第一个大于target值的索引</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt;= target, [hi, n) &gt; target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt;= target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一个大于target的索引，返回lo--为插入位置</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回第一大于等于target值的索引</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt; target, [hi, n) &gt;= target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt; target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一大于等于target的索引</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这两种情况应该够用了。右边界取n还是n-1看具体情况，返回第一个大于或大于等于的，下标可能在n（即所有数都比target小），[lo,hi]是所求的下标范围，能取到n那hi就定到n。</p>
+<p>有时候mi需要向上取整，这就不记了</p>
+<p>相关题：</p>
+<ul>
+<li>540，记住</li>
+<li>153，比较mi和hi</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>二分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题:分治</title>
+    <url>/posts/756833e6.html</url>
+    <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
+<ol>
+<li>力扣241</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">//空间换时间，防止重复计算</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">diffWaysToCompute</span><span class="params">(String expression)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(expression))&#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(expression);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> expression.length();</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;len; ++i)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> expression.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(isOps(c))&#123;</span><br><span class="line">                List&lt;Integer&gt; left = diffWaysToCompute(expression.substring(<span class="number">0</span>, i));</span><br><span class="line">                List&lt;Integer&gt; right = diffWaysToCompute(expression.substring(i+<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> l : left)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> r : right)&#123;</span><br><span class="line">                        list.add(caculate(c, l, r));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(Integer.valueOf(expression));</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(expression, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isOps</span><span class="params">(<span class="type">char</span> c)</span>&#123;</span><br><span class="line">        <span class="type">return</span> <span class="variable">c</span> <span class="operator">=</span>= <span class="string">&#x27;+&#x27;</span> || c == <span class="string">&#x27;-&#x27;</span> || c == <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">caculate</span><span class="params">(<span class="type">char</span> c, <span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;+&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l + r;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">&#x27;-&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l - r;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> l * r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>分治</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周记 | 5.9-5.15</title>
+    <url>/posts/8de1ee47.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周记 | 3.21-3.27</title>
+    <url>/posts/2d5bb144.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦的现实延续</title>
+    <url>/posts/459bb8ba.html</url>
+    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
+<ol>
+<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
+<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
+<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
+</ol>
+<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>杂念</tag>
+      </tags>
   </entry>
 </search>
