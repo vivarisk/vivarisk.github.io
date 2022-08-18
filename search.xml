@@ -10,6 +10,35 @@
       </categories>
   </entry>
   <entry>
+    <title>二分查找</title>
+    <url>/posts/e8eb0481.html</url>
+    <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
+<p><em>参考邓俊辉老师的《数据结构》56页</em></p>
+<ol>
+<li><p>返回第一个大于target值的索引</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt;= target, [hi, n) &gt; target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt;= target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一个大于target的索引，返回lo--为插入位置</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回第一大于等于target值的索引</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt; target, [hi, n) &gt;= target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt; target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一大于等于target的索引</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这两种情况应该够用了。右边界取n还是n-1看具体情况，返回第一个大于或大于等于的，下标可能在n（即所有数都比target小），[lo,hi]是所求的下标范围，能取到n那hi就定到n。</p>
+<p>有时候mi需要向上取整，这就不记了</p>
+<p>相关题：</p>
+<ul>
+<li>540，记住</li>
+<li>153，比较mi和hi</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>二分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL笔记</title>
     <url>/posts/fd5f561d.html</url>
     <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
@@ -49,48 +78,6 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二分查找</title>
-    <url>/posts/e8eb0481.html</url>
-    <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
-<p><em>参考邓俊辉老师的《数据结构》56页</em></p>
-<ol>
-<li><p>返回第一个大于target值的索引</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt;= target, [hi, n) &gt; target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt;= target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一个大于target的索引，返回lo--为插入位置</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回第一大于等于target值的索引</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//始终满足[0, lo) &lt; target, [hi, n) &gt;= target</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = n;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt; target)&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//最后lo == hi, 返回第一大于等于target的索引</span></span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这两种情况应该够用了。右边界取n还是n-1看具体情况，返回第一个大于或大于等于的，下标可能在n（即所有数都比target小），[lo,hi]是所求的下标范围，能取到n那hi就定到n。</p>
-<p>有时候mi需要向上取整，这就不记了</p>
-<p>相关题：</p>
-<ul>
-<li>540，记住</li>
-<li>153，比较mi和hi</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>二分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm总结</title>
-    <url>/posts/d6085898.html</url>
-    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
-<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
@@ -136,6 +123,23 @@
       </tags>
   </entry>
   <entry>
+    <title>刷题-链表</title>
+    <url>/posts/6db30a46.html</url>
+    <content><![CDATA[<p>链表的题<span id="more"></span></p>
+<ul>
+<li>涉及到头节点的题，最好设一个dummy节点</li>
+<li>24，445，234</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>刷题-分治</title>
     <url>/posts/756833e6.html</url>
     <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
@@ -154,23 +158,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>分治</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刷题-链表</title>
-    <url>/posts/6db30a46.html</url>
-    <content><![CDATA[<p>链表的题<span id="more"></span></p>
-<ul>
-<li>涉及到头节点的题，最好设一个dummy节点</li>
-<li>24，445，234</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -226,15 +213,30 @@
       </tags>
   </entry>
   <entry>
-    <title>周记 | 5.9-5.15</title>
-    <url>/posts/8de1ee47.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
+    <title>剑指offer刷题</title>
+    <url>/posts/4f6f4f56.html</url>
+    <content><![CDATA[<p>剑指offer从头刷一遍<span id="more"></span></p>
+<ol>
+<li><a href="https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指03</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组中重复的数字，当一个数和其下标不对应时，就把它交换到正确的位置，</span></span><br><span class="line"><span class="comment">//如果正确的位置有一个同样的值（就找到重复的了），</span></span><br><span class="line"><span class="comment">//while中每次都会有一个值处在正确的位置，时间复杂度O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findRepeatNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] != i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[nums[i]] == nums[i])&#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                swap(nums, i, nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/">剑指07</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根节点以前序遍历下标为准，子树范围是中序遍历的</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] preorder;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Integer&gt; inorderMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">buildTree</span><span class="params">(<span class="type">int</span>[] preorder, <span class="type">int</span>[] inorder)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.preorder = preorder;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> inorder.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            inorderMap.put(inorder[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> recur(<span class="number">0</span>, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TreeNode <span class="title function_">recur</span><span class="params">(<span class="type">int</span> preRootIdx, <span class="type">int</span> inLeftIdx, <span class="type">int</span> inRightIdx)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(inLeftIdx &gt; inRightIdx)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">preRootVal</span> <span class="operator">=</span> preorder[preRootIdx];</span><br><span class="line">        <span class="type">int</span> <span class="variable">inRootIdx</span> <span class="operator">=</span> inorderMap.get(preRootVal);</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">root</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(preRootVal);</span><br><span class="line">        root.left = recur(preRootIdx+<span class="number">1</span>, inLeftIdx, inRootIdx-<span class="number">1</span>);</span><br><span class="line">        root.right = recur(preRootIdx + inRootIdx - inLeftIdx + <span class="number">1</span>, inRootIdx + <span class="number">1</span>, inRightIdx);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>剑指09：用两个栈实现队列。stack2只push，弹出时当stack1非空时弹出stack1，否则将stack2中所有元素出栈并入栈stack1，stack1再出栈。</p>
+</li>
+<li><p><a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/">154</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//旋转数组最小值，有重复</span></span><br><span class="line"><span class="comment">//比较mi和hi，相同时hi左移</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findMin</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt; nums[hi])&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mi] &gt; nums[hi])&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = hi - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[lo];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://leetcode.cn/problems/word-search/">79</a> 回溯的题</li>
+<li><a href="https://leetcode.cn/problems/integer-break/">343整数拆分</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果一个因子大于4，拆成2和n-2一定更大</span></span><br><span class="line"><span class="comment">//4，拆成2+2</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">integerBreak</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> n / <span class="number">3</span>, remainder = n % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(remainder == <span class="number">0</span>) <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a);</span><br><span class="line">        <span class="keyword">if</span>(remainder == <span class="number">1</span>) <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a-<span class="number">1</span>) * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a) * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/">二进制中1的个数</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//n &amp; (n-1)会消掉最低位的1</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">// you need to treat n as an unsigned value</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hammingWeight</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>)&#123;</span><br><span class="line">            n = n &amp; (n - <span class="number">1</span>);</span><br><span class="line">            ++count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/">快速幂</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">myPow</span><span class="params">(<span class="type">double</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">b</span> <span class="operator">=</span> n;</span><br><span class="line">        <span class="keyword">if</span>(b &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            b = -b;</span><br><span class="line">            x = <span class="number">1</span>/x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(b != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>((b &amp; <span class="number">1</span>) == <span class="number">1</span>)&#123;</span><br><span class="line">                ans *= x;</span><br><span class="line">            &#125;</span><br><span class="line">            x *= x;</span><br><span class="line">            b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://leetcode.cn/problems/da-yin-cong-1dao-zui-da-de-nwei-shu-lcof/">大数打印</a><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//记住就完事了</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">StringBuilder</span> <span class="variable">curr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] ans;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">            dfs(<span class="number">0</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> len)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(x == len)&#123;</span><br><span class="line">            ans[count++] = Integer.parseInt(curr.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> (x == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=start; i&lt;<span class="number">10</span>; ++i)&#123;</span><br><span class="line">            curr.append(i);</span><br><span class="line">            dfs(x+<span class="number">1</span>, len);</span><br><span class="line">            curr.deleteCharAt(curr.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>片段</category>
+        <category>学习</category>
       </categories>
       <tags>
-        <tag>周记</tag>
+        <tag>刷题</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -250,46 +252,15 @@
       </tags>
   </entry>
   <entry>
-    <title>剑指offer刷题</title>
-    <url>/posts/4f6f4f56.html</url>
-    <content><![CDATA[<p>剑指offer从头刷一遍<span id="more"></span></p>
-<ol>
-<li><a href="https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指03</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组中重复的数字，当一个数和其下标不对应时，就把它交换到正确的位置，</span></span><br><span class="line"><span class="comment">//如果正确的位置有一个同样的值（就找到重复的了），</span></span><br><span class="line"><span class="comment">//while中每次都会有一个值处在正确的位置，时间复杂度O(n)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findRepeatNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] != i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[nums[i]] == nums[i])&#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                swap(nums, i, nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><a href="https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/">剑指07</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根节点以前序遍历下标为准，子树范围是中序遍历的</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span>[] preorder;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Integer&gt; inorderMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">buildTree</span><span class="params">(<span class="type">int</span>[] preorder, <span class="type">int</span>[] inorder)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.preorder = preorder;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> inorder.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            inorderMap.put(inorder[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> recur(<span class="number">0</span>, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TreeNode <span class="title function_">recur</span><span class="params">(<span class="type">int</span> preRootIdx, <span class="type">int</span> inLeftIdx, <span class="type">int</span> inRightIdx)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(inLeftIdx &gt; inRightIdx)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">preRootVal</span> <span class="operator">=</span> preorder[preRootIdx];</span><br><span class="line">        <span class="type">int</span> <span class="variable">inRootIdx</span> <span class="operator">=</span> inorderMap.get(preRootVal);</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">root</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(preRootVal);</span><br><span class="line">        root.left = recur(preRootIdx+<span class="number">1</span>, inLeftIdx, inRootIdx-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//根节点不能用inRootIdx+1判断，只有在两种序列起点一致的情况才成立，举个例子就懂了</span></span><br><span class="line">        root.right = recur(preRootIdx + inRootIdx - inLeftIdx + <span class="number">1</span>, inRootIdx + <span class="number">1</span>, inRightIdx);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>剑指09：用两个栈实现队列。stack2只push，弹出时当stack1非空时弹出stack1，否则将stack2中所有元素出栈并入栈stack1，stack1再出栈。</li>
-<li><a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/">154</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//旋转数组最小值，有重复</span></span><br><span class="line"><span class="comment">//比较mi和hi，相同时hi左移</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findMin</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">0</span>, hi = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mi</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mi] &lt; nums[hi])&#123;</span><br><span class="line">                hi = mi;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mi] &gt; nums[hi])&#123;</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hi = hi - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[lo];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><a href="https://leetcode.cn/problems/word-search/">79</a> 回溯的题</li>
-<li><a href="https://leetcode.cn/problems/integer-break/">343整数拆分</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果一个因子大于4，拆成2和n-2一定更大</span></span><br><span class="line"><span class="comment">//4，拆成2+2</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">integerBreak</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> n / <span class="number">3</span>, remainder = n % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(remainder == <span class="number">0</span>) <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a);</span><br><span class="line">        <span class="keyword">if</span>(remainder == <span class="number">1</span>) <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a-<span class="number">1</span>) * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>)Math.pow(<span class="number">3</span>, a) * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><a href="https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/">二进制中1的个数</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//n &amp; (n-1)会消掉最低位的1</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hammingWeight</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>)&#123;</span><br><span class="line">            n = n &amp; (n - <span class="number">1</span>);</span><br><span class="line">            ++count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><a href="https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/">快速幂</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">myPow</span><span class="params">(<span class="type">double</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">b</span> <span class="operator">=</span> n;</span><br><span class="line">        <span class="keyword">if</span>(b &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            b = -b;</span><br><span class="line">            x = <span class="number">1</span>/x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(b != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>((b &amp; <span class="number">1</span>) == <span class="number">1</span>)&#123;</span><br><span class="line">                ans *= x;</span><br><span class="line">            &#125;</span><br><span class="line">            x *= x;</span><br><span class="line">            b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><a href="https://leetcode.cn/problems/da-yin-cong-1dao-zui-da-de-nwei-shu-lcof/">大数打印</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//记住就完事了</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">StringBuilder</span> <span class="variable">curr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] ans;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">            dfs(<span class="number">0</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> len)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(x == len)&#123;</span><br><span class="line">            ans[count++] = Integer.parseInt(curr.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> (x == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=start; i&lt;<span class="number">10</span>; ++i)&#123;</span><br><span class="line">            curr.append(i);</span><br><span class="line">            dfs(x+<span class="number">1</span>, len);</span><br><span class="line">            curr.deleteCharAt(curr.length()-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>周记 | 5.9-5.15</title>
+    <url>/posts/8de1ee47.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>片段</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
-        <tag>剑指offer</tag>
+        <tag>周记</tag>
       </tags>
   </entry>
   <entry>
@@ -355,6 +326,24 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦的现实延续</title>
+    <url>/posts/459bb8ba.html</url>
+    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
+<ol>
+<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
+<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
+<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
+</ol>
+<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>杂念</tag>
       </tags>
   </entry>
   <entry>
@@ -613,21 +602,16 @@
       </tags>
   </entry>
   <entry>
-    <title>梦的现实延续</title>
-    <url>/posts/459bb8ba.html</url>
-    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
-<ol>
-<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
-<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
-<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
-</ol>
-<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+    <title>jvm总结</title>
+    <url>/posts/d6085898.html</url>
+    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
+<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
 ]]></content>
       <categories>
-        <category>片段</category>
+        <category>学习</category>
       </categories>
       <tags>
-        <tag>杂念</tag>
+        <tag>jvm</tag>
       </tags>
   </entry>
 </search>
