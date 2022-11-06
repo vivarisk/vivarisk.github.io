@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>航向树冠层</title>
+    <link>https://vivarisk.github.io/</link>
+    
+    <image>
+      <url>https://vivarisk.github.io/white_pixel.png</url>
+      <title>航向树冠层</title>
+      <link>https://vivarisk.github.io/</link>
+    </image>
+    
+    <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>行行重行行</description>
+    <pubDate>Thu, 18 Aug 2022 17:11:04 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>剑指offer专项突击版刷题总结</title>
+      <link>https://vivarisk.github.io/posts/b59e3d2c</link>
+      <guid>https://vivarisk.github.io/posts/b59e3d2c</guid>
+      <pubDate>Sun, 14 Aug 2022 12:23:40 GMT</pubDate>
+      
+      <description>&lt;p&gt;题解总结&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/b59e3d2c#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>并发学习</title>
+      <link>https://vivarisk.github.io/posts/54cc7e1f</link>
+      <guid>https://vivarisk.github.io/posts/54cc7e1f</guid>
+      <pubDate>Thu, 16 Jun 2022 13:35:45 GMT</pubDate>
+      
+      <description>&lt;p&gt;并发编程里的知识点</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/Java%E5%B9%B6%E5%8F%91/">Java并发</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/54cc7e1f#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MySQL笔记</title>
+      <link>https://vivarisk.github.io/posts/fd5f561d</link>
+      <guid>https://vivarisk.github.io/posts/fd5f561d</guid>
+      <pubDate>Thu, 16 Jun 2022 10:56:24 GMT</pubDate>
+      
+      <description>&lt;p&gt;MySQL学习过程中的一些知识点</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/MySQL/">MySQL</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/fd5f561d#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>剑指offer刷题</title>
+      <link>https://vivarisk.github.io/posts/4f6f4f56</link>
+      <guid>https://vivarisk.github.io/posts/4f6f4f56</guid>
+      <pubDate>Thu, 16 Jun 2022 02:53:07 GMT</pubDate>
+      
+      <description>&lt;p&gt;剑指offer从头刷一遍</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%89%91%E6%8C%87offer/">剑指offer</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/4f6f4f56#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>jvm总结</title>
+      <link>https://vivarisk.github.io/posts/d6085898</link>
+      <guid>https://vivarisk.github.io/posts/d6085898</guid>
+      <pubDate>Sun, 12 Jun 2022 03:24:47 GMT</pubDate>
+      
+      <description>&lt;p&gt;jvm学习中的一些知识点</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/jvm/">jvm</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/d6085898#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>刷题-二叉树</title>
+      <link>https://vivarisk.github.io/posts/55daf129</link>
+      <guid>https://vivarisk.github.io/posts/55daf129</guid>
+      <pubDate>Thu, 09 Jun 2022 05:01:03 GMT</pubDate>
+      
+      <description>&lt;p&gt;二叉树的题，递归要熟悉</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/55daf129#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>刷题-链表</title>
+      <link>https://vivarisk.github.io/posts/6db30a46</link>
+      <guid>https://vivarisk.github.io/posts/6db30a46</guid>
+      <pubDate>Wed, 08 Jun 2022 07:07:53 GMT</pubDate>
+      
+      <description>&lt;p&gt;链表的题</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/6db30a46#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>操作系统总结</title>
+      <link>https://vivarisk.github.io/posts/25519ab6</link>
+      <guid>https://vivarisk.github.io/posts/25519ab6</guid>
+      <pubDate>Mon, 06 Jun 2022 08:00:11 GMT</pubDate>
+      
+      <description>&lt;p&gt;操作系统知识点总结</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/25519ab6#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>刷题-其他</title>
+      <link>https://vivarisk.github.io/posts/48339ee4</link>
+      <guid>https://vivarisk.github.io/posts/48339ee4</guid>
+      <pubDate>Mon, 06 Jun 2022 02:30:52 GMT</pubDate>
+      
+      <description>&lt;p&gt;记录一些刷题中需要注意的小问题</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/48339ee4#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>刷题-回溯</title>
+      <link>https://vivarisk.github.io/posts/b7ff5df1</link>
+      <guid>https://vivarisk.github.io/posts/b7ff5df1</guid>
+      <pubDate>Sat, 04 Jun 2022 03:48:10 GMT</pubDate>
+      
+      <description>&lt;p&gt;回溯的题，这类题老是忘</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%9B%9E%E6%BA%AF/">回溯</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/b7ff5df1#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>刷题-分治</title>
+      <link>https://vivarisk.github.io/posts/756833e6</link>
+      <guid>https://vivarisk.github.io/posts/756833e6</guid>
+      <pubDate>Thu, 02 Jun 2022 15:28:03 GMT</pubDate>
+      
+      <description>&lt;p&gt;关于分治的题，就记住吧&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%86%E6%B2%BB/">分治</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/756833e6#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>二分查找</title>
+      <link>https://vivarisk.github.io/posts/e8eb0481</link>
+      <guid>https://vivarisk.github.io/posts/e8eb0481</guid>
+      <pubDate>Thu, 02 Jun 2022 12:49:51 GMT</pubDate>
+      
+      <description>&lt;p&gt;二分查找总结，模板和相关题&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
+      
+      <category domain="https://vivarisk.github.io/tags/%E4%BA%8C%E5%88%86/">二分</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/e8eb0481#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>周记 | 5.9-5.15</title>
+      <link>https://vivarisk.github.io/posts/8de1ee47</link>
+      <guid>https://vivarisk.github.io/posts/8de1ee47</guid>
+      <pubDate>Sat, 14 May 2022 16:17:47 GMT</pubDate>
+      
+      <description>&lt;p&gt;随便写写&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%91%A8%E8%AE%B0/">周记</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/8de1ee47#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>梦的现实延续</title>
+      <link>https://vivarisk.github.io/posts/459bb8ba</link>
+      <guid>https://vivarisk.github.io/posts/459bb8ba</guid>
+      <pubDate>Mon, 11 Apr 2022 15:49:02 GMT</pubDate>
+      
+      <description>&lt;p&gt;一个奇怪的梦，醒后作。&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E6%9D%82%E5%BF%B5/">杂念</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/459bb8ba#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>周记 | 3.21-3.27</title>
+      <link>https://vivarisk.github.io/posts/2d5bb144</link>
+      <guid>https://vivarisk.github.io/posts/2d5bb144</guid>
+      <pubDate>Sat, 26 Mar 2022 16:13:54 GMT</pubDate>
+      
+      <description>&lt;p&gt;随便写写&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E5%91%A8%E8%AE%B0/">周记</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/2d5bb144#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://vivarisk.github.io/posts/1c291ca3</link>
+      <guid>https://vivarisk.github.io/posts/1c291ca3</guid>
+      <pubDate>Sat, 22 Feb 1997 12:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;世界，你好！&lt;/p&gt;
+</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%94%9F%E6%B4%BB/">生活</category>
+      
+      
+      
+      <comments>https://vivarisk.github.io/posts/1c291ca3#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
