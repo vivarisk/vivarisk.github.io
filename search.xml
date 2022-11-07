@@ -116,26 +116,6 @@
       </tags>
   </entry>
   <entry>
-    <title>刷题-其他</title>
-    <url>/posts/48339ee4.html</url>
-    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
-<ul>
-<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
-<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
-<li>机制转换，504，405</li>
-<li>质数，204</li>
-<li>Excel表问题，171，168</li>
-<li>质因数，172</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>刷题-分治</title>
     <url>/posts/756833e6.html</url>
     <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
@@ -154,6 +134,26 @@
       <tags>
         <tag>刷题</tag>
         <tag>分治</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题-其他</title>
+    <url>/posts/48339ee4.html</url>
+    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
+<ul>
+<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
+<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
+<li>机制转换，504，405</li>
+<li>质数，204</li>
+<li>Excel表问题，171，168</li>
+<li>质因数，172</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -210,22 +210,6 @@
       </tags>
   </entry>
   <entry>
-    <title>剑指offer专项突击版刷题总结</title>
-    <url>/posts/b59e3d2c.html</url>
-    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
-<ol>
-<li>整数除法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>剑指offer刷题</title>
     <url>/posts/4f6f4f56.html</url>
     <content><![CDATA[<p>剑指offer从头刷一遍<span id="more"></span></p>
@@ -254,6 +238,22 @@
       <tags>
         <tag>刷题</tag>
         <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>剑指offer专项突击版刷题总结</title>
+    <url>/posts/b59e3d2c.html</url>
+    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
+<ol>
+<li>整数除法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
