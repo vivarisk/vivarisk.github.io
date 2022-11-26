@@ -136,27 +136,6 @@
       </tags>
   </entry>
   <entry>
-    <title>刷题-分治</title>
-    <url>/posts/756833e6.html</url>
-    <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
-<ol>
-<li>力扣241</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">//空间换时间，防止重复计算</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">diffWaysToCompute</span><span class="params">(String expression)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(expression))&#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(expression);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> expression.length();</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;len; ++i)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> expression.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(isOps(c))&#123;</span><br><span class="line">                List&lt;Integer&gt; left = diffWaysToCompute(expression.substring(<span class="number">0</span>, i));</span><br><span class="line">                List&lt;Integer&gt; right = diffWaysToCompute(expression.substring(i+<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> l : left)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> r : right)&#123;</span><br><span class="line">                        list.add(caculate(c, l, r));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(Integer.valueOf(expression));</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(expression, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isOps</span><span class="params">(<span class="type">char</span> c)</span>&#123;</span><br><span class="line">        <span class="type">return</span> <span class="variable">c</span> <span class="operator">=</span>= <span class="string">&#x27;+&#x27;</span> || c == <span class="string">&#x27;-&#x27;</span> || c == <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">caculate</span><span class="params">(<span class="type">char</span> c, <span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;+&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l + r;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">&#x27;-&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l - r;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> l * r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>力扣95</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title function_">generateTrees</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        List&lt;TreeNode&gt;[][] dp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> generate(<span class="number">1</span>, n, dp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title function_">generate</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end, List&lt;TreeNode&gt;[][] dp)</span>&#123;</span><br><span class="line">        List&lt;TreeNode&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//把特殊情况放前面，防止后面数组越界</span></span><br><span class="line">        <span class="keyword">if</span>(start &gt; end)&#123;</span><br><span class="line">            list.add(<span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[start][end] != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> dp[start][end];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=start; i&lt;=end; ++i)&#123;</span><br><span class="line">            List&lt;TreeNode&gt; left = generate(start, i-<span class="number">1</span>, dp);</span><br><span class="line">            List&lt;TreeNode&gt; right = generate(i+<span class="number">1</span>, end, dp);</span><br><span class="line">            <span class="keyword">for</span>(TreeNode l : left)&#123;</span><br><span class="line">                <span class="keyword">for</span>(TreeNode r : right)&#123;</span><br><span class="line">                    <span class="type">TreeNode</span> <span class="variable">root</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(i);</span><br><span class="line">                    root.left = l;</span><br><span class="line">                    root.right = r;</span><br><span class="line">                    list.add(root);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[start][end] = list;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>分治</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>刷题-链表</title>
     <url>/posts/6db30a46.html</url>
     <content><![CDATA[<p>链表的题<span id="more"></span></p>
@@ -210,22 +189,6 @@
       </tags>
   </entry>
   <entry>
-    <title>剑指offer专项突击版刷题总结</title>
-    <url>/posts/b59e3d2c.html</url>
-    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
-<ol>
-<li>整数除法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>剑指offer刷题</title>
     <url>/posts/4f6f4f56.html</url>
     <content><![CDATA[<p>剑指offer从头刷一遍<span id="more"></span></p>
@@ -257,21 +220,25 @@
       </tags>
   </entry>
   <entry>
-    <title>周记 | 3.21-3.27</title>
-    <url>/posts/2d5bb144.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
+    <title>剑指offer专项突击版刷题总结</title>
+    <url>/posts/b59e3d2c.html</url>
+    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
+<ol>
+<li>整数除法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>片段</category>
+        <category>刷题</category>
       </categories>
       <tags>
-        <tag>周记</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
-    <title>周记 | 5.9-5.15</title>
-    <url>/posts/8de1ee47.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
+    <title>周记 | 3.21-3.27</title>
+    <url>/posts/2d5bb144.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
 ]]></content>
       <categories>
         <category>片段</category>
@@ -343,6 +310,18 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周记 | 5.9-5.15</title>
+    <url>/posts/8de1ee47.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
       </tags>
   </entry>
   <entry>
@@ -616,6 +595,27 @@
       </categories>
       <tags>
         <tag>杂念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题-分治</title>
+    <url>/posts/756833e6.html</url>
+    <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
+<ol>
+<li>力扣241</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">//空间换时间，防止重复计算</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">diffWaysToCompute</span><span class="params">(String expression)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(expression))&#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(expression);</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> expression.length();</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;len; ++i)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> expression.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(isOps(c))&#123;</span><br><span class="line">                List&lt;Integer&gt; left = diffWaysToCompute(expression.substring(<span class="number">0</span>, i));</span><br><span class="line">                List&lt;Integer&gt; right = diffWaysToCompute(expression.substring(i+<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> l : left)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> r : right)&#123;</span><br><span class="line">                        list.add(caculate(c, l, r));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(Integer.valueOf(expression));</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(expression, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isOps</span><span class="params">(<span class="type">char</span> c)</span>&#123;</span><br><span class="line">        <span class="type">return</span> <span class="variable">c</span> <span class="operator">=</span>= <span class="string">&#x27;+&#x27;</span> || c == <span class="string">&#x27;-&#x27;</span> || c == <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">caculate</span><span class="params">(<span class="type">char</span> c, <span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;+&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l + r;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">&#x27;-&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l - r;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> l * r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>力扣95</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title function_">generateTrees</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        List&lt;TreeNode&gt;[][] dp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> generate(<span class="number">1</span>, n, dp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title function_">generate</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end, List&lt;TreeNode&gt;[][] dp)</span>&#123;</span><br><span class="line">        List&lt;TreeNode&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//把特殊情况放前面，防止后面数组越界</span></span><br><span class="line">        <span class="keyword">if</span>(start &gt; end)&#123;</span><br><span class="line">            list.add(<span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[start][end] != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> dp[start][end];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=start; i&lt;=end; ++i)&#123;</span><br><span class="line">            List&lt;TreeNode&gt; left = generate(start, i-<span class="number">1</span>, dp);</span><br><span class="line">            List&lt;TreeNode&gt; right = generate(i+<span class="number">1</span>, end, dp);</span><br><span class="line">            <span class="keyword">for</span>(TreeNode l : left)&#123;</span><br><span class="line">                <span class="keyword">for</span>(TreeNode r : right)&#123;</span><br><span class="line">                    <span class="type">TreeNode</span> <span class="variable">root</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(i);</span><br><span class="line">                    root.left = l;</span><br><span class="line">                    root.right = r;</span><br><span class="line">                    list.add(root);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[start][end] = list;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>分治</tag>
       </tags>
   </entry>
 </search>
