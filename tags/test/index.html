@@ -11,6 +11,11 @@
   
   <title>
     
+      标签 
+       : test
+      
+      |
+    
      航向树冠层
   </title>
 
@@ -102,59 +107,30 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-
-
-  <!-- clipboard -->
-
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>test</span>
+    </h2>
+  </div>
   
-    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-
-  
-  <!-- 关于页 url形式：https://yoursite/about/ -->
-    <div class="container about-index">
-      <div class="markdown-body">
-        <!-- 引用 artitalk -->
-<script type="text/javascript" src="https://unpkg.com/artitalk"></script>
-
-<!-- 存放说说的容器 -->
-<p><div id="artitalk_main"></div></p>
-<script>
-new Artitalk({
-    appId: 'KokvLbNkMYbL88A2icbpJyFI-MdYXbMMI', // Your LeanCloud appId
-    appKey: 'oxHJ0cu8xqxSU8efO7BwskP9', // Your LeanCloud appKey
-    serverURL: 'https://api.huangsl.fun',
-    pageSize: 5, //每页评论数量
-    atComment: 0, //评论功能的开关 0（关闭），1（开启）
-
-})
-</script>
-
-
+    <div class="post-list">
+      <div class="post-item" title="markdown测试">
+        <span class="time-m-d">2022-11-29</span>
+        <a href="/posts/88dec603">
+          <span>markdown测试</span>
+        </a>
       </div>
     </div>
   
-
-  
+  <nav class="post-navigation">
+    
+    <span class="page-num">1 / 1</span>
+    
+  </nav>
+</div>
 
         
 <div class="footer">
