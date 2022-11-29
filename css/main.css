@@ -2193,6 +2193,4 @@ a:hover {
 }
 .markdown-body h2 .headerlink::before {
   opacity: 1;
-  font-size: 1.2em;
-  top: -4px;
 }

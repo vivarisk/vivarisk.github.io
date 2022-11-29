@@ -65,68 +65,6 @@
       </tags>
   </entry>
   <entry>
-    <title>markdown测试</title>
-    <url>/posts/88dec603.html</url>
-    <content><![CDATA[<p>markdown测试</p>
-<h1 id="h1有多大"><a href="#h1有多大" class="headerlink" title="h1有多大"></a>h1有多大</h1><h2 id="h2有多大"><a href="#h2有多大" class="headerlink" title="h2有多大"></a>h2有多大</h2><h3 id="h3"><a href="#h3" class="headerlink" title="h3"></a>h3</h3><h4 id="h4"><a href="#h4" class="headerlink" title="h4"></a>h4</h4><h5 id="h5"><a href="#h5" class="headerlink" title="h5"></a>h5</h5><h6 id="h6"><a href="#h6" class="headerlink" title="h6"></a>h6</h6><p><em>斜体文字</em><br><strong>粗体文字</strong><br><strong><em>粗斜体文字</em></strong><br>下面是分隔线</p>
-<hr>
-<hr>
-<p><del>删除线测试</del><br><u>下划线测试</u><br>无序列表</p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<p>有序列表</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<p>区块测试</p>
-<blockquote>
-<p>test1<br>test2<br>test3</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>链接测试，<a href="https://bbs.hupu.com/all-gambia">虎扑网页版</a><br>图片测试<br><img src="https://tech.youzan.com/content/images/2021/06/image-20210627210825952.png" alt="图片1"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>column1</th>
-<th>column2</th>
-<th>column3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>54</td>
-<td>4</td>
-<td>sd</td>
-</tr>
-<tr>
-<td>f</td>
-<td>gf</td>
-<td>34</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>段落中的小代码段测试<code>print(&#39;hello!&#39;)</code>试一试</p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二分查找</title>
     <url>/posts/e8eb0481.html</url>
     <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
@@ -156,6 +94,26 @@
       </tags>
   </entry>
   <entry>
+    <title>刷题-其他</title>
+    <url>/posts/48339ee4.html</url>
+    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
+<ul>
+<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
+<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
+<li>机制转换，504，405</li>
+<li>质数，204</li>
+<li>Excel表问题，171，168</li>
+<li>质因数，172</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>刷题-二叉树</title>
     <url>/posts/55daf129.html</url>
     <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
@@ -178,26 +136,6 @@
       </tags>
   </entry>
   <entry>
-    <title>刷题-其他</title>
-    <url>/posts/48339ee4.html</url>
-    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
-<ul>
-<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
-<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
-<li>机制转换，504，405</li>
-<li>质数，204</li>
-<li>Excel表问题，171，168</li>
-<li>质因数，172</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>刷题-分治</title>
     <url>/posts/756833e6.html</url>
     <content><![CDATA[<p>关于分治的题，就记住吧<br><span id="more"></span></p>
@@ -216,22 +154,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>分治</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>剑指offer专项突击版刷题总结</title>
-    <url>/posts/b59e3d2c.html</url>
-    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
-<ol>
-<li>整数除法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -285,6 +207,22 @@
       <tags>
         <tag>刷题</tag>
         <tag>回溯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>剑指offer专项突击版刷题总结</title>
+    <url>/posts/b59e3d2c.html</url>
+    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
+<ol>
+<li>整数除法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -405,6 +343,24 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦的现实延续</title>
+    <url>/posts/459bb8ba.html</url>
+    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
+<ol>
+<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
+<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
+<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
+</ol>
+<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>杂念</tag>
       </tags>
   </entry>
   <entry>
@@ -660,24 +616,6 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦的现实延续</title>
-    <url>/posts/459bb8ba.html</url>
-    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
-<ol>
-<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
-<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
-<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
-</ol>
-<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>杂念</tag>
       </tags>
   </entry>
 </search>
