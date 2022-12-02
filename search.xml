@@ -56,7 +56,7 @@
     <url>/posts/d6085898.html</url>
     <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
 <h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-]]></content>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
       <categories>
         <category>学习</category>
       </categories>
