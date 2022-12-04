@@ -11,7 +11,7 @@
   
   <title>
     
-      剑指offer专项突击版刷题总结 
+      MIT-Missing-Semester笔记 
       
       
       |
@@ -144,19 +144,19 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">剑指offer专项突击版刷题总结</div>
+      <div class="post-title">MIT-Missing-Semester笔记</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2022-08-14
+          2022-12-03
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">
-                    #学习
+                  <a href="/tags/Shell/" title="Shell">
+                    #Shell
                   </a>
                 </span>
                 
@@ -164,16 +164,39 @@
           
       </div>
       <div class="markdown-body">
-        <p>题解总结<br><span id="more"></span></p>
-<ol>
-<li>整数除法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//又重新开始刷剑指第二版了，这个暂停</span></span><br></pre></td></tr></table></figure>
+        <p>MIT的课程：<a target="_blank" rel="noopener" href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
+<p>介绍了Shell、vim、git等一些常用工具。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
+<p>重定向符号<code>&lt;</code>、<code>&gt;</code>，追加用<code>&gt;&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">echo hello #加不加单引号、双引号一样</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
+<p>\转义字符，<code>mkdir my\ photo</code>将空格转义，否则会建立两个目录</p>
+<p>touch命令本意是修改时间戳，-a修改访问时间，-m改变修改时间，文件不存在时会默认新建</p>
+<p>.sh文件开头<code>#!/bin/sh</code>是shebang，指示解释器运行环境</p>
+<p>/sys目录下有很多系统设置，一切皆文件！</p>
+<p>tee命令读取标准输入，写到标准输出，也可以写到文件</p>
+<p>还讲了find、grep、curl、cut命令，后面再看一下</p>
 
       </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell"><span class="toc-text">Shell</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
   </div>

@@ -52,6 +52,25 @@
       </tags>
   </entry>
   <entry>
+    <title>MIT-Missing-Semester笔记</title>
+    <url>/posts/f350bbc1.html</url>
+    <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
+<p>介绍了Shell、vim、git等一些常用工具。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
+<p>重定向符号<code>&lt;</code>、<code>&gt;</code>，追加用<code>&gt;&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello #加不加单引号、双引号一样</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
+<p>\转义字符，<code>mkdir my\ photo</code>将空格转义，否则会建立两个目录</p>
+<p>touch命令本意是修改时间戳，-a修改访问时间，-m改变修改时间，文件不存在时会默认新建</p>
+<p>.sh文件开头<code>#!/bin/sh</code>是shebang，指示解释器运行环境</p>
+<p>/sys目录下有很多系统设置，一切皆文件！</p>
+<p>tee命令读取标准输入，写到标准输出，也可以写到文件</p>
+<p>还讲了find、grep、curl、cut命令，后面再看一下</p>
+]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jvm总结</title>
     <url>/posts/d6085898.html</url>
     <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
@@ -94,6 +113,26 @@
       </tags>
   </entry>
   <entry>
+    <title>刷题-其他</title>
+    <url>/posts/48339ee4.html</url>
+    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
+<ul>
+<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
+<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
+<li>机制转换，504，405</li>
+<li>质数，204</li>
+<li>Excel表问题，171，168</li>
+<li>质因数，172</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>刷题-二叉树</title>
     <url>/posts/55daf129.html</url>
     <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
@@ -113,26 +152,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刷题-其他</title>
-    <url>/posts/48339ee4.html</url>
-    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
-<ul>
-<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
-<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
-<li>机制转换，504，405</li>
-<li>质数，204</li>
-<li>Excel表问题，171，168</li>
-<li>质因数，172</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -171,6 +190,42 @@
       <tags>
         <tag>刷题</tag>
         <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题-回溯</title>
+    <url>/posts/b7ff5df1.html</url>
+    <content><![CDATA[<p>回溯的题，这类题老是忘<span id="more"></span></p>
+<ol>
+<li><p>虽然不是回溯，<a href="https://leetcode.cn/problems/shortest-path-in-binary-matrix/">力扣1091</a></p>
+<p>最短、最优解这些用广度优先搜索，找到所有解的两个都行，但一般还是深度优先搜索更好写。</p>
+</li>
+<li><p>深度优先搜索</p>
+<p>力扣695， 200， 547， 130</p>
+</li>
+<li><p>回溯</p>
+<p>力扣17， 93， 79， 257，46，47，77，39，216，78，90，131</p>
+<p><a href="https://leetcode.cn/problems/restore-ip-addresses/submissions/">93题：复原IP地址</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">restoreIpAddresses</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(s.length() &lt; <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        backtrack(s, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(), <span class="number">0</span>, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">backtrack</span><span class="params">(String s, StringBuilder prefix, <span class="type">int</span> num, List&lt;String&gt; list)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">4</span> || s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num == <span class="number">4</span> &amp;&amp; s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">                list.add(prefix.toString());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n &amp;&amp; i&lt;=<span class="number">2</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; s.charAt(<span class="number">0</span>) == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">String</span> <span class="variable">curr</span> <span class="operator">=</span> s.substring(<span class="number">0</span>, i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(Integer.valueOf(curr) &lt;= <span class="number">255</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num != <span class="number">0</span>)&#123;</span><br><span class="line">                    curr = <span class="string">&quot;.&quot;</span> + curr;</span><br><span class="line">                &#125;</span><br><span class="line">                prefix.append(curr);</span><br><span class="line">                backtrack(s.substring(i+<span class="number">1</span>), prefix, num+<span class="number">1</span>, list);</span><br><span class="line">                prefix.delete(prefix.length()-curr.length(), prefix.length());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.cn/problems/binary-tree-paths/">力扣257</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">binaryTreePaths</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        dfs(root, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(), list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(TreeNode root, StringBuilder path, List&lt;String&gt; list)</span>&#123;</span><br><span class="line">        path.append(root.val + <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(root.left == <span class="literal">null</span> &amp;&amp; root.right == <span class="literal">null</span>)&#123;</span><br><span class="line">            list.add(path.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.left != <span class="literal">null</span>)&#123;</span><br><span class="line">            dfs(root.left, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(path).append(<span class="string">&quot;-&gt;&quot;</span>), list);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.right != <span class="literal">null</span>)&#123;</span><br><span class="line">            dfs(root.right, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(path).append(<span class="string">&quot;-&gt;&quot;</span>), list);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.cn/problems/permutations-ii/">力扣47</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">          <span class="keyword">if</span>(!isVisited[i])&#123;</span><br><span class="line">              isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">              path.add(nums[i]);</span><br><span class="line">              backtrack(nums, list, path, isVisited);</span><br><span class="line">              path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">              isVisited[i] = <span class="literal">false</span>;</span><br><span class="line">              <span class="comment">//111123, 回溯后，跳到最后一个1，for循环那还有一个++i，从2开始</span></span><br><span class="line">              <span class="keyword">while</span>(i &lt; n-<span class="number">1</span> &amp;&amp; nums[i] == nums[i+<span class="number">1</span>])&#123;</span><br><span class="line">                  ++i;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>有顺序的，排列：for循环从0开始</li>
+<li>没顺序的，组合：for循环从start开始，传参</li>
+</ul>
+<p>​    <a href="https://leetcode.cn/problems/palindrome-partitioning/">力扣131</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; <span class="title function_">partition</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;String&gt; path = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        backtrack(s, list, path);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">backtrack</span><span class="params">(String s, List&lt;List&lt;String&gt;&gt; list, List&lt;String&gt; path)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(path));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(check(s, i))&#123;</span><br><span class="line">                path.add(s.substring(<span class="number">0</span>, i+<span class="number">1</span>));</span><br><span class="line">                backtrack(s.substring(i+<span class="number">1</span>), list, path);</span><br><span class="line">                path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">check</span><span class="params">(String s, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = k;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i++) != s.charAt(j--))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>回溯</tag>
       </tags>
   </entry>
   <entry>
@@ -218,30 +273,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>剑指offer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周记 | 3.21-3.27</title>
-    <url>/posts/2d5bb144.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>周记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周记 | 5.9-5.15</title>
-    <url>/posts/8de1ee47.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>周记</tag>
       </tags>
   </entry>
   <entry>
@@ -307,6 +338,24 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦的现实延续</title>
+    <url>/posts/459bb8ba.html</url>
+    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
+<ol>
+<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
+<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
+<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
+</ol>
+<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>杂念</tag>
       </tags>
   </entry>
   <entry>
@@ -562,60 +611,6 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦的现实延续</title>
-    <url>/posts/459bb8ba.html</url>
-    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
-<ol>
-<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
-<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
-<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
-</ol>
-<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>杂念</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刷题-回溯</title>
-    <url>/posts/b7ff5df1.html</url>
-    <content><![CDATA[<p>回溯的题，这类题老是忘<span id="more"></span></p>
-<ol>
-<li><p>虽然不是回溯，<a href="https://leetcode.cn/problems/shortest-path-in-binary-matrix/">力扣1091</a></p>
-<p>最短、最优解这些用广度优先搜索，找到所有解的两个都行，但一般还是深度优先搜索更好写。</p>
-</li>
-<li><p>深度优先搜索</p>
-<p>力扣695， 200， 547， 130</p>
-</li>
-<li><p>回溯</p>
-<p>力扣17， 93， 79， 257，46，47，77，39，216，78，90，131</p>
-<p><a href="https://leetcode.cn/problems/restore-ip-addresses/submissions/">93题：复原IP地址</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">restoreIpAddresses</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(s.length() &lt; <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        backtrack(s, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(), <span class="number">0</span>, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">backtrack</span><span class="params">(String s, StringBuilder prefix, <span class="type">int</span> num, List&lt;String&gt; list)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">4</span> || s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num == <span class="number">4</span> &amp;&amp; s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">                list.add(prefix.toString());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n &amp;&amp; i&lt;=<span class="number">2</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; s.charAt(<span class="number">0</span>) == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">String</span> <span class="variable">curr</span> <span class="operator">=</span> s.substring(<span class="number">0</span>, i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(Integer.valueOf(curr) &lt;= <span class="number">255</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num != <span class="number">0</span>)&#123;</span><br><span class="line">                    curr = <span class="string">&quot;.&quot;</span> + curr;</span><br><span class="line">                &#125;</span><br><span class="line">                prefix.append(curr);</span><br><span class="line">                backtrack(s.substring(i+<span class="number">1</span>), prefix, num+<span class="number">1</span>, list);</span><br><span class="line">                prefix.delete(prefix.length()-curr.length(), prefix.length());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode.cn/problems/binary-tree-paths/">力扣257</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">binaryTreePaths</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        dfs(root, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(), list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(TreeNode root, StringBuilder path, List&lt;String&gt; list)</span>&#123;</span><br><span class="line">        path.append(root.val + <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(root.left == <span class="literal">null</span> &amp;&amp; root.right == <span class="literal">null</span>)&#123;</span><br><span class="line">            list.add(path.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.left != <span class="literal">null</span>)&#123;</span><br><span class="line">            dfs(root.left, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(path).append(<span class="string">&quot;-&gt;&quot;</span>), list);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root.right != <span class="literal">null</span>)&#123;</span><br><span class="line">            dfs(root.right, <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(path).append(<span class="string">&quot;-&gt;&quot;</span>), list);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode.cn/problems/permutations-ii/">力扣47</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">          <span class="keyword">if</span>(!isVisited[i])&#123;</span><br><span class="line">              isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">              path.add(nums[i]);</span><br><span class="line">              backtrack(nums, list, path, isVisited);</span><br><span class="line">              path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">              isVisited[i] = <span class="literal">false</span>;</span><br><span class="line">              <span class="comment">//111123, 回溯后，跳到最后一个1，for循环那还有一个++i，从2开始</span></span><br><span class="line">              <span class="keyword">while</span>(i &lt; n-<span class="number">1</span> &amp;&amp; nums[i] == nums[i+<span class="number">1</span>])&#123;</span><br><span class="line">                  ++i;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>有顺序的，排列：for循环从0开始</li>
-<li>没顺序的，组合：for循环从start开始，传参</li>
-</ul>
-<p>​    <a href="https://leetcode.cn/problems/palindrome-partitioning/">力扣131</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; <span class="title function_">partition</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;String&gt; path = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        backtrack(s, list, path);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">backtrack</span><span class="params">(String s, List&lt;List&lt;String&gt;&gt; list, List&lt;String&gt; path)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            list.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(path));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(check(s, i))&#123;</span><br><span class="line">                path.add(s.substring(<span class="number">0</span>, i+<span class="number">1</span>));</span><br><span class="line">                backtrack(s.substring(i+<span class="number">1</span>), list, path);</span><br><span class="line">                path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">check</span><span class="params">(String s, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = k;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i++) != s.charAt(j--))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>回溯</tag>
       </tags>
   </entry>
 </search>
