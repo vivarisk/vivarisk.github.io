@@ -89,10 +89,6 @@
           <a href="/archives/">归档</a>
         </li>
       
-        <li class="nav-item" data-path="/categories/片段/">
-          <a href="/categories/片段/">片段</a>
-        </li>
-      
         <li class="nav-item" data-path="/moments/">
           <a href="/moments/">树洞</a>
         </li>
@@ -166,15 +162,49 @@
       <div class="markdown-body">
         <p>MIT的课程：<a target="_blank" rel="noopener" href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
 <p>介绍了Shell、vim、git等一些常用工具。</p>
-<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
 <p>重定向符号<code>&lt;</code>、<code>&gt;</code>，追加用<code>&gt;&gt;</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">echo hello #加不加单引号、双引号一样</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">echo hello</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
 <p>\转义字符，<code>mkdir my\ photo</code>将空格转义，否则会建立两个目录</p>
 <p>touch命令本意是修改时间戳，-a修改访问时间，-m改变修改时间，文件不存在时会默认新建</p>
 <p>.sh文件开头<code>#!/bin/sh</code>是shebang，指示解释器运行环境</p>
 <p>/sys目录下有很多系统设置，一切皆文件！</p>
 <p>tee命令读取标准输入，写到标准输出，也可以写到文件</p>
 <p>还讲了find、grep、curl、cut命令，后面再看一下</p>
+<h3 id="变量、函数"><a href="#变量、函数" class="headerlink" title="变量、函数"></a>变量、函数</h3><p>变量定义: <code>foo=bar</code>, 等号左右不能有空格，否则相当于调用foo命令，=和bar作参数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo=bar #单引号、双引号不同</span><br><span class="line">echo &quot;$foo&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">prints bar</span></span><br><span class="line">echo &#x27;$foo&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">prints <span class="variable">$foo</span></span></span><br></pre></td></tr></table></figure>
+<p>写一个mcd命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat mcd.sh</span><br><span class="line">mcd () &#123;</span><br><span class="line">	mkdir -p $1</span><br><span class="line">	cd $1</span><br><span class="line">&#125;</span><br><span class="line">source mcd.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>$0</code> - Name of the script</li>
+<li><code>$1</code> to <code>$9</code> - Arguments to the script. <code>$1</code> is the first argument and so on.</li>
+<li><code>$@</code> - All the arguments</li>
+<li><code>$#</code> - Number of arguments</li>
+<li><code>$?</code> - Return code of the previous command</li>
+<li>$$$$ - Process identification number (PID) for the current script</li>
+<li><code>!!</code> - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; you can quickly re-execute the command with sudo by doing <code>sudo !!</code></li>
+<li><code>$_</code> - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing <code>Esc</code> followed by <code>.</code> or <code>Alt+.</code></li>
+</ul>
+<p>详细见：<a target="_blank" rel="noopener" href="https://missing.csail.mit.edu/2020/shell-tools/">https://missing.csail.mit.edu/2020/shell-tools/</a></p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p><strong>command substitution</strong></p>
+<p><code>for file in $(ls)</code></p>
+<p><strong>process substitution</strong></p>
+<p><code>diff &lt;(ls foo) &lt;(ls bar)</code>, &lt;( CMD ) 将执行 CMD 并将输出放在一个临时文件中，并将 &lt;() 替换为该文件的名称。</p>
+<h3 id="脚本举例"><a href="#脚本举例" class="headerlink" title="脚本举例"></a>脚本举例</h3><p>举例（<strong>比较时尽量使用双方括号</strong>, <a target="_blank" rel="noopener" href="http://mywiki.wooledge.org/BashFAQ/031">why</a>）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;Starting program at $(date)&quot; # Date will be substituted</span><br><span class="line"></span><br><span class="line">echo &quot;Running program $0 with $# arguments with pid $$&quot;</span><br><span class="line"></span><br><span class="line">for file in &quot;$@&quot;; do</span><br><span class="line">    grep foobar &quot;$file&quot; &gt; /dev/null 2&gt; /dev/null</span><br><span class="line">    # When pattern is not found, grep has exit status 1</span><br><span class="line">    # We redirect STDOUT and STDERR to a null register since we do not care about them</span><br><span class="line">    if [[ $? -ne 0 ]]; then</span><br><span class="line">        echo &quot;File $file does not have any foobar, adding one&quot;</span><br><span class="line">        echo &quot;# foobar&quot; &gt;&gt; &quot;$file&quot;</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正则表达式</li>
+</ul>
+<p>? 匹配一个任意字符，* 匹配多个，{} 匹配花括号里所有</p>
+<p>一个python脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> <span class="built_in">reversed</span>(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
+<p>shebang写成这样移植性更好</p>
+<h3 id="函数和脚本"><a href="#函数和脚本" class="headerlink" title="函数和脚本"></a>函数和脚本</h3><ul>
+<li>函数（我平时一般叫命令？）必须和shell用同样的语言，脚本可以用任何语言，所以shebang很重要。</li>
+<li>函数在读取其定义时加载一次。每次执行脚本时都会加载脚本。这使得函数的加载速度稍快一些，但是无论何时更改它们，都必须重新加载它们的定义。source命令吧</li>
+<li>函数在当前的 shell 环境中执行，而脚本在它们自己的进程中执行。因此，函数可以修改环境变量，例如更改当前目录，而脚本不能。后面再看下export命令</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a target="_blank" rel="noopener" href="https://tldr.sh/">tldr</a>工具</p>
 
       </div>
       
@@ -187,7 +217,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell"><span class="toc-text">Shell</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell"><span class="toc-text">Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0"><span class="toc-text">变量、函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2"><span class="toc-text">替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E4%B8%BE%E4%BE%8B"><span class="toc-text">脚本举例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%92%8C%E8%84%9A%E6%9C%AC"><span class="toc-text">函数和脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol></li></ol>
       
     </div>
   </div>

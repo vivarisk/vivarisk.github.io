@@ -10,6 +10,72 @@
       </categories>
   </entry>
   <entry>
+    <title>MIT-Missing-Semester笔记</title>
+    <url>/posts/f350bbc1.html</url>
+    <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
+<p>介绍了Shell、vim、git等一些常用工具。</p>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
+<p>重定向符号<code>&lt;</code>、<code>&gt;</code>，追加用<code>&gt;&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
+<p>\转义字符，<code>mkdir my\ photo</code>将空格转义，否则会建立两个目录</p>
+<p>touch命令本意是修改时间戳，-a修改访问时间，-m改变修改时间，文件不存在时会默认新建</p>
+<p>.sh文件开头<code>#!/bin/sh</code>是shebang，指示解释器运行环境</p>
+<p>/sys目录下有很多系统设置，一切皆文件！</p>
+<p>tee命令读取标准输入，写到标准输出，也可以写到文件</p>
+<p>还讲了find、grep、curl、cut命令，后面再看一下</p>
+<h3 id="变量、函数"><a href="#变量、函数" class="headerlink" title="变量、函数"></a>变量、函数</h3><p>变量定义: <code>foo=bar</code>, 等号左右不能有空格，否则相当于调用foo命令，=和bar作参数。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">foo=bar #单引号、双引号不同</span><br><span class="line">echo &quot;$foo&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">prints bar</span></span><br><span class="line">echo &#x27;$foo&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">prints <span class="variable">$foo</span></span></span><br></pre></td></tr></table></figure>
+<p>写一个mcd命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat mcd.sh</span><br><span class="line">mcd () &#123;</span><br><span class="line">	mkdir -p $1</span><br><span class="line">	cd $1</span><br><span class="line">&#125;</span><br><span class="line">source mcd.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>$0</code> - Name of the script</li>
+<li><code>$1</code> to <code>$9</code> - Arguments to the script. <code>$1</code> is the first argument and so on.</li>
+<li><code>$@</code> - All the arguments</li>
+<li><code>$#</code> - Number of arguments</li>
+<li><code>$?</code> - Return code of the previous command</li>
+<li>$$$$ - Process identification number (PID) for the current script</li>
+<li><code>!!</code> - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; you can quickly re-execute the command with sudo by doing <code>sudo !!</code></li>
+<li><code>$_</code> - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing <code>Esc</code> followed by <code>.</code> or <code>Alt+.</code></li>
+</ul>
+<p>详细见：<a href="https://missing.csail.mit.edu/2020/shell-tools/">https://missing.csail.mit.edu/2020/shell-tools/</a></p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p><strong>command substitution</strong></p>
+<p><code>for file in $(ls)</code></p>
+<p><strong>process substitution</strong></p>
+<p><code>diff &lt;(ls foo) &lt;(ls bar)</code>, &lt;( CMD ) 将执行 CMD 并将输出放在一个临时文件中，并将 &lt;() 替换为该文件的名称。</p>
+<h3 id="脚本举例"><a href="#脚本举例" class="headerlink" title="脚本举例"></a>脚本举例</h3><p>举例（<strong>比较时尽量使用双方括号</strong>, <a href="http://mywiki.wooledge.org/BashFAQ/031">why</a>）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;Starting program at $(date)&quot; # Date will be substituted</span><br><span class="line"></span><br><span class="line">echo &quot;Running program $0 with $# arguments with pid $$&quot;</span><br><span class="line"></span><br><span class="line">for file in &quot;$@&quot;; do</span><br><span class="line">    grep foobar &quot;$file&quot; &gt; /dev/null 2&gt; /dev/null</span><br><span class="line">    # When pattern is not found, grep has exit status 1</span><br><span class="line">    # We redirect STDOUT and STDERR to a null register since we do not care about them</span><br><span class="line">    if [[ $? -ne 0 ]]; then</span><br><span class="line">        echo &quot;File $file does not have any foobar, adding one&quot;</span><br><span class="line">        echo &quot;# foobar&quot; &gt;&gt; &quot;$file&quot;</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正则表达式</li>
+</ul>
+<p>? 匹配一个任意字符，* 匹配多个，{} 匹配花括号里所有</p>
+<p>一个python脚本：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> <span class="built_in">reversed</span>(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
+<p>shebang写成这样移植性更好</p>
+<h3 id="函数和脚本"><a href="#函数和脚本" class="headerlink" title="函数和脚本"></a>函数和脚本</h3><ul>
+<li>函数（我平时一般叫命令？）必须和shell用同样的语言，脚本可以用任何语言，所以shebang很重要。</li>
+<li>函数在读取其定义时加载一次。每次执行脚本时都会加载脚本。这使得函数的加载速度稍快一些，但是无论何时更改它们，都必须重新加载它们的定义。source命令吧</li>
+<li>函数在当前的 shell 环境中执行，而脚本在它们自己的进程中执行。因此，函数可以修改环境变量，例如更改当前目录，而脚本不能。后面再看下export命令</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a href="https://tldr.sh/">tldr</a>工具</p>
+]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm总结</title>
+    <url>/posts/d6085898.html</url>
+    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
+<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL笔记</title>
     <url>/posts/fd5f561d.html</url>
     <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
@@ -52,38 +118,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MIT-Missing-Semester笔记</title>
-    <url>/posts/f350bbc1.html</url>
-    <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
-<p>介绍了Shell、vim、git等一些常用工具。</p>
-<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>一开始介绍了一些常用的命令，大部分之前使用过。</p>
-<p>重定向符号<code>&lt;</code>、<code>&gt;</code>，追加用<code>&gt;&gt;</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello #加不加单引号、双引号一样</span><br><span class="line">cd - #回到上一个目录</span><br><span class="line">cat 2.txt &gt;&gt; 1.txt</span><br><span class="line">ls -l | tail -n3 #输出最后三行</span><br><span class="line">man ls #多用man！！！</span><br><span class="line">ls -ls #-l显示详细信息，-s显示文件占用块数block，后面可跟上目录</span><br><span class="line">4 -rwxrw-r-- 1 hsl hsl  132 12月  3 20:26 test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件占用块数、-文件d目录l链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">权限：rwx读写执行权限，分别是拥有者、用户组、其他人</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件数量、拥有者、用户组、时间、文件名</span></span><br><span class="line">chmod u+x test</span><br><span class="line">curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=&#x27; &#x27; -f2</span><br></pre></td></tr></table></figure>
-<p>\转义字符，<code>mkdir my\ photo</code>将空格转义，否则会建立两个目录</p>
-<p>touch命令本意是修改时间戳，-a修改访问时间，-m改变修改时间，文件不存在时会默认新建</p>
-<p>.sh文件开头<code>#!/bin/sh</code>是shebang，指示解释器运行环境</p>
-<p>/sys目录下有很多系统设置，一切皆文件！</p>
-<p>tee命令读取标准输入，写到标准输出，也可以写到文件</p>
-<p>还讲了find、grep、curl、cut命令，后面再看一下</p>
-]]></content>
-      <tags>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm总结</title>
-    <url>/posts/d6085898.html</url>
-    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
-<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二分查找</title>
     <url>/posts/e8eb0481.html</url>
     <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
@@ -113,26 +147,6 @@
       </tags>
   </entry>
   <entry>
-    <title>刷题-其他</title>
-    <url>/posts/48339ee4.html</url>
-    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
-<ul>
-<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
-<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
-<li>机制转换，504，405</li>
-<li>质数，204</li>
-<li>Excel表问题，171，168</li>
-<li>质因数，172</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>刷题-二叉树</title>
     <url>/posts/55daf129.html</url>
     <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
@@ -152,6 +166,26 @@
       <tags>
         <tag>刷题</tag>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题-其他</title>
+    <url>/posts/48339ee4.html</url>
+    <content><![CDATA[<p>记录一些刷题中需要注意的小问题<span id="more"></span></p>
+<ul>
+<li>负数作被除数，-2 % 6 = -2，直接把负号加前面</li>
+<li>（无符号右移）逻辑右移&gt;&gt;&gt;</li>
+<li>机制转换，504，405</li>
+<li>质数，204</li>
+<li>Excel表问题，171，168</li>
+<li>质因数，172</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -276,6 +310,30 @@
       </tags>
   </entry>
   <entry>
+    <title>周记 | 5.9-5.15</title>
+    <url>/posts/8de1ee47.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周记 | 3.21-3.27</title>
+    <url>/posts/2d5bb144.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>并发学习</title>
     <url>/posts/54cc7e1f.html</url>
     <content><![CDATA[<p>并发编程里的知识点<span id="more"></span></p>
@@ -338,24 +396,6 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦的现实延续</title>
-    <url>/posts/459bb8ba.html</url>
-    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
-<ol>
-<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
-<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
-<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
-</ol>
-<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
-]]></content>
-      <categories>
-        <category>片段</category>
-      </categories>
-      <tags>
-        <tag>杂念</tag>
       </tags>
   </entry>
   <entry>
@@ -611,6 +651,24 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦的现实延续</title>
+    <url>/posts/459bb8ba.html</url>
+    <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
+<ol>
+<li>在我的价值观里，积极向上、努力奋斗是正确的。</li>
+<li>没有朝着正确的方向努力会让我难过不安(这里需要一个更准确的词)。</li>
+<li>努力奋斗了也并不会改变很多，1中观点会持续受阻，我渐渐躺平。</li>
+</ol>
+<p>最后，这三个观点在可预见的时间里都不会改变，这些矛盾的想法、矛盾的内心想法与实际行动可能会让我在负面情绪中变得更消极<br>但我也坚持了其他的我认为正确的，保持坦诚、保持善良等等。写下这些其实和我的日常生活出入很大，我平时只会想到3，只是偶尔比如现在才会想到1和2，所以绝大多时候我都很开心，就算现在也是，我接受这样一个矛盾的自己<br>写下这些单纯地是怕我忘了1和2，因为我真的很少想着这些，前几天和朋友的聊天又无意中让我想到了这点。这是一种逃避吗，或许不是，但我的大脑自动忽略了它们，而在意识到后又感到一丝丝不安，当然这种感觉在变淡。遗忘可能导致我在未来情绪低落时找不到原因，当然这只能是原因之一或者压根不是<br>现实中，一些形而下的，如中午吃什么、投哪家实习、多线程原理等等都占据着我的时间;而一些形而上的，看书看电影听歌等带来的艺术体验，发呆时大脑里的瞬时想法，又让我不觉时间流逝<br>我的内心住着一个“白”，它没有任何价值判断，或许是完全的空白，这些年它逐渐长大，占据着我更多的时间空间<br>两点睡的，六点多就醒了，现在却很清醒。梦里我在永夜中躲避一场大屠杀，奶奶出现了，她的音容笑貌真实可感，我要好好保护她。再一次见面让我感到幸福，在清醒时分写下这些。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>杂念</tag>
       </tags>
   </entry>
 </search>
