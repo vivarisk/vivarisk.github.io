@@ -15,11 +15,11 @@
     <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>行行重行行</description>
-    <pubDate>Mon, 12 Dec 2022 13:24:51 GMT</pubDate>
+    <pubDate>Wed, 28 Dec 2022 14:09:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>MIT-Missing-Semester笔记</title>
+      <title>MIT-Missing-Semester笔记(一):Shell</title>
       <link>https://vivarisk.github.io/posts/f350bbc1</link>
       <guid>https://vivarisk.github.io/posts/f350bbc1</guid>
       <pubDate>Sat, 03 Dec 2022 13:14:56 GMT</pubDate>
@@ -29,8 +29,8 @@
           
           
       <description>&lt;p&gt;MIT的课程：&lt;a href=&quot;https://missing.csail.mit.edu/2020/&quot;&gt;Missing Semester&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;介绍了Shell、vim、git等一些常用工具。&lt;/p&gt;
-&lt;h2 id=&quot;Shell&quot;&gt;&lt;a</description>
+&lt;p&gt;介绍了Shell、vim、git等一些常用工具&lt;/p&gt;
+&lt;p&gt;检查Shell语法错误的在线网站&lt;a</description>
           
         
       
