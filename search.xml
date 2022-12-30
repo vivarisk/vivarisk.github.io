@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World!</title>
-    <url>/posts/1c291ca3.html</url>
-    <content><![CDATA[<p>世界，你好！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
     <title>MIT-Missing-Semester笔记(一):Shell</title>
     <url>/posts/f350bbc1.html</url>
     <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
@@ -91,6 +82,15 @@
       <tags>
         <tag>Shell</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World!</title>
+    <url>/posts/1c291ca3.html</url>
+    <content><![CDATA[<p>世界，你好！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
   <entry>
     <title>MySQL笔记</title>
@@ -257,6 +257,23 @@
       </tags>
   </entry>
   <entry>
+    <title>剑指offer专项突击版刷题总结</title>
+    <url>/posts/b59e3d2c.html</url>
+    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
+<ol>
+<li>整数除法</li>
+</ol>
+<p>最后是都要取绝对值计算，先把特殊情况考虑到了；模拟草稿纸上的除法运算，比如10000/23，在百位上写4，余数就<strong>不可能</strong>在百位上写值了，是一个依次向低位上写值的过程，二进制一样</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">divide</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == Integer.MIN_VALUE)&#123;</span><br><span class="line">            <span class="type">return</span> <span class="variable">a</span> <span class="operator">=</span>= Integer.MIN_VALUE ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a == Integer.MIN_VALUE)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b == -<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a += Math.abs(b);</span><br><span class="line">                ans += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//对布尔值可以做位运算，结果还是布尔值</span></span><br><span class="line">        <span class="comment">//int flag = (a &gt;&gt;&gt; 31) ^ (b &gt;&gt;&gt; 31)</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> (a &gt; <span class="number">0</span>) ^ (b &gt; <span class="number">0</span>);</span><br><span class="line">        a = Math.abs(a);</span><br><span class="line">        b = Math.abs(b);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">31</span>; i&gt;=<span class="number">0</span>; --i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((a &gt;&gt;&gt; i) &gt;= b)&#123;</span><br><span class="line">                ans += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">                a -= (b &lt;&lt; i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag ? -ans : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>刷题-回溯</title>
     <url>/posts/b7ff5df1.html</url>
     <content><![CDATA[<p>回溯的题，这类题老是忘<span id="more"></span></p>
@@ -290,23 +307,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>回溯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>剑指offer专项突击版刷题总结</title>
-    <url>/posts/b59e3d2c.html</url>
-    <content><![CDATA[<p>题解总结<br><span id="more"></span></p>
-<ol>
-<li>整数除法</li>
-</ol>
-<p>最后是都要取绝对值计算，先把特殊情况考虑到了；模拟草稿纸上的除法运算，比如10000/23，在百位上写4，余数就<strong>不可能</strong>在百位上写值了，是一个依次向低位上写值的过程，二进制一样</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">divide</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == Integer.MIN_VALUE)&#123;</span><br><span class="line">            <span class="type">return</span> <span class="variable">a</span> <span class="operator">=</span>= Integer.MIN_VALUE ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a == Integer.MIN_VALUE)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b == -<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a += Math.abs(b);</span><br><span class="line">                ans += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//对布尔值可以做位运算，结果还是布尔值</span></span><br><span class="line">        <span class="comment">//int flag = (a &gt;&gt;&gt; 31) ^ (b &gt;&gt;&gt; 31)</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> (a &gt; <span class="number">0</span>) ^ (b &gt; <span class="number">0</span>);</span><br><span class="line">        a = Math.abs(a);</span><br><span class="line">        b = Math.abs(b);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">31</span>; i&gt;=<span class="number">0</span>; --i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((a &gt;&gt;&gt; i) &gt;= b)&#123;</span><br><span class="line">                ans += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">                a -= (b &lt;&lt; i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag ? -ans : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -685,6 +685,37 @@
       </tags>
   </entry>
   <entry>
+    <title>新冠日记</title>
+    <url>/posts/44ed0285.html</url>
+    <content><![CDATA[<p>几个月来，新冠的各种信息一直充斥在网络上和生活周围，但我总觉得不会落到自己身上，直到岁末</p>
+<p>11月29号学校出了阳性，当天学校就出了赶人的意思，申请了12月1日离校。回到家居家一周，一切照常。12月9号同学四人去了同学家吃饭，第二天有一个同学发烧了，抗原测了阳性，当时我还没什么感觉，幼稚地以为没那么容易感染。11日晚，嗓子有点不舒服也有点发热，感觉不妙<span class="github-emoji" alias="sleepy" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">&#x1f62a;</span>。我们三个同时出了症状，看来是有个潜伏期</p>
+<p><strong>12月12日</strong></p>
+<p>自己感觉低烧，其实是因为我的手本来就比正常温度高，摸着额头好像只是低烧。上午大概是38.7，没敢和家里人说是前两天吃饭传上的，要被骂死哈哈。10号的时候姐姐一家过来吃饭，后面到了20号多他们也阳了，应该不是我传上的，可能10号的时候我还没多少传染性。下午就39度多了，吃了布洛芬和莲花清瘟。但是当天还不算太难受，只是头晕，还能玩原神<span class="github-emoji" alias="dog" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f436.png?v8">&#x1f436;</span></p>
+<p><strong>12月13日</strong></p>
+<p>凌晨开始，头疼地无法入睡。12点半醒了，试图通过捂被子出汗来降温，但根本没效果，越捂越热几近爆炸。3点多，群里又聊了起来，大家都难受地不能入睡。体温40.4，给我烧迷糊了，找了个毛巾裹脑袋上降温，身上不能盖被，哪盖着被哪就巨快升温，只能稍微盖着点肚子。就这么混沌地熬到了六点，大概没有那么难受了，能正常盖被了，渐渐睡去</p>
+<p>又似乎出现了小时候的那种感觉。小的时候，发烧时经常能看到一些类似蓝色血管的原始森林，很多血管在急速地变大变小，长大后不再出现。这次是会看到很多不同种类的形状，每次翻身都会打乱。到早上有所恢复后，每次翻身和盖被子都能把它们组合出一个规则形状。肯定是被那些微分几何、矢量化什么的pua所致，什么垃圾方向</p>
+<p>这两天突然地想到了这首歌，在头脑混乱时让人有温吞振奋之感：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=17120804&auto=1&height=66"></iframe>
+
+<p>整个白天体温都在39度多，头疼异常，吃了莲花清瘟不起作用。基本上是一觉接着一觉，到了晚上七点多睡醒，体温38度多，出了些汗没那么难受了，和前一天差不多</p>
+<p><strong>12月14日</strong><br>凌晨三点多醒了，明显感觉体温降了下来，一量36.7。正是阿根廷克罗地亚踢比赛的时候，想着支持莫德里奇，不过比分2 : 0了，遂睡去</p>
+<p>当天正常，那几天嘴里发苦，吃什么都感觉有点咸，不知是新冠的原因还是饭菜确实做咸了。有点咳痰，不过就那一会，记不清是不是这一天了</p>
+<p><strong>12月15日</strong></p>
+<p>下午体温又升到38度多，头疼到晚上</p>
+<p><strong>12月16日</strong></p>
+<p>不难受了，体温好像是37度多，之后没再怎么量过</p>
+<hr>
+<p>之后的几天有点咳嗽，可能是胸闷气短吧。家里没抗原一直没测，21号拿到抗原测了转阴</p>
+<p>一直到月底，多少有一点点气短的感觉，就先不运动了(其实本来也不运动<span class="github-emoji" alias="dog" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f436.png?v8">&#x1f436;</span>)，恢复一个月看看</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>新冠</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>梦的现实延续</title>
     <url>/posts/459bb8ba.html</url>
     <content><![CDATA[<p>一个奇怪的梦，醒后作。<br><span id="more"></span></p>
@@ -700,6 +731,31 @@
       </categories>
       <tags>
         <tag>杂念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>秋招总结</title>
+    <url>/posts/52dbc020.html</url>
+    <content><![CDATA[<p>磨蹭到年底才动笔，秋招大概进行了两个半月，一共投递了80多家，互联网外企国企银行都投了，听说过的没听说过的都有。最后拿到了农行、滴滴、字节、分贝通、渤海银行的offer，决定去字节了。感觉选什么都会后悔，就不多想了。谁知道当下的选择会对未来有什么影响呢，那些其他选择的分叉道路会更好吗？</p>
+<p>也稍微提提实习，大概从寒假就准备找实习，一直到四月底才投出简历，七月初拿到了字节的实习。读了研以来走了不少弯路，不论科研还是找工作都有，这些也很难避免。很长时间在原地踏步，花费了很多时间技术上并没有什么提升</p>
+<p>七月份刚去的时候，mentor跟我说小组里还有一个名额，到八月份的时候说让我两手准备。我也有心理预期，上半年来就有各种毁意向、毁offer、裁员的消息。实习到8月底，这两个月的实习还是收获很大的，虽然没干多少活，主要是熟悉了实际的开发流程，包括需求对接、开发调试、测试上线等等。部门里的同事都很好，工作氛围也不错，没能转正真的很可惜</p>
+<p>九月一号回到学校，全力准备秋招。八月下旬投了几家，微软、亚马逊、华为、美团等，做了几个笔试。九月份主要面了美团、网易、京东、华为</p>
+<p><strong>美团</strong>：面了地图和配送部门，两个都是一面挂了，八股项目加做题，答得还凑合，可能还是比不过其他面试同学</p>
+<p><strong>网易</strong>：传媒事业群，大概负责网易新闻、网易公开课这一块。面得一般，一面问了一道很大的系统设计题：如何设计微信朋友圈，之前没准备过，胡言乱语一通，面试官人很好，一直在很认真地和我沟通；二面答得很差，一道二分的题没做好，跟面试官battle了十多分钟，后来发现还是我做错了<span class="github-emoji" alias="sob" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">&#x1f62d;</span>。面试官说我的简历没什么可问的，也确实，不少东西写简历上了但我没准备，问了我也没答上来，十分减分，比如Kitex。11月份才给挂了，网易是真的磨叽</p>
+<p><strong>京东</strong>：京东科技，主要是负责消费券、智慧城市什么的。一面问了半个小时，没有做题，主要问的八股，答得还行；二面几乎什么都没问匆匆结束；HR面随便问了问。10月底挂了</p>
+<p><strong>华为</strong>：公共开发部，九月底的几天一面二面主管面。一面二面正常地问了问，主管面有点像HR面，大概聊了半个小时。一直到写下本文的年底，都没有消息，不过自己很早就不抱希望了</p>
+<p>九月份还面了集度、龙湖、友塔游戏。集度一面挂，十月份集度给同学开得挺高；龙湖没太放在心上，十一月初好像才全部面完；友塔十月份挂了。重点提一下阿里，那段时间面了几次阿里，都是电话面然后秒挂，有天猫精灵和钉钉，会问一些八股和设计题，应该就是要求高，面试体验比较差</p>
+<p>整个九月份都在笔试、面试中度过，忙碌中没有时间想什么。国庆的时候还是很有信心，京东网易华为我总能拿一个吧，后来才慢慢明白，对一些事没必要有过高期待。国庆躺了一周</p>
+<p>十月份整体是越来越绝望的状态，面试越来越少，一个月没面几家：滴滴友塔荣耀，只有滴滴走完了流程。到十月下旬，基本对互联网不抱希望了，之前在截止日期之前投了不少银行，十月底银行扎堆笔试，那两天累死。那段时间没有面试，也没什么要学的，基本每天只是躺着，丧到了极点。那些天又重新开始玩饥荒了，算是苦中作乐</p>
+<p><strong>滴滴</strong>：国际化部门，负责南美的打车外卖业务。12号一面二面，13号三面。一面正常的八股加做题，不过出了道最大矩形的hard题，憋了半天做出来了。紧接着二面，问了一些实际开发中的问题，没答太好，做的题类似于排行榜的设计题，对Redis还是了解不够。三面也是正常问了问，这次直接问了如何设计微博的点赞排行榜，两面都在同一个点被薄纱<span class="github-emoji" alias="sob" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">&#x1f62d;</span>.11月17号电话给了意向，开得有点低，后面拒了</p>
+<p><strong>银行</strong>：10月21面了渤海银行，基础的八股，不过很多都没答好；11月10号那块问了boss上的渤海HR，她说过了在审批中，这才算是有了秋招的第一个意向，终于喘过来一口气；12月初才发体检通知，没再考虑。11月9号面了农行天研，面试问得很广，答得更差；11月15发了体检通知，很是高兴，这两个算是天津最好的开发岗位了；18号去做了体检，不过心率有点问题要求复检，被封在学校加上接了字节的offer，遗憾拒了</p>
+<p>11月初，又赶上一波互联网的补录，面了快手、蚂蚁、字节、分贝通、完美世界和京东，不过都是相对边缘一些的部门了，不过无所谓，整整两个月没一个offer，有面试就还有希望。写到这有点累了，不再展开写了，快手二面挂；蚂蚁和阿里类似一面挂；分贝通走完了流程，面试官人很好，面完的下一周收到了意向，offer给得比较晚拒了，不过十分感谢豪哥内推；完美世界一面挂，其实答得挺好</p>
+<p><strong>字节</strong>：10月份面了TikTok直播，一面挂，答得一般；比较奇怪的是，在网站上更新的简历面试官一直看不到，实习那一块没加上。11月1号有HR打电话说之前的面试挂了，又转到了其他部门。4号一面，八股加做题，感觉答得一般；8号二面，答得还可以，题比较顺利；11号三面，答得也还行，那段时间又多看了看Redis，关于怎么设计排行榜和集群的知识，不过题做得有点磕磕绊绊，是这道<a href="https://leetcode.cn/problems/median-of-two-sorted-arrays/">寻找两个正序数组的中位数</a>的hard题；14号通知四面，还是技术面，一般应该是HR面了，以为凉了，再面一轮是要继续刷人吗；16号四面问了一点设计题，问了一些实习的经历，最后简单做了一道题，最后还问了”你遇到的最大困难是什么“，也有点像HR面了，面试官是上海的，我以为给转到了上海的部门；之后两天HR打了两个电话，问了之前实习的部门、为什么实习时间这么短、意向工作地点、能不能提前去实习等；21号发了offer，流程很快，base北京、给的也很满意了，同天上午农行的老师跟我说要复检心电图，不能出学校短时间复检不了，这算是机缘巧合吗(不太合适这个词)? 接了字节的offer，没想太多，当然也想不出来什么</p>
+<p>之后的面试都没参加了。月底学校疫情严重了，30号临走之前和同学寄了三方，秋招也彻底结束。回到家后，又收到了美团、京东、阿里的面试通知，没再继续。12月初得知字节盘点HC，大概11月下旬开始的，很多人的面试流程暂停了，我可能赶上了最后一波，又在脉脉上看到字节毁意向、开劝退价的帖子。很多时候我们在抱怨当前处境的时候，不知道的是，其实能走到现在已经足够得幸运。再提一句，少看脉脉！我面试的部门信息很少，在脉脉上能搜到的评价就那几条，都在疯狂劝退，我又能怎么样呢，很累不想再去准备面试了，希望自己不会试用期被裁</p>
+<p>专注当下，继续坚持，未来会走到何处呢？无所谓，都没关系︿(￣︶￣)︿</p>
+]]></content>
+      <tags>
+        <tag>秋招</tag>
       </tags>
   </entry>
 </search>

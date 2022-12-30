@@ -15,8 +15,61 @@
     <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>行行重行行</description>
-    <pubDate>Wed, 28 Dec 2022 14:09:10 GMT</pubDate>
+    <pubDate>Fri, 30 Dec 2022 10:29:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>秋招总结</title>
+      <link>https://vivarisk.github.io/posts/52dbc020</link>
+      <guid>https://vivarisk.github.io/posts/52dbc020</guid>
+      <pubDate>Fri, 30 Dec 2022 05:59:46 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;磨蹭到年底才动笔，秋招大概进行了两个半月，一共投递了80多家，互联网外企国企银行都投了，听说过的没听说过的都有。最后拿到了农行、滴滴、字节、分贝通、渤海银行的offer，决定去字节了。感觉选什么都会后悔，就不多想了。谁知道当下的选择会对未来有什么影响呢，那些其他选择的分叉道</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E7%A7%8B%E6%8B%9B/">秋招</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/52dbc020#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>新冠日记</title>
+      <link>https://vivarisk.github.io/posts/44ed0285</link>
+      <guid>https://vivarisk.github.io/posts/44ed0285</guid>
+      <pubDate>Thu, 22 Dec 2022 06:00:33 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;几个月来，新冠的各种信息一直充斥在网络上和生活周围，但我总觉得不会落到自己身上，直到岁末&lt;/p&gt;
+&lt;p&gt;11月29号学校出了阳性，当天学校就出了赶人的意思，申请了12月1日离校。回到家居家一周，一切照常。12月9号同学四人去了同学家吃饭，第二天有一个同学发烧了，抗原测了阳性</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%94%9F%E6%B4%BB/">生活</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E6%96%B0%E5%86%A0/">新冠</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/44ed0285#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>MIT-Missing-Semester笔记(一):Shell</title>
