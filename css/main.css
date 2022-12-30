@@ -463,9 +463,9 @@ figure .pin-copy {
   border-bottom: 1px solid var(--color-text-a-hover);
 }
 
-.markdown-body strong {
+/*.markdown-body strong {
   font-weight: 600;
-}
+}*/
 
 .markdown-body hr {
   height: 0;
