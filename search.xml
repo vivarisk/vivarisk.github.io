@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Gridea试用</title>
+    <url>/posts/e3a44761.html</url>
+    <content><![CDATA[<p>试用一下Gridea，之前了解过一点，用GUI界面简化了博客的搭建过程。主要参考官方文档<a href="https://gridea.dev/gridea-start/">快速上手</a></p>
+<blockquote>
+<p>一点小问题：在一台电脑上用两个github账号有点问题，在虚拟机中试的。后面的截图是在ubuntu中，不影响</p>
+</blockquote>
+<h3 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h3><p>创建一个github账号</p>
+<h3 id="申请token"><a href="#申请token" class="headerlink" title="申请token"></a>申请token</h3><p>申请一个token</p>
+<ol>
+<li><p>在github主页点击右上角头像；左侧导航栏划到最后，点击Developer     </p>
+<p>Settings；再点击Personal access tokens下的Tokens (classic)</p>
+</li>
+<li><p>Note随便填，过期时间选永不过期就好，权限只勾repo就行</p>
+</li>
+<li><p>下方点击确认并复制token (token保存一下，只显示这一次)，如图：</p>
+</li>
+</ol>
+<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230130115340672.png" alt="image-20230130115340672"></p>
+<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230130120011856.png" alt="image-20230130120011856"></p>
+<h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>点击头像下拉选项框里的your repositories，再点击绿色New按钮。仓库名: 用户名.github.io, 其他都不用填</p>
+<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230130120427094.png" alt="image-20230130120427094"></p>
+<h3 id="配置gridea"><a href="#配置gridea" class="headerlink" title="配置gridea"></a>配置gridea</h3><p>安装gridea客户端，点击远程。分支填main，令牌填刚才的token</p>
+<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230130150419586.png" alt="image-20230130150419586"></p>
+<p>点检测远程连接试一试，在win上只有第一次成功了，在ubuntu上就没成功过。连不上也没事</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在文章那里新建，写作界面比较简陋，远不如typora</p>
+<p>右侧提供了一些实用功能，设置摘要、置顶文章、emoji表情、预览等</p>
+<p>不建议插入太多图片，图片直接在仓库里，一是github访问速度问题，二是太占仓库空间</p>
+<p>写完保存后，点左下角的同步。同步很玄学，目测走的https</p>
+<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230130154555838.png" alt="image-20230130154555838"></p>
+<p>具体见<a href="https://pica2pica.github.io/">https://pica2pica.github.io/</a></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>使用上较hexo简单一些，不需要命令行操作。本地和远程仓库的同步很玄学，可能是我网络的问题。总体使用体验不如hexo，后续有时间可以再摸索一下</p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>Gridea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World!</title>
     <url>/posts/1c291ca3.html</url>
     <content><![CDATA[<p>世界，你好！</p>
@@ -8,61 +48,6 @@
       <categories>
         <category>生活</category>
       </categories>
-  </entry>
-  <entry>
-    <title>MySQL笔记</title>
-    <url>/posts/fd5f561d.html</url>
-    <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
-<ol>
-<li>全部使用长连接，内存占用问题</li>
-</ol>
-<blockquote>
-<p>1.定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后， 断开连接，之后要查询再重连。</p>
-<p>2.如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执 行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权 限验证，但是会将连接恢复到刚刚创建完时的状态。</p>
-</blockquote>
-<ol>
-<li>为什么不建议使用查询缓存</li>
-</ol>
-<blockquote>
-<p>查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清 空。因此很可能你费劲地把结果存起来，还没使用呢，就被一个更新全清空了。对于更新 压力大的数据库来说，查询缓存的命中率会非常低。除非你的业务就是有一张静态表，很 长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</p>
-</blockquote>
-<ol>
-<li><p>Write-Ahead Logging: 先写日志，再写磁盘</p>
-</li>
-<li><p>redolog只是完成了prepare, 而binlog又失败，那么事务本身会回滚</p>
-</li>
-</ol>
-<blockquote>
-<p>1 prepare阶段 2 写binlog 3 commit </p>
-<p>当在2之前崩溃时 重启恢复：后发现没有commit，回滚。备份恢复：没有binlog 。 一致 </p>
-<p>当在3之前崩溃 重启恢复：虽没有commit，但满足prepare和binlog完整，所以重启后会自动commit。备份：有binlog. 一致</p>
-</blockquote>
-<ol>
-<li>一天一备份、一周一备份</li>
-</ol>
-<blockquote>
-<p>RTO（恢复目标时间）好处是“最长恢复时间”更短。 在一天一备的模式里，最坏情况下需要应用一天的 binlog。当然这个是有成本的，因为更频繁全量备份需要消耗更多存储空间，所以这个 RTO 是成 本换来的，就需要你根据业务重要性来评估了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm总结</title>
-    <url>/posts/d6085898.html</url>
-    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
-<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-      </tags>
   </entry>
   <entry>
     <title>MIT-Missing-Semester笔记(一):Shell</title>
@@ -145,6 +130,69 @@
 ]]></content>
       <tags>
         <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL笔记</title>
+    <url>/posts/fd5f561d.html</url>
+    <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
+<ol>
+<li>全部使用长连接，内存占用问题</li>
+</ol>
+<blockquote>
+<p>1.定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后， 断开连接，之后要查询再重连。</p>
+<p>2.如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执 行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权 限验证，但是会将连接恢复到刚刚创建完时的状态。</p>
+</blockquote>
+<ol>
+<li>为什么不建议使用查询缓存</li>
+</ol>
+<blockquote>
+<p>查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清 空。因此很可能你费劲地把结果存起来，还没使用呢，就被一个更新全清空了。对于更新 压力大的数据库来说，查询缓存的命中率会非常低。除非你的业务就是有一张静态表，很 长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</p>
+</blockquote>
+<ol>
+<li><p>Write-Ahead Logging: 先写日志，再写磁盘</p>
+</li>
+<li><p>redolog只是完成了prepare, 而binlog又失败，那么事务本身会回滚</p>
+</li>
+</ol>
+<blockquote>
+<p>1 prepare阶段 2 写binlog 3 commit </p>
+<p>当在2之前崩溃时 重启恢复：后发现没有commit，回滚。备份恢复：没有binlog 。 一致 </p>
+<p>当在3之前崩溃 重启恢复：虽没有commit，但满足prepare和binlog完整，所以重启后会自动commit。备份：有binlog. 一致</p>
+</blockquote>
+<ol>
+<li>一天一备份、一周一备份</li>
+</ol>
+<blockquote>
+<p>RTO（恢复目标时间）好处是“最长恢复时间”更短。 在一天一备的模式里，最坏情况下需要应用一天的 binlog。当然这个是有成本的，因为更频繁全量备份需要消耗更多存储空间，所以这个 RTO 是成 本换来的，就需要你根据业务重要性来评估了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MIT-Missing-Semester笔记(二):Vim</title>
+    <url>/posts/1d744e80.html</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm总结</title>
+    <url>/posts/d6085898.html</url>
+    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
+<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
@@ -341,6 +389,18 @@
       </tags>
   </entry>
   <entry>
+    <title>周记 | 3.21-3.27</title>
+    <url>/posts/2d5bb144.html</url>
+    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
+]]></content>
+      <categories>
+        <category>片段</category>
+      </categories>
+      <tags>
+        <tag>周记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>周记 | 5.9-5.15</title>
     <url>/posts/8de1ee47.html</url>
     <content><![CDATA[<p>随便写写<br><span id="more"></span>博客里大多是心情低落时上来瞎写，其实我是一个很乐观的人，只不过心情不太好的时候才想起来这个博客。以后经常写着点，要努力啊，要不然每天记录自己的划水日常？<br>五一之后这半个月好像什么都没干，不过跑通了那个qrtsc，汉化一下应该能应付毕业了嘿嘿。每周还要写点前端，我后悔之前说前端有意思了，调HTML能TM烦死人，好在下午把图片遍历弄好了。下周组会讲什么啊？每周的灵魂发问<br>你不会真的要摆烂吧？！七月就要开始提前批了，抓紧时间学习，这半个月得把那个小说爬虫的项目看明白，放到简历里还不错。下个月看看能不能把6.824给做完，能做多少是多少吧。刷题的感觉越来越差了，这点让我很担忧<br>每天都在自娱自乐，高强度网上冲浪，一抬头看见Ubuntu桌面就忍不住玩扫雷。米哈游你坏事做尽，大小号全歪<br>保持好心情，规律作息，今天是这周第一次熬夜，每周晚睡一天不过分。下周赶紧把操作系统和Redis看完，好好刷题！！！</p>
@@ -353,15 +413,22 @@
       </tags>
   </entry>
   <entry>
-    <title>周记 | 3.21-3.27</title>
-    <url>/posts/2d5bb144.html</url>
-    <content><![CDATA[<p>随便写写<br><span id="more"></span>这一周的学习状态很差，总是不能专注，想想两年前用两个多月时间从头学四门专业课，真挺厉害的，现在的我精神状态、身体状态都一般<br>如果说奶奶的离开是一种有无上的巨大落差，带来的是持久的消极情绪，昨天在听到了四年之前第一次听到的歌时，感受到的是无意中意识到自己的某些变化后的惊诧。四年来我确实变了很多，但具体是什么又很难具象捕捉，这变化如此显著却不可言说。重返袖珍时光的超级月亮，再次听到竟十分感动，当时还去红咖看了现场。变化开始于19年毕业时、还是20年入学后已不可考<br>具体而持续的行动总是让人感到充实，刷题、MySQL、并发等等，要学的东西很多。虽然自己并不着急，但确实错过了很多机会，四月份要多投简历争取找到份实习，清明之前把所有的都过一遍吧<br>没什么可写的了，昨天睡觉之前明明有很多想说的话。</p>
+    <title>外链测试</title>
+    <url>/posts/4d4b3b98.html</url>
+    <content><![CDATA[<p>测试一下外链</p>
+<p>网易云</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=17549213&auto=0&height=66"></iframe>
+
+<p>b站</p>
+<iframe src="//player.bilibili.com/player.html?aid=392397221&bvid=BV1id4y1E74h&cid=954076474&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="450"> </iframe>
+
+<p>b站外链有点难用，还是算了</p>
 ]]></content>
       <categories>
-        <category>片段</category>
+        <category>折腾</category>
       </categories>
       <tags>
-        <tag>周记</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -430,6 +497,20 @@
       </tags>
   </entry>
   <entry>
+    <title>我的二〇二二</title>
+    <url>/posts/9b29cd32.html</url>
+    <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
+<p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
+<p>近几年简单地说：在挫败中寻找光亮</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>朝花夕拾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>操作系统总结</title>
     <url>/posts/25519ab6.html</url>
     <content><![CDATA[<p>操作系统知识点总结<span id="more"></span></p>
@@ -442,7 +523,7 @@
 <li><p>线程是为单个进程提供的抽象，经典观点：一个程序只有一个执行点（一个PC），多线程程序有多个执行点（多个程序计数器，分别用于取指和执行），每个线程有一个程序计数器、一组寄存器。线程是调度的基本单位，把一个进程的资源分配和执行调度分开。线程间共享地址空间，能够访问相同的数据。</p>
 </li>
 </ul>
-<p>​    (线程上下文切换类似于进程上下文切换，进程切换将状态保存到进程控制块（PCB），线程对应线程控制    块（TCB）。线程切换地址空间不变，不需要切换当前使用的页表。）</p>
+<p>​    (线程上下文切换类似于进程上下文切换，进程切换将状态保存到进程控制块（PCB），线程对应线程控制块（TCB）。线程切换地址空间不变，不需要切换当前使用的页表。）</p>
 <ul>
 <li>java线程的实现基于内核线程（实际上是内核进程的一个接口：轻量级进程），各种线程操作、切换都要进行系统调用，代价较高，需要在用户态、内核态切换，同时也会消耗一定内核资源，容纳的线程数量有限。1：1</li>
 </ul>
@@ -748,12 +829,12 @@
 <p>九月份还面了集度、龙湖、友塔游戏。集度一面挂，十月份集度给同学开得挺高；龙湖没太放在心上，十一月初好像才全部面完；友塔十月份挂了。重点提一下阿里，那段时间面了几次阿里，都是电话面然后秒挂，有天猫精灵和钉钉，会问一些八股和设计题，应该就是要求高，面试体验比较差</p>
 <p>整个九月份都在笔试、面试中度过，忙碌中没有时间想什么。国庆的时候还是很有信心，京东网易华为我总能拿一个吧，后来才慢慢明白，对一些事没必要有过高期待。国庆躺了一周</p>
 <p>十月份整体是越来越绝望的状态，面试越来越少，一个月没面几家：滴滴友塔荣耀，只有滴滴走完了流程。到十月下旬，基本对互联网不抱希望了，之前在截止日期之前投了不少银行，十月底银行扎堆笔试，那两天累死。那段时间没有面试，也没什么要学的，基本每天只是躺着，丧到了极点。那些天又重新开始玩饥荒了，算是苦中作乐</p>
-<p><strong>滴滴</strong>：国际化部门，负责南美的打车外卖业务。12号一面二面，13号三面。一面正常的八股加做题，不过出了道最大矩形的hard题，憋了半天做出来了。紧接着二面，问了一些实际开发中的问题，没答太好，做的题类似于排行榜的设计题，对Redis还是了解不够。三面也是正常问了问，这次直接问了如何设计微博的点赞排行榜，两面都在同一个点被薄纱<span class="github-emoji" alias="sob" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">&#x1f62d;</span>.11月17号电话给了意向，开得有点低，后面拒了</p>
+<p><strong>滴滴</strong>：国际化部门，负责南美的打车外卖业务。12号一面二面，13号三面。一面正常的八股加做题，不过出了道最大矩形的hard题，憋了半天做出来了。紧接着二面，问了一些实际开发中的问题，没答太好，做的题类似于排行榜的设计题，对Redis还是了解不够。三面也是正常问了问，这次直接问了如何设计微博的点赞排行榜，两面在同一个点被薄纱<span class="github-emoji" alias="sob" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">&#x1f62d;</span>.11月17号电话给了意向，开得有点低，后面拒了</p>
 <p><strong>银行</strong>：10月21面了渤海银行，基础的八股，不过很多都没答好；11月10号那块问了boss上的渤海HR，她说过了在审批中，这才算是有了秋招的第一个意向，终于喘过来一口气；12月初才发体检通知，没再考虑。11月9号面了农行天研，面试问得很广，答得更差；11月15发了体检通知，很是高兴，这两个算是天津最好的开发岗位了；18号去做了体检，不过心率有点问题要求复检，被封在学校加上接了字节的offer，遗憾拒了</p>
 <p>11月初，又赶上一波互联网的补录，面了快手、蚂蚁、字节、分贝通、完美世界和京东，不过都是相对边缘一些的部门了，不过无所谓，整整两个月没一个offer，有面试就还有希望。写到这有点累了，不再展开写了，快手二面挂；蚂蚁和阿里类似一面挂；分贝通走完了流程，面试官人很好，面完的下一周收到了意向，offer给得比较晚拒了，不过十分感谢豪哥内推；完美世界一面挂，其实答得挺好</p>
-<p><strong>字节</strong>：10月份面了TikTok直播，一面挂，答得一般；比较奇怪的是，在网站上更新的简历面试官一直看不到，实习那一块没加上。11月1号有HR打电话说之前的面试挂了，又转到了其他部门。4号一面，八股加做题，感觉答得一般；8号二面，答得还可以，题比较顺利；11号三面，答得也还行，那段时间又多看了看Redis，关于怎么设计排行榜和集群的知识，不过题做得有点磕磕绊绊，是这道<a href="https://leetcode.cn/problems/median-of-two-sorted-arrays/">寻找两个正序数组的中位数</a>的hard题；14号通知四面，还是技术面，一般应该是HR面了，以为凉了，再面一轮是要继续刷人吗；16号四面问了一点设计题，问了一些实习的经历，最后简单做了一道题，最后还问了”你遇到的最大困难是什么“，也有点像HR面了，面试官是上海的，我以为给转到了上海的部门；之后两天HR打了两个电话，问了之前实习的部门、为什么实习时间这么短、意向工作地点、能不能提前去实习等；21号发了offer，流程很快，base北京、给的也很满意了，同天上午农行的老师跟我说要复检心电图，不能出学校短时间复检不了，这算是机缘巧合吗(不太合适这个词)? 接了字节的offer，没想太多，当然也想不出来什么</p>
-<p>之后的面试都没参加了。月底学校疫情严重了，30号临走之前和同学寄了三方，秋招也彻底结束。回到家后，又收到了美团、京东、阿里的面试通知，没再继续。12月初得知字节盘点HC，大概11月下旬开始的，很多人的面试流程暂停了，我可能赶上了最后一波，又在脉脉上看到字节毁意向、开劝退价的帖子。很多时候我们在抱怨当前处境的时候，不知道的是，其实能走到现在已经足够得幸运。再提一句，少看脉脉！我面试的部门信息很少，在脉脉上能搜到的评价就那几条，都在疯狂劝退，我又能怎么样呢，很累不想再去准备面试了，希望自己不会试用期被裁</p>
-<p>专注当下，继续坚持，未来会走到何处呢？无所谓，都没关系︿(￣︶￣)︿</p>
+<p><strong>字节</strong>：10月份面了TikTok直播，一面挂，答得一般；比较奇怪的是，在网站上更新的简历面试官一直看不到，实习那一块没加上。11月1号有HR打电话说之前的面试挂了，又转到了其他部门。4号一面，八股加做题，感觉答得一般；8号二面，答得还可以，题比较顺利；11号三面，答得也还行，那段时间又多看了看Redis，关于怎么设计排行榜和集群的知识，不过题做得有点磕磕绊绊，是这道<a href="https://leetcode.cn/problems/median-of-two-sorted-arrays/">寻找两个正序数组的中位数</a>的hard题；14号通知四面，还是技术面，一般应该是HR面了，以为凉了，再面一轮是要继续刷人吗；16号四面问了一点设计题，问了一些实习的经历，最后简单做了一道题，最后还问了“你遇到的最大困难是什么”，也有点像HR面了，面试官是上海的，我以为给转到了上海的部门；之后两天HR打了两个电话，问了之前实习的部门、为什么实习时间这么短、意向工作地点、能不能提前去实习等；21号发了offer，流程很快，base北京、给的也很满意了，同天上午农行的老师跟我说要复检心电图，不能出学校短时间复检不了，这算是机缘巧合吗(不太合适这个词)? 接了字节的offer，没想太多，当然也想不出来什么</p>
+<p>之后的面试都没参加了。月底学校疫情严重了，30号临走之前和同学寄了三方，秋招也彻底结束。回到家后，又收到了美团、京东、阿里的面试通知，没再继续。12月初得知字节盘点HC，大概11月下旬开始的，很多人的面试流程暂停了，我可能赶上了最后一波，又在脉脉上看到字节毁意向、开劝退价的帖子。很多时候我们在抱怨当前处境的时候，不知道的是，其实能走到现在已经足够得幸运。再提一句，少看脉脉！我面试的部门信息很少，在脉脉上能搜到的评价就那几条，都在疯狂劝退，我又能做什么，很累不想再去准备面试了，希望自己不会试用期被裁</p>
+<p>专注当下，继续坚持，未来会走到何处？无所谓，都没关系︿(￣︶￣)︿</p>
 ]]></content>
       <tags>
         <tag>秋招</tag>
