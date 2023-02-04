@@ -133,6 +133,27 @@
       </tags>
   </entry>
   <entry>
+    <title>MIT-Missing-Semester笔记(二):Vim</title>
+    <url>/posts/1d744e80.html</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm总结</title>
+    <url>/posts/d6085898.html</url>
+    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
+<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL笔记</title>
     <url>/posts/fd5f561d.html</url>
     <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
@@ -172,27 +193,6 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MIT-Missing-Semester笔记(二):Vim</title>
-    <url>/posts/1d744e80.html</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>Vim</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm总结</title>
-    <url>/posts/d6085898.html</url>
-    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
-<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
@@ -502,6 +502,9 @@
     <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
 <p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
 <p>近几年简单地说：在挫败中寻找光亮</p>
+<hr>
+
+<p>一个月过去了，今天是23年立春。回想起这一年多来，只能说是自作自受，对自己感到恶心。认真努力吧，没什么可说的了</p>
 ]]></content>
       <categories>
         <category>生活</category>
