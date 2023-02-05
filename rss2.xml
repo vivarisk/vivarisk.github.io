@@ -15,37 +15,8 @@
     <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>行行重行行</description>
-    <pubDate>Mon, 30 Jan 2023 09:03:28 GMT</pubDate>
+    <pubDate>Mon, 30 Jan 2023 08:44:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>外链测试</title>
-      <link>https://vivarisk.github.io/posts/4d4b3b98</link>
-      <guid>https://vivarisk.github.io/posts/4d4b3b98</guid>
-      <pubDate>Mon, 30 Jan 2023 08:06:52 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;测试一下外链&lt;/p&gt;
-&lt;p&gt;网易云&lt;/p&gt;
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://vivarisk.github.io/categories/%E6%8A%98%E8%85%BE/">折腾</category>
-      
-      
-      <category domain="https://vivarisk.github.io/tags/%E6%B5%8B%E8%AF%95/">测试</category>
-      
-      
-      <comments>https://vivarisk.github.io/posts/4d4b3b98#disqus_thread</comments>
-      
-    </item>
     
     <item>
       <title>Gridea试用</title>
@@ -481,6 +452,27 @@
       
       
       <comments>https://vivarisk.github.io/posts/8de1ee47#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>梦的现实延续</title>
+      <link>https://vivarisk.github.io/posts/459bb8ba</link>
+      <guid>https://vivarisk.github.io/posts/459bb8ba</guid>
+      <pubDate>Mon, 11 Apr 2022 15:49:02 GMT</pubDate>
+      
+      <description>&lt;p&gt;一个奇怪的梦，醒后作。&lt;br&gt;</description>
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
+      
+      
+      <category domain="https://vivarisk.github.io/tags/%E6%9D%82%E5%BF%B5/">杂念</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/459bb8ba#disqus_thread</comments>
       
     </item>
     

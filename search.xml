@@ -413,25 +413,6 @@
       </tags>
   </entry>
   <entry>
-    <title>外链测试</title>
-    <url>/posts/4d4b3b98.html</url>
-    <content><![CDATA[<p>测试一下外链</p>
-<p>网易云</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=17549213&auto=0&height=66"></iframe>
-
-<p>b站</p>
-<iframe src="//player.bilibili.com/player.html?aid=392397221&bvid=BV1id4y1E74h&cid=954076474&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="450"> </iframe>
-
-<p>b站外链有点难用，还是算了</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>并发学习</title>
     <url>/posts/54cc7e1f.html</url>
     <content><![CDATA[<p>并发编程里的知识点<span id="more"></span></p>
