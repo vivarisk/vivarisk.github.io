@@ -15,8 +15,34 @@
     <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>行行重行行</description>
-    <pubDate>Mon, 30 Jan 2023 08:44:47 GMT</pubDate>
+    <pubDate>Thu, 30 Mar 2023 11:54:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>MIT Missing Semester笔记（三）</title>
+      <link>https://vivarisk.github.io/posts/b726205c</link>
+      <guid>https://vivarisk.github.io/posts/b726205c</guid>
+      <pubDate>Thu, 23 Mar 2023 15:27:48 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;数据整理&quot;&gt;&lt;a href=&quot;#数据整理&quot; class=&quot;headerlink&quot; title=&quot;数据整理&quot;&gt;&lt;/a&gt;数据整理&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;一些重要网址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在线正则表达式调试工具&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      
+      <comments>https://vivarisk.github.io/posts/b726205c#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Gridea试用</title>
@@ -78,6 +104,15 @@
       <link>https://vivarisk.github.io/posts/1d744e80</link>
       <guid>https://vivarisk.github.io/posts/1d744e80</guid>
       <pubDate>Fri, 30 Dec 2022 14:18:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;关于Vim，不知道该怎么写，用得实在不多，零零散散写写。这篇以后用来记一记常用的Vim命令&lt;/p&gt;
+&lt;p&gt;参考&lt;a</description>
+          
+        
       
       
       
@@ -435,44 +470,28 @@
     </item>
     
     <item>
-      <title>周记 | 5.9-5.15</title>
-      <link>https://vivarisk.github.io/posts/8de1ee47</link>
-      <guid>https://vivarisk.github.io/posts/8de1ee47</guid>
-      <pubDate>Sat, 14 May 2022 16:17:47 GMT</pubDate>
+      <title>Hello World!</title>
+      <link>https://vivarisk.github.io/posts/1c291ca3</link>
+      <guid>https://vivarisk.github.io/posts/1c291ca3</guid>
+      <pubDate>Sat, 22 Feb 1997 12:00:00 GMT</pubDate>
       
-      <description>&lt;p&gt;随便写写&lt;br&gt;</description>
-      
-      
-      
-      
-      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
-      
-      
-      <category domain="https://vivarisk.github.io/tags/%E5%91%A8%E8%AE%B0/">周记</category>
-      
-      
-      <comments>https://vivarisk.github.io/posts/8de1ee47#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>梦的现实延续</title>
-      <link>https://vivarisk.github.io/posts/459bb8ba</link>
-      <guid>https://vivarisk.github.io/posts/459bb8ba</guid>
-      <pubDate>Mon, 11 Apr 2022 15:49:02 GMT</pubDate>
-      
-      <description>&lt;p&gt;一个奇怪的梦，醒后作。&lt;br&gt;</description>
+        
+        
+          
+          
+      <description>&lt;p&gt;世界，你好！&lt;/p&gt;
+</description>
+          
+        
       
       
       
       
-      <category domain="https://vivarisk.github.io/categories/%E7%89%87%E6%AE%B5/">片段</category>
+      <category domain="https://vivarisk.github.io/categories/%E7%94%9F%E6%B4%BB/">生活</category>
       
       
-      <category domain="https://vivarisk.github.io/tags/%E6%9D%82%E5%BF%B5/">杂念</category>
       
-      
-      <comments>https://vivarisk.github.io/posts/459bb8ba#disqus_thread</comments>
+      <comments>https://vivarisk.github.io/posts/1c291ca3#disqus_thread</comments>
       
     </item>
     

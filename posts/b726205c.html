@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="廿二" />
+  <meta name="description" content="行行重行行" />
+  
+  
+  <title>
+    
+      MIT Missing Semester笔记（三） 
+      
+      
+      |
+    
+     航向树冠层
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/white_pixel.png">
+    <link rel="icon" href="/images/white_pixel.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+    
+<link rel="stylesheet" href="/css/figcaption/mac-block.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/white_pixel.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">航向树冠层</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/weekly">
+          <a href="/categories/weekly">周记</a>
+        </li>
+      
+        <li class="nav-item" data-path="/moments/">
+          <a href="/moments/">树洞</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">MIT Missing Semester笔记（三）</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-03-23
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h3 id="数据整理"><a href="#数据整理" class="headerlink" title="数据整理"></a>数据整理</h3><p><strong>一些重要网址</strong></p>
+<p>在线正则表达式调试工具<a target="_blank" rel="noopener" href="https://regex101.com/">regex debugger</a></p>
+<p>正则表达式<a target="_blank" rel="noopener" href="https://regexone.com/">教程</a></p>
+<hr>
+
+<p>第四节课：数据整理，日志处理是典型的场景，比如<code>journalctl | grep -i intel</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver <span class="string">&#x27;journalctl | grep sshd | grep &quot;Disconnected from&quot;&#x27;</span> | less</span><br></pre></td></tr></table></figure>
+<p>将处理过程更多地放在服务器上，减少网络传输，<code>less</code>创建一个分页器</p>
+<p><code>sed</code> 是一个基于文本编辑器<code>ed</code>构建的”流编辑器” ，如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed <span class="string">&#x27;s/.*Disconnected from //&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>s/REGEX/SUBSTITUTION/</code>，其中regex为正则表达式，现查现用吧</p>
+<ul>
+<li><code>.</code> 除换行符之外的”任意单个字符”</li>
+<li><code>*</code> 匹配前面字符零次或多次</li>
+<li><code>+</code> 匹配前面字符一次或多次</li>
+<li><code>[abc]</code> 匹配 <code>a</code>, <code>b</code> 和 <code>c</code> 中的任意一个</li>
+<li><code>(RX1|RX2)</code> 任何能够匹配<code>RX1</code> 或 <code>RX2</code>的结果</li>
+<li><code>^</code> 行首</li>
+<li><code>$</code> 行尾</li>
+</ul>
+<p><code>*</code>和<code>+</code>默认是贪心的，<code>sed</code>不支持在它们后面增加<code>?</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jan 17 03:13:00 thesquareplanet.com sshd[2631]: Disconnected from </span></span><br><span class="line"><span class="comment"># invalid user Disconnected from 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line"><span class="comment"># /.*Disconnected from /会匹配出</span></span><br><span class="line"><span class="comment"># 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line">perl -pe <span class="string">&#x27;s/.*?Disconnected from //&#x27;</span></span><br><span class="line"><span class="comment"># 可以只匹配到第一个</span></span><br></pre></td></tr></table></figure>
+<p>使用捕获组（capture groups）填充SUBSTITUTION部分，每个圆括号对应<code>\1</code>、 <code>\2</code>、<code>\3</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">| sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>比较完整的处理</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br><span class="line"> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line"> | <span class="built_in">sort</span> -nk1,1 | <span class="built_in">tail</span> -n10</span><br><span class="line"> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">paste</span> -sd,</span><br></pre></td></tr></table></figure>
+<p><code>uniq -c</code> 会把连续出现的行折叠为一行并使用出现次数作为前缀， <code>paste</code>命令来合并行(<code>-s</code>)，并指定一个分隔符进行分割 (<code>-d</code>)。</p>
+<p>对于<code>awk</code>，<code>$0</code> 表示整行的内容，<code>$1</code> 到 <code>$n</code> 为一行中的 n 个区域，区域的分割基于 <code>awk</code> 的域分隔符（默认是空格，可以通过<code>-F</code>来修改）。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计所有以c开头，以e结尾，并且仅尝试过一次登录的用户</span></span><br><span class="line"> | awk <span class="string">&#x27;$1 == 1 &amp;&amp; $2 ~ /^c[^ ]*e$/ &#123; print $2 &#125;&#x27;</span> | <span class="built_in">wc</span> -l</span><br><span class="line"> <span class="comment"># wc为word count</span></span><br></pre></td></tr></table></figure>
+<h4 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h4><p>命令可以从标准输入和参数中读取所处理的内容，管道控制的是标准输入输出，一些命令如<code>kill</code>、<code>rm</code>只能读取参数，需要使用xargs将标准输出变为参数，参考了一篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/556154777">知乎专栏</a></p>
+<p>具体用法可参考这篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenxiaomeng/p/16040498.html">https://www.cnblogs.com/chenxiaomeng/p/16040498.html</a></p>
+<h4 id="课后习题"><a href="#课后习题" class="headerlink" title="课后习题"></a>课后习题</h4><p><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions/data-wrangling-solution/">参考答案</a></p>
+<p><strong>wsl并不是通过systemd进程启动的</strong>，在wsl中开启systemd参考<a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/">这个</a></p>
+
+      </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86"><span class="toc-text">数据整理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#xargs"><span class="toc-text">xargs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98"><span class="toc-text">课后习题</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" href="https://github.com/vivarisk" target="_blank">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mailto:letitbegin22@gmail.com" target="_blank">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/rss2.xml" target="_blank">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        Copyright © 2023 行行重行行
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://hexo.io">Powered by Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+
+
+        
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>
