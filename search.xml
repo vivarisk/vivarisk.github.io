@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MIT-Missing-Semester笔记(二):Vim</title>
-    <url>/posts/1d744e80.html</url>
-    <content><![CDATA[<p>关于Vim，不知道该怎么写，用得实在不多，零零散散写写。这篇以后用来记一记常用的Vim命令</p>
-<p>参考<a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">WSL安装</a>在win11上安装了WSL，简单用着体验很好</p>
-<p>Vim的设计哲学：你大部分时间都在阅读浏览代码，不是在写代码</p>
-<p>Vim分为下面几种模式：</p>
-<ul>
-<li>normal：HJKL分别对应左、下、上、右，浏览阅读</li>
-<li>insert：按i进入，编辑代码</li>
-<li>command：按：进入，执行一些命令（保存、退出、查找等）</li>
-<li>replace：替换文本</li>
-<li>visual：用于选定范围文本复制</li>
-</ul>
-<p>其他模式按esc回到normal模式</p>
-<h3 id="tab、buffer、window"><a href="#tab、buffer、window" class="headerlink" title="tab、buffer、window"></a>tab、buffer、window</h3><p>Vim里的比较重要的几个概念，tab像是浏览器打开的多个标签、buffer对应打开的一个文件、window是一个tab里打开的多个窗口。一个buffer可以对应多个window，可以同时看一个文件的不同部分</p>
-<p>:sp :vsp [file] 垂直/水平打开新的窗口，ctrl+w+方向切换窗口</p>
-<p>:tabnew 打开新标签</p>
-<p>:tabn :tabN 切换下/上一个标签，Vim里用大写表示上一个的时候很多</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li><p>不小心ctrl+z将Vim置于后台，使用<code>jobs</code>命令显示所有后台命令，<code>fg 1</code>恢复序号为1的Vim进程</p>
-</li>
-<li><p>查找、替换</p>
-</li>
-</ul>
-<p>:/ 查找，用到再查</p>
-<p>:s 替换，用到再查</p>
-<ul>
-<li>Vim的接口本身就是一种编程语言，可以组合多个键，例如<code>3dw</code>删除后面的三个单词</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Vim</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Gridea试用</title>
     <url>/posts/e3a44761.html</url>
     <content><![CDATA[<p>试用一下Gridea，之前了解过一点，用GUI界面简化了博客的搭建过程。主要参考官方文档<a href="https://gridea.dev/gridea-start/">快速上手</a></p>
@@ -83,6 +48,41 @@
       <categories>
         <category>生活</category>
       </categories>
+  </entry>
+  <entry>
+    <title>MIT-Missing-Semester笔记(二):Vim</title>
+    <url>/posts/1d744e80.html</url>
+    <content><![CDATA[<p>关于Vim，不知道该怎么写，用得实在不多，零零散散写写。这篇以后用来记一记常用的Vim命令</p>
+<p>参考<a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">WSL安装</a>在win11上安装了WSL，简单用着体验很好</p>
+<p>Vim的设计哲学：你大部分时间都在阅读浏览代码，不是在写代码</p>
+<p>Vim分为下面几种模式：</p>
+<ul>
+<li>normal：HJKL分别对应左、下、上、右，浏览阅读</li>
+<li>insert：按i进入，编辑代码</li>
+<li>command：按：进入，执行一些命令（保存、退出、查找等）</li>
+<li>replace：替换文本</li>
+<li>visual：用于选定范围文本复制</li>
+</ul>
+<p>其他模式按esc回到normal模式</p>
+<h3 id="tab、buffer、window"><a href="#tab、buffer、window" class="headerlink" title="tab、buffer、window"></a>tab、buffer、window</h3><p>Vim里的比较重要的几个概念，tab像是浏览器打开的多个标签、buffer对应打开的一个文件、window是一个tab里打开的多个窗口。一个buffer可以对应多个window，可以同时看一个文件的不同部分</p>
+<p>:sp :vsp [file] 垂直/水平打开新的窗口，ctrl+w+方向切换窗口</p>
+<p>:tabnew 打开新标签</p>
+<p>:tabn :tabN 切换下/上一个标签，Vim里用大写表示上一个的时候很多</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p>不小心ctrl+z将Vim置于后台，使用<code>jobs</code>命令显示所有后台命令，<code>fg 1</code>恢复序号为1的Vim进程</p>
+</li>
+<li><p>查找、替换</p>
+</li>
+</ul>
+<p>:/ 查找，用到再查</p>
+<p>:s 替换，用到再查</p>
+<ul>
+<li>Vim的接口本身就是一种编程语言，可以组合多个键，例如<code>3dw</code>删除后面的三个单词</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Vim</tag>
+      </tags>
   </entry>
   <entry>
     <title>MIT-Missing-Semester笔记(一):Shell</title>
@@ -251,6 +251,19 @@
       </tags>
   </entry>
   <entry>
+    <title>jvm总结</title>
+    <url>/posts/d6085898.html</url>
+    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
+<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二分查找</title>
     <url>/posts/e8eb0481.html</url>
     <content><![CDATA[<p>二分查找总结，模板和相关题<br><span id="more"></span></p>
@@ -280,16 +293,25 @@
       </tags>
   </entry>
   <entry>
-    <title>jvm总结</title>
-    <url>/posts/d6085898.html</url>
-    <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
-<h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p>每一个实例对象的对象头，都有一个指针指向类对象（Class对象，在堆中，其中有类的静态变量），Class对象作为访问方法区中的类型数据的外部接口。</p>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2>]]></content>
+    <title>刷题-二叉树</title>
+    <url>/posts/55daf129.html</url>
+    <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
+<ul>
+<li>543，617，112</li>
+</ul>
+<p>力扣437</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pathSum</span><span class="params">(TreeNode root, <span class="type">int</span> targetSum)</span> &#123;</span><br><span class="line">        Map&lt;Long, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0L</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> recur(root, targetSum, map, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">recur</span><span class="params">(TreeNode root, <span class="type">int</span> target, Map&lt;Long, Integer&gt; map, Long curr)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        curr += root.val;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> map.getOrDefault(curr - target, <span class="number">0</span>);</span><br><span class="line">        map.put(curr, map.getOrDefault(curr, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//map存储当前节点和祖先节点的前缀和，传给子节点</span></span><br><span class="line">        count += recur(root.left, target, map, curr);</span><br><span class="line">        count += recur(root.right, target, map, curr);</span><br><span class="line">        <span class="comment">//路径是向下的，回溯时要删除当前节点对应的前缀和</span></span><br><span class="line">        map.put(curr, map.get(curr) - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>路径问题：求数量可以用前缀和，求所有结果还是dfs</strong></p>
+<ul>
+<li>109，用全局变量</li>
+</ul>
+]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>jvm</tag>
+        <tag>刷题</tag>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -310,28 +332,6 @@
       </categories>
       <tags>
         <tag>刷题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刷题-二叉树</title>
-    <url>/posts/55daf129.html</url>
-    <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
-<ul>
-<li>543，617，112</li>
-</ul>
-<p>力扣437</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pathSum</span><span class="params">(TreeNode root, <span class="type">int</span> targetSum)</span> &#123;</span><br><span class="line">        Map&lt;Long, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0L</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> recur(root, targetSum, map, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">recur</span><span class="params">(TreeNode root, <span class="type">int</span> target, Map&lt;Long, Integer&gt; map, Long curr)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        curr += root.val;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> map.getOrDefault(curr - target, <span class="number">0</span>);</span><br><span class="line">        map.put(curr, map.getOrDefault(curr, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//map存储当前节点和祖先节点的前缀和，传给子节点</span></span><br><span class="line">        count += recur(root.left, target, map, curr);</span><br><span class="line">        count += recur(root.right, target, map, curr);</span><br><span class="line">        <span class="comment">//路径是向下的，回溯时要删除当前节点对应的前缀和</span></span><br><span class="line">        map.put(curr, map.get(curr) - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>路径问题：求数量可以用前缀和，求所有结果还是dfs</strong></p>
-<ul>
-<li>109，用全局变量</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
