@@ -50,6 +50,41 @@
       </categories>
   </entry>
   <entry>
+    <title>MIT-Missing-Semester笔记(二):Vim</title>
+    <url>/posts/1d744e80.html</url>
+    <content><![CDATA[<p>关于Vim，不知道该怎么写，用得实在不多，零零散散写写。这篇以后用来记一记常用的Vim命令</p>
+<p>参考<a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">WSL安装</a>在win11上安装了WSL，简单用着体验很好</p>
+<p>Vim的设计哲学：你大部分时间都在阅读浏览代码，不是在写代码</p>
+<p>Vim分为下面几种模式：</p>
+<ul>
+<li>normal：HJKL分别对应左、下、上、右，浏览阅读</li>
+<li>insert：按i进入，编辑代码</li>
+<li>command：按：进入，执行一些命令（保存、退出、查找等）</li>
+<li>replace：替换文本</li>
+<li>visual：用于选定范围文本复制</li>
+</ul>
+<p>其他模式按esc回到normal模式</p>
+<h3 id="tab、buffer、window"><a href="#tab、buffer、window" class="headerlink" title="tab、buffer、window"></a>tab、buffer、window</h3><p>Vim里的比较重要的几个概念，tab像是浏览器打开的多个标签、buffer对应打开的一个文件、window是一个tab里打开的多个窗口。一个buffer可以对应多个window，可以同时看一个文件的不同部分</p>
+<p>:sp :vsp [file] 垂直/水平打开新的窗口，ctrl+w+方向切换窗口</p>
+<p>:tabnew 打开新标签</p>
+<p>:tabn :tabN 切换下/上一个标签，Vim里用大写表示上一个的时候很多</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p>不小心ctrl+z将Vim置于后台，使用<code>jobs</code>命令显示所有后台命令，<code>fg 1</code>恢复序号为1的Vim进程</p>
+</li>
+<li><p>查找、替换</p>
+</li>
+</ul>
+<p>:/ 查找，用到再查</p>
+<p>:s 替换，用到再查</p>
+<ul>
+<li>Vim的接口本身就是一种编程语言，可以组合多个键，例如<code>3dw</code>删除后面的三个单词</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MIT-Missing-Semester笔记(一):Shell</title>
     <url>/posts/f350bbc1.html</url>
     <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
@@ -133,38 +168,45 @@
       </tags>
   </entry>
   <entry>
-    <title>MIT-Missing-Semester笔记(二):Vim</title>
-    <url>/posts/1d744e80.html</url>
-    <content><![CDATA[<p>关于Vim，不知道该怎么写，用得实在不多，零零散散写写。这篇以后用来记一记常用的Vim命令</p>
-<p>参考<a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">WSL安装</a>在win11上安装了WSL，简单用着体验很好</p>
-<p>Vim的设计哲学：你大部分时间都在阅读浏览代码，不是在写代码</p>
-<p>Vim分为下面几种模式：</p>
-<ul>
-<li>normal：HJKL分别对应左、下、上、右，浏览阅读</li>
-<li>insert：按i进入，编辑代码</li>
-<li>command：按：进入，执行一些命令（保存、退出、查找等）</li>
-<li>replace：替换文本</li>
-<li>visual：用于选定范围文本复制</li>
-</ul>
-<p>其他模式按esc回到normal模式</p>
-<h3 id="tab、buffer、window"><a href="#tab、buffer、window" class="headerlink" title="tab、buffer、window"></a>tab、buffer、window</h3><p>Vim里的比较重要的几个概念，tab像是浏览器打开的多个标签、buffer对应打开的一个文件、window是一个tab里打开的多个窗口。一个buffer可以对应多个window，可以同时看一个文件的不同部分</p>
-<p>:sp :vsp [file] 垂直/水平打开新的窗口，ctrl+w+方向切换窗口</p>
-<p>:tabnew 打开新标签</p>
-<p>:tabn :tabN 切换下/上一个标签，Vim里用大写表示上一个的时候很多</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li><p>不小心ctrl+z将Vim置于后台，使用<code>jobs</code>命令显示所有后台命令，<code>fg 1</code>恢复序号为1的Vim进程</p>
+    <title>MySQL笔记</title>
+    <url>/posts/fd5f561d.html</url>
+    <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
+<ol>
+<li>全部使用长连接，内存占用问题</li>
+</ol>
+<blockquote>
+<p>1.定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后， 断开连接，之后要查询再重连。</p>
+<p>2.如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执 行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权 限验证，但是会将连接恢复到刚刚创建完时的状态。</p>
+</blockquote>
+<ol>
+<li>为什么不建议使用查询缓存</li>
+</ol>
+<blockquote>
+<p>查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清 空。因此很可能你费劲地把结果存起来，还没使用呢，就被一个更新全清空了。对于更新 压力大的数据库来说，查询缓存的命中率会非常低。除非你的业务就是有一张静态表，很 长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</p>
+</blockquote>
+<ol>
+<li><p>Write-Ahead Logging: 先写日志，再写磁盘</p>
 </li>
-<li><p>查找、替换</p>
+<li><p>redolog只是完成了prepare, 而binlog又失败，那么事务本身会回滚</p>
 </li>
-</ul>
-<p>:/ 查找，用到再查</p>
-<p>:s 替换，用到再查</p>
-<ul>
-<li>Vim的接口本身就是一种编程语言，可以组合多个键，例如<code>3dw</code>删除后面的三个单词</li>
-</ul>
+</ol>
+<blockquote>
+<p>1 prepare阶段 2 写binlog 3 commit </p>
+<p>当在2之前崩溃时 重启恢复：后发现没有commit，回滚。备份恢复：没有binlog 。 一致 </p>
+<p>当在3之前崩溃 重启恢复：虽没有commit，但满足prepare和binlog完整，所以重启后会自动commit。备份：有binlog. 一致</p>
+</blockquote>
+<ol>
+<li>一天一备份、一周一备份</li>
+</ol>
+<blockquote>
+<p>RTO（恢复目标时间）好处是“最长恢复时间”更短。 在一天一备的模式里，最坏情况下需要应用一天的 binlog。当然这个是有成本的，因为更频繁全量备份需要消耗更多存储空间，所以这个 RTO 是成 本换来的，就需要你根据业务重要性来评估了。</p>
+</blockquote>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
-        <tag>Vim</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -209,48 +251,6 @@
       </categories>
   </entry>
   <entry>
-    <title>MySQL笔记</title>
-    <url>/posts/fd5f561d.html</url>
-    <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
-<ol>
-<li>全部使用长连接，内存占用问题</li>
-</ol>
-<blockquote>
-<p>1.定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后， 断开连接，之后要查询再重连。</p>
-<p>2.如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执 行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权 限验证，但是会将连接恢复到刚刚创建完时的状态。</p>
-</blockquote>
-<ol>
-<li>为什么不建议使用查询缓存</li>
-</ol>
-<blockquote>
-<p>查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清 空。因此很可能你费劲地把结果存起来，还没使用呢，就被一个更新全清空了。对于更新 压力大的数据库来说，查询缓存的命中率会非常低。除非你的业务就是有一张静态表，很 长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</p>
-</blockquote>
-<ol>
-<li><p>Write-Ahead Logging: 先写日志，再写磁盘</p>
-</li>
-<li><p>redolog只是完成了prepare, 而binlog又失败，那么事务本身会回滚</p>
-</li>
-</ol>
-<blockquote>
-<p>1 prepare阶段 2 写binlog 3 commit </p>
-<p>当在2之前崩溃时 重启恢复：后发现没有commit，回滚。备份恢复：没有binlog 。 一致 </p>
-<p>当在3之前崩溃 重启恢复：虽没有commit，但满足prepare和binlog完整，所以重启后会自动commit。备份：有binlog. 一致</p>
-</blockquote>
-<ol>
-<li>一天一备份、一周一备份</li>
-</ol>
-<blockquote>
-<p>RTO（恢复目标时间）好处是“最长恢复时间”更短。 在一天一备的模式里，最坏情况下需要应用一天的 binlog。当然这个是有成本的，因为更频繁全量备份需要消耗更多存储空间，所以这个 RTO 是成 本换来的，就需要你根据业务重要性来评估了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jvm总结</title>
     <url>/posts/d6085898.html</url>
     <content><![CDATA[<p>jvm学习中的一些知识点<span id="more"></span></p>
@@ -261,6 +261,28 @@
       </categories>
       <tags>
         <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题-二叉树</title>
+    <url>/posts/55daf129.html</url>
+    <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
+<ul>
+<li>543，617，112</li>
+</ul>
+<p>力扣437</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pathSum</span><span class="params">(TreeNode root, <span class="type">int</span> targetSum)</span> &#123;</span><br><span class="line">        Map&lt;Long, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0L</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> recur(root, targetSum, map, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">recur</span><span class="params">(TreeNode root, <span class="type">int</span> target, Map&lt;Long, Integer&gt; map, Long curr)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        curr += root.val;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> map.getOrDefault(curr - target, <span class="number">0</span>);</span><br><span class="line">        map.put(curr, map.getOrDefault(curr, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//map存储当前节点和祖先节点的前缀和，传给子节点</span></span><br><span class="line">        count += recur(root.left, target, map, curr);</span><br><span class="line">        count += recur(root.right, target, map, curr);</span><br><span class="line">        <span class="comment">//路径是向下的，回溯时要删除当前节点对应的前缀和</span></span><br><span class="line">        map.put(curr, map.get(curr) - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>路径问题：求数量可以用前缀和，求所有结果还是dfs</strong></p>
+<ul>
+<li>109，用全局变量</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -290,28 +312,6 @@
       <tags>
         <tag>刷题</tag>
         <tag>二分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刷题-二叉树</title>
-    <url>/posts/55daf129.html</url>
-    <content><![CDATA[<p>二叉树的题，递归要熟悉<span id="more"></span></p>
-<ul>
-<li>543，617，112</li>
-</ul>
-<p>力扣437</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pathSum</span><span class="params">(TreeNode root, <span class="type">int</span> targetSum)</span> &#123;</span><br><span class="line">        Map&lt;Long, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="number">0L</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> recur(root, targetSum, map, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">recur</span><span class="params">(TreeNode root, <span class="type">int</span> target, Map&lt;Long, Integer&gt; map, Long curr)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        curr += root.val;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> map.getOrDefault(curr - target, <span class="number">0</span>);</span><br><span class="line">        map.put(curr, map.getOrDefault(curr, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//map存储当前节点和祖先节点的前缀和，传给子节点</span></span><br><span class="line">        count += recur(root.left, target, map, curr);</span><br><span class="line">        count += recur(root.right, target, map, curr);</span><br><span class="line">        <span class="comment">//路径是向下的，回溯时要删除当前节点对应的前缀和</span></span><br><span class="line">        map.put(curr, map.get(curr) - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>路径问题：求数量可以用前缀和，求所有结果还是dfs</strong></p>
-<ul>
-<li>109，用全局变量</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -457,6 +457,23 @@
       </tags>
   </entry>
   <entry>
+    <title>我的二〇二二</title>
+    <url>/posts/9b29cd32.html</url>
+    <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
+<p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
+<p>近几年简单地说：在挫败中寻找光亮</p>
+<hr>
+
+<p>一个月过去了，今天是23年立春。回想起这一年多来，只能说自作自受，失望厌恶。认真努力吧，没什么可说的了</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>朝花夕拾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>并发学习</title>
     <url>/posts/54cc7e1f.html</url>
     <content><![CDATA[<p>并发编程里的知识点<span id="more"></span></p>
@@ -519,23 +536,6 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的二〇二二</title>
-    <url>/posts/9b29cd32.html</url>
-    <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
-<p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
-<p>近几年简单地说：在挫败中寻找光亮</p>
-<hr>
-
-<p>一个月过去了，今天是23年立春。回想起这一年多来，只能说自作自受，失望厌恶。认真努力吧，没什么可说的了</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>朝花夕拾</tag>
       </tags>
   </entry>
   <entry>
