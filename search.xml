@@ -85,6 +85,63 @@
       </tags>
   </entry>
   <entry>
+    <title>MIT-Missing-Semester笔记(四): 命令行环境</title>
+    <url>/posts/1f8a8f12.html</url>
+    <content><![CDATA[<h3 id="任务控制"><a href="#任务控制" class="headerlink" title="任务控制"></a>任务控制</h3><h4 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h4><p>输入 <code>Ctrl-C</code> 时，shell 会发送一个<code>SIGINT</code> 信号到进程。<code>SIGQUIT</code> 信号，通过输入<code>Ctrl-\</code>可以发送该信号。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> signal, time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handler</span>(<span class="params">signum, time</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nI got a SIGINT, but I am not stopping&quot;</span>)</span><br><span class="line"></span><br><span class="line">signal.signal(signal.SIGINT, handler)</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    time.sleep(<span class="number">.1</span>)</span><br><span class="line">    <span class="comment"># \n 换新行 \r 刷新当前行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\r&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>SIGTERM</code> 则是一个更加通用的、也更加优雅地退出信号。为了发出这个信号我们需要使用 <a href="https://www.man7.org/linux/man-pages/man1/kill.1.html"><code>kill</code></a> 命令, 它的语法是： <code>kill -TERM &lt;PID&gt;</code>。</p>
+<h4 id="暂停和后台执行进程"><a href="#暂停和后台执行进程" class="headerlink" title="暂停和后台执行进程"></a>暂停和后台执行进程</h4><p><code>Ctrl-Z</code> 会让 shell 发送 <code>SIGTSTP</code> 信号</p>
+<p><code>jobs</code>列出当前终端会话的未完成任务，通过编号引用任务（直接123，或加%）</p>
+<p><code>kill</code>命令只能通过%来操作任务，<code>fg</code>、<code>bg</code>可以直接123</p>
+<p><code>jobs</code>中<code>+</code>为最后第一个放入后台的任务，<code>-</code>为倒数第二个放入后台的任务</p>
+<p>恢复暂停的工作<code>fg</code>、<code>bg</code>（前台、后台）</p>
+<p><code>pgrep</code>检索pid</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ python3 sigint.py</span><br><span class="line">24^Z</span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">fg</span> 1</span><br><span class="line">python3 sigint.py</span><br><span class="line">43^Z</span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ pgrep -l python</span><br><span class="line">2824 python3</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[1]-  Stopped                 python3 sigint.py</span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br><span class="line">$ <span class="built_in">kill</span> -SIGHUP %1</span><br><span class="line">[1]-  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line"><span class="comment"># 贴心地再显示一次</span></span><br><span class="line">[1]-  Hangup                  python3 sigint.py</span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>命令中的 <code>&amp;</code> 后缀可以让命令在直接在后台运行，这使得可以直接在 shell 中继续做其他操作，不过它此时还是会使用 shell 的标准输出，这一点有时会比较恼人（这种情况可以使用 shell 重定向处理）。</p>
+</blockquote>
+<p><strong>-u     Force the stdout and stderr streams to be unbuffered</strong></p>
+<p><code>python3 -u</code>直接重定向，不经过缓冲，否则重定向到其他文件可能不显示？</p>
+<p><strong>关闭终端（会发送另外一个信号<code>SIGHUP</code>）</strong></p>
+<p> <code>nohup</code> (一个用来忽略 <code>SIGHUP</code> 的封装) ，<code>kill -SIGHUP</code>对它无效</p>
+<p><code>SIGKILL</code> 是一个特殊的信号，不能被进程捕获并且它会马上结束该进程。传说中的9号，会留下孤儿进程</p>
+<p><code>kill</code>默认是15，<code>SIGTERM</code></p>
+<h3 id="终端多路复用：tmux"><a href="#终端多路复用：tmux" class="headerlink" title="终端多路复用：tmux"></a>终端多路复用：tmux</h3><p>tmux可以方便地在终端上操作多个窗口，通过三个层级管理：会话（session）、窗口（window）、面板（pane）</p>
+<p>这有篇很好的教程<a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">A Quick and Easy Guide to tmux</a></p>
+<p>tmux的快捷键都是先按<code>Ctrl+b</code>，再按某功能键</p>
+<p><img src="C:\Users\10710\AppData\Roaming\Typora\typora-user-images\image-20230710151428980.png" alt="image-20230710151428980"></p>
+<ul>
+<li>session<ul>
+<li><code>tmux</code>开始一个新的会话</li>
+<li><code>tmux new -s NAME</code>以指定名称开始一个新会话</li>
+<li><code>tmux ls</code>列出当前会话</li>
+<li>输入<code>Ctrl+b d</code>与当前会话分离</li>
+<li><code>tmux attach -t NAME</code>连接指定会话，a就行，<code>[-t target-session]</code></li>
+<li><code>tmux kill-session -t NAME</code>删除指定会话，<code>Ctrl+d</code>退出则直接删除</li>
+</ul>
+</li>
+<li>window：类似浏览器的标签，下边状态栏加*的是当前窗口<ul>
+<li><code>Ctrl+b c</code>创建新窗口</li>
+<li><code>Ctrl+b number</code>跳转指定窗口</li>
+<li><code>Ctrl+b ,</code>重命名当前窗口</li>
+</ul>
+</li>
+<li>pane 可以将当前窗口分屏<ul>
+<li><code>Ctrl+b %</code>竖直分屏</li>
+<li><code>Ctrl+b &quot;</code>水平分屏</li>
+<li><code>Ctrl+b 上下左右</code>在不同pane中跳转</li>
+<li><code>Ctrl+b z</code>最大/小化当前pane</li>
+<li><code>Ctrl+d</code>关闭当前pane</li>
+</ul>
+</li>
+</ul>
+<p>确实很方便</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>MIT-Missing-Semester笔记(一):Shell</title>
     <url>/posts/f350bbc1.html</url>
     <content><![CDATA[<p>MIT的课程：<a href="https://missing.csail.mit.edu/2020/">Missing Semester</a></p>
@@ -168,6 +225,47 @@
       </tags>
   </entry>
   <entry>
+    <title>MIT Missing Semester笔记（三）</title>
+    <url>/posts/b726205c.html</url>
+    <content><![CDATA[<h3 id="数据整理"><a href="#数据整理" class="headerlink" title="数据整理"></a>数据整理</h3><p><strong>一些重要网址</strong></p>
+<p>在线正则表达式调试工具<a href="https://regex101.com/">regex debugger</a></p>
+<p>正则表达式<a href="https://regexone.com/">教程</a></p>
+<hr>
+
+<p>第四节课：数据整理，日志处理是典型的场景，比如<code>journalctl | grep -i intel</code></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver <span class="string">&#x27;journalctl | grep sshd | grep &quot;Disconnected from&quot;&#x27;</span> | less</span><br></pre></td></tr></table></figure>
+<p>将处理过程更多地放在服务器上，减少网络传输，<code>less</code>创建一个分页器</p>
+<p><code>sed</code> 是一个基于文本编辑器<code>ed</code>构建的”流编辑器” ，如：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed <span class="string">&#x27;s/.*Disconnected from //&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>s/REGEX/SUBSTITUTION/</code>，其中regex为正则表达式，现查现用吧</p>
+<ul>
+<li><code>.</code> 除换行符之外的”任意单个字符”</li>
+<li><code>*</code> 匹配前面字符零次或多次</li>
+<li><code>+</code> 匹配前面字符一次或多次</li>
+<li><code>[abc]</code> 匹配 <code>a</code>, <code>b</code> 和 <code>c</code> 中的任意一个</li>
+<li><code>(RX1|RX2)</code> 任何能够匹配<code>RX1</code> 或 <code>RX2</code>的结果</li>
+<li><code>^</code> 行首</li>
+<li><code>$</code> 行尾</li>
+</ul>
+<p><code>*</code>和<code>+</code>默认是贪心的，<code>sed</code>不支持在它们后面增加<code>?</code>：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Jan 17 03:13:00 thesquareplanet.com sshd[2631]: Disconnected from </span></span><br><span class="line"><span class="comment"># invalid user Disconnected from 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line"><span class="comment"># /.*Disconnected from /会匹配出</span></span><br><span class="line"><span class="comment"># 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line">perl -pe <span class="string">&#x27;s/.*?Disconnected from //&#x27;</span></span><br><span class="line"><span class="comment"># 可以只匹配到第一个</span></span><br></pre></td></tr></table></figure>
+<p>使用捕获组（capture groups）填充SUBSTITUTION部分，每个圆括号对应<code>\1</code>、 <code>\2</code>、<code>\3</code></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">| sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>比较完整的处理</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br><span class="line"> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line"> | <span class="built_in">sort</span> -nk1,1 | <span class="built_in">tail</span> -n10</span><br><span class="line"> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">paste</span> -sd,</span><br></pre></td></tr></table></figure>
+<p><code>uniq -c</code> 会把连续出现的行折叠为一行并使用出现次数作为前缀， <code>paste</code>命令来合并行(<code>-s</code>)，并指定一个分隔符进行分割 (<code>-d</code>)。</p>
+<p>对于<code>awk</code>，<code>$0</code> 表示整行的内容，<code>$1</code> 到 <code>$n</code> 为一行中的 n 个区域，区域的分割基于 <code>awk</code> 的域分隔符（默认是空格，可以通过<code>-F</code>来修改）。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 统计所有以c开头，以e结尾，并且仅尝试过一次登录的用户</span></span><br><span class="line"> | awk <span class="string">&#x27;$1 == 1 &amp;&amp; $2 ~ /^c[^ ]*e$/ &#123; print $2 &#125;&#x27;</span> | <span class="built_in">wc</span> -l</span><br><span class="line"> <span class="comment"># wc为word count</span></span><br></pre></td></tr></table></figure>
+<h4 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h4><p>命令可以从标准输入和参数中读取所处理的内容，管道控制的是标准输入输出，一些命令如<code>kill</code>、<code>rm</code>只能读取参数，需要使用xargs将标准输出变为参数，参考了一篇<a href="https://zhuanlan.zhihu.com/p/556154777">知乎专栏</a></p>
+<p>具体用法可参考这篇<a href="https://www.cnblogs.com/chenxiaomeng/p/16040498.html">https://www.cnblogs.com/chenxiaomeng/p/16040498.html</a></p>
+<h4 id="课后习题"><a href="#课后习题" class="headerlink" title="课后习题"></a>课后习题</h4><p><a href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions/data-wrangling-solution/">参考答案</a></p>
+<p><strong>wsl并不是通过systemd进程启动的</strong>，在wsl中开启systemd参考<a href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/">这个</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>MySQL笔记</title>
     <url>/posts/fd5f561d.html</url>
     <content><![CDATA[<p>MySQL学习过程中的一些知识点<span id="more"></span></p>
@@ -208,47 +306,6 @@
       <tags>
         <tag>MySQL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MIT Missing Semester笔记（三）</title>
-    <url>/posts/b726205c.html</url>
-    <content><![CDATA[<h3 id="数据整理"><a href="#数据整理" class="headerlink" title="数据整理"></a>数据整理</h3><p><strong>一些重要网址</strong></p>
-<p>在线正则表达式调试工具<a href="https://regex101.com/">regex debugger</a></p>
-<p>正则表达式<a href="https://regexone.com/">教程</a></p>
-<hr>
-
-<p>第四节课：数据整理，日志处理是典型的场景，比如<code>journalctl | grep -i intel</code></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver <span class="string">&#x27;journalctl | grep sshd | grep &quot;Disconnected from&quot;&#x27;</span> | less</span><br></pre></td></tr></table></figure>
-<p>将处理过程更多地放在服务器上，减少网络传输，<code>less</code>创建一个分页器</p>
-<p><code>sed</code> 是一个基于文本编辑器<code>ed</code>构建的”流编辑器” ，如：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed <span class="string">&#x27;s/.*Disconnected from //&#x27;</span></span><br></pre></td></tr></table></figure>
-<p><code>s/REGEX/SUBSTITUTION/</code>，其中regex为正则表达式，现查现用吧</p>
-<ul>
-<li><code>.</code> 除换行符之外的”任意单个字符”</li>
-<li><code>*</code> 匹配前面字符零次或多次</li>
-<li><code>+</code> 匹配前面字符一次或多次</li>
-<li><code>[abc]</code> 匹配 <code>a</code>, <code>b</code> 和 <code>c</code> 中的任意一个</li>
-<li><code>(RX1|RX2)</code> 任何能够匹配<code>RX1</code> 或 <code>RX2</code>的结果</li>
-<li><code>^</code> 行首</li>
-<li><code>$</code> 行尾</li>
-</ul>
-<p><code>*</code>和<code>+</code>默认是贪心的，<code>sed</code>不支持在它们后面增加<code>?</code>：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Jan 17 03:13:00 thesquareplanet.com sshd[2631]: Disconnected from </span></span><br><span class="line"><span class="comment"># invalid user Disconnected from 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line"><span class="comment"># /.*Disconnected from /会匹配出</span></span><br><span class="line"><span class="comment"># 46.97.239.16 port 55920 [preauth]</span></span><br><span class="line">perl -pe <span class="string">&#x27;s/.*?Disconnected from //&#x27;</span></span><br><span class="line"><span class="comment"># 可以只匹配到第一个</span></span><br></pre></td></tr></table></figure>
-<p>使用捕获组（capture groups）填充SUBSTITUTION部分，每个圆括号对应<code>\1</code>、 <code>\2</code>、<code>\3</code></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">| sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>比较完整的处理</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep <span class="string">&quot;Disconnected from&quot;</span></span><br><span class="line"> | sed -E <span class="string">&#x27;s/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/&#x27;</span></span><br><span class="line"> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line"> | <span class="built_in">sort</span> -nk1,1 | <span class="built_in">tail</span> -n10</span><br><span class="line"> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">paste</span> -sd,</span><br></pre></td></tr></table></figure>
-<p><code>uniq -c</code> 会把连续出现的行折叠为一行并使用出现次数作为前缀， <code>paste</code>命令来合并行(<code>-s</code>)，并指定一个分隔符进行分割 (<code>-d</code>)。</p>
-<p>对于<code>awk</code>，<code>$0</code> 表示整行的内容，<code>$1</code> 到 <code>$n</code> 为一行中的 n 个区域，区域的分割基于 <code>awk</code> 的域分隔符（默认是空格，可以通过<code>-F</code>来修改）。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 统计所有以c开头，以e结尾，并且仅尝试过一次登录的用户</span></span><br><span class="line"> | awk <span class="string">&#x27;$1 == 1 &amp;&amp; $2 ~ /^c[^ ]*e$/ &#123; print $2 &#125;&#x27;</span> | <span class="built_in">wc</span> -l</span><br><span class="line"> <span class="comment"># wc为word count</span></span><br></pre></td></tr></table></figure>
-<h4 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h4><p>命令可以从标准输入和参数中读取所处理的内容，管道控制的是标准输入输出，一些命令如<code>kill</code>、<code>rm</code>只能读取参数，需要使用xargs将标准输出变为参数，参考了一篇<a href="https://zhuanlan.zhihu.com/p/556154777">知乎专栏</a></p>
-<p>具体用法可参考这篇<a href="https://www.cnblogs.com/chenxiaomeng/p/16040498.html">https://www.cnblogs.com/chenxiaomeng/p/16040498.html</a></p>
-<h4 id="课后习题"><a href="#课后习题" class="headerlink" title="课后习题"></a>课后习题</h4><p><a href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions/data-wrangling-solution/">参考答案</a></p>
-<p><strong>wsl并不是通过systemd进程启动的</strong>，在wsl中开启systemd参考<a href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/">这个</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
   </entry>
   <entry>
     <title>jvm总结</title>
@@ -457,23 +514,6 @@
       </tags>
   </entry>
   <entry>
-    <title>我的二〇二二</title>
-    <url>/posts/9b29cd32.html</url>
-    <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
-<p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
-<p>近几年简单地说：在挫败中寻找光亮</p>
-<hr>
-
-<p>一个月过去了，今天是23年立春。回想起这一年多来，只能说自作自受，失望厌恶。认真努力吧，没什么可说的了</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>朝花夕拾</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>并发学习</title>
     <url>/posts/54cc7e1f.html</url>
     <content><![CDATA[<p>并发编程里的知识点<span id="more"></span></p>
@@ -536,6 +576,23 @@
       </categories>
       <tags>
         <tag>Java并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的二〇二二</title>
+    <url>/posts/9b29cd32.html</url>
+    <content><![CDATA[<p>回望这一年，仍有强烈的不真实感，整体十分混乱，也就匆匆动笔了</p>
+<p>时间赋予了我们“一周年”，也终将把我们吞没。当UNIX时间戳自增到1672502400时2023年开始，时间的流逝没有任何偏好。但总该有所纪念，地球公转一周，四时晨昏交替，在魔幻的2022年岁末，写下自己的第一个年终总结</p>
+<p>近几年简单地说：在挫败中寻找光亮</p>
+<hr>
+
+<p>一个月过去了，今天是23年立春。回想起这一年多来，只能说自作自受，失望厌恶。认真努力吧，没什么可说的了</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>朝花夕拾</tag>
       </tags>
   </entry>
   <entry>
@@ -824,6 +881,27 @@
       <tags>
         <tag>新冠</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>毕业前后</title>
+    <url>/posts/812f5981.html</url>
+    <content><![CDATA[<center>     <img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/IMG_20230705_170612.jpg" width=48%>     <img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/IMG_20230705_171121.jpg" width=48%> </center>
+
+<p>学校那条由南向北的路很短，也终于走到了最后。再见，我的学生时代</p>
+<p>一年前的今天，我应该躺在刚租好的屋子里。双榆树东里，“双榆树”是一个很美好的词语，它变成了某种隐喻。如果春天路过那里，树木一定很是让人欣喜</p>
+<p>一年过去了，我有什么变化吗？没有，这几年几乎没有转变过什么。未来的种种可能性铺展在眼前，我感到一丝非理性的迷信，总是觉得自己就要触碰到理想的生活了</p>
+<p>一个月前收到了中行软开的签约通知，这对我再好不过了，银行稳定且工作强度没那么大，我可以把更多精力放在工作之外。匆匆而过的五个月，没有留下什么</p>
+<p>二月初回到学校，开始写毕业论文。从零开始，又编又抄，偶尔应付下老师的无聊任务。构想创新点的过程十分不可复现，四处找文献，好在找到了一个说得过去的，将近一个月把初稿写完。系统上面没有花太多时间，拿现成的改了改。3月17交初稿，四月份没有抽到盲审和预答辩，5月31最后答辩，还算顺利</p>
+<p>三月份开始考虑春招了，心里不太想准备，重新找工作的过程很厌烦，去字节也没什么不好，相信自己是能在互联网立足的。投了十来家，基本都是银行，四五月份做了很多笔试，也面了不少次。日子随着睡觉时的翻身不断流走，只在回忆时才发觉漫长。这段时间除非有事，都会躺到中午才下床，这种生活当然很不错。五月底字节HR打来电话，问什么时候入职，只好说七月初。在毕业论文签完字后，心想下一周要开始学习了，几个月不写代码什么都忘了，就在那几天收到了中行的签约，自己好像总能在最后时刻改写比分</p>
+<p>在公司附近租了房，一言难尽但就这么住着吧。前几年工资不高但涨幅还可以，先攒攒房租和看牙的钱，可以更多地来说说毕业之后的事了</p>
+<p>五一之前买了些素描用的纸笔工具，到现在还没拆封，等回到住的地方就开始每天学一点吧。这事在二零年初干过一次，不过画了几次就放弃了，直线都画不直。后面再买个midi键盘，乐理也要学一学。书准备了一些，小说有《托尔斯泰中短篇小说选》《地下室手记》《玩笑》，也准备看看康德的《未来形而上学导论》、再了解下黑格尔的思想，其实阅读倾向很明显，读大家的简短、概括的入门作品，很多想读的存在主义著作也是从批判黑格尔出发的，尽力去阅读吧。还有像《叶嘉莹说汉魏六朝诗》、《日常生活的心理分析》等书，当然还在平板上下了很多漫画，漫画似乎是连结当下与小时候的最快通路了。继续网上冲浪！音乐、电影也别落下</p>
+<p>在编程上也更待提高，要加强基本功。面对工作上的屎山代码、复杂业务逻辑，确实没什么乐趣可言，但自己写点什么就很有意思了。先把《深入理解计算机系统》、《计算机程序的构造和解释》看了，相应的实验也尽力去写，争取把那几个经典课程的实验都做了。另一条是开发路线，开始先再熟悉下Java的开发过程，后面学学别的，elixir很有吸引力，PHP和Ruby也可以考虑，前端客户端桌面端就用flutter，不过也可以学学pyqt，对前端那一套深恶痛绝，npm不可能再碰了。做点开源的东西，多更新博客</p>
+<p>现在的文字多是流水账，阅读太少写得也少，未来要持续地阅读、写作。还有些别的想说，留到下次吧</p>
+<p>School‘s out，what did you expect？</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=18295909&auto=0&height=66"></iframe>]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
   <entry>
     <title>秋招总结</title>
