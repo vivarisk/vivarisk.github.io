@@ -11,8 +11,8 @@
   
   <title>
     
-      标签 
-       : 周记
+      周记 | 7.10-7.16 
+      
       
       |
     
@@ -111,66 +111,82 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container tag-details">
-  <div class="content-title">
-    <h2>
-      <span>周记</span>
-    </h2>
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">周记 | 7.10-7.16</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-07-16
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/weekly/" title="weekly">
+                    &nbsp;weekly
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E5%91%A8%E8%AE%B0/" title="周记">
+                    &nbsp;周记
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>这周四入职了，有十天的培训，大多是讲座和一些互动活动。工区环境挺好的，两栋大点的楼是软件中心的，一栋小楼是科运的。食堂也不错，只是菜不便宜，每个月补贴五百还行。就是这局域网开发和国产操作系统有点难绷，麒麟魔改的linux听说问题不少，不过分组之后还有时间学习，希望能分到个不错的组。每天培训都是在一个会议室里，一坐就是一天，挺累的。周五下午的反洗钱讲座不错，在银行上班最重要的就是“合规”，这位领导的讲话也挺好玩，是这两天我唯一能听进去的讲座</p>
+<p>5号拔了右下的智齿，周六去拆了线，恢复挺好</p>
+<p>没想到最近的作息比在学校时更混乱，不间断的网上冲浪，这看几个小时那看几个小时，今天又躺了一天。学习、阅读、画画还是没有开始，可能是玩累了，特别想看书学习😕</p>
+<!-- flag of hidden posts -->
+      </div>
+      
+    </div>
+    
+
+    
   </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="周记 | 7.10-7.16">
-        <span class="time-m-d">2023-07-16</span>
-        <a href="/posts/594bdd72">
-          <span>周记 | 7.10-7.16</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="周记 | 4.10-4.16">
-        <span class="time-m-d">2023-04-16</span>
-        <a href="/posts/72734e59">
-          <span>周记 | 4.10-4.16</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="周记 | 4.3-4.9">
-        <span class="time-m-d">2023-04-09</span>
-        <a href="/posts/557331c">
-          <span>周记 | 4.3-4.9</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="周记 | 5.9-5.15">
-        <span class="time-m-d">2022-05-15</span>
-        <a href="/posts/8de1ee47">
-          <span>周记 | 5.9-5.15</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="周记 | 3.21-3.27">
-        <span class="time-m-d">2022-03-27</span>
-        <a href="/posts/2d5bb144">
-          <span>周记 | 3.21-3.27</span>
-        </a>
-      </div>
-    </div>
-  
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
-</div>
+
 
         
 <div class="footer">
