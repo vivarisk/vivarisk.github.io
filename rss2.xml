@@ -15,8 +15,35 @@
     <atom:link href="https://vivarisk.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>行行重行行</description>
-    <pubDate>Wed, 12 Jul 2023 17:33:50 GMT</pubDate>
+    <pubDate>Thu, 27 Jul 2023 16:09:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>GitHub的ssh问题</title>
+      <link>https://vivarisk.github.io/posts/a051eca0</link>
+      <guid>https://vivarisk.github.io/posts/a051eca0</guid>
+      <pubDate>Thu, 27 Jul 2023 15:48:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最早可以说到三月份，当时在wsl上想编译一个pyqt项目，发现GitHub配置过ssh后仍然报错，不是网络的问题。当时时间紧，直接从win上复制过来了，在月初使用wsl又碰到了这个问题，而且在win上也是这样！有关ssh的内容后续要再深入学一下，暂时将解决时用到的两篇博客放</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://vivarisk.github.io/tags/GitHub/">GitHub</category>
+      
+      <category domain="https://vivarisk.github.io/tags/ssh/">ssh</category>
+      
+      
+      <comments>https://vivarisk.github.io/posts/a051eca0#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>毕业前后</title>
@@ -472,29 +499,6 @@
       
       
       <comments>https://vivarisk.github.io/posts/b7ff5df1#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>刷题-分治</title>
-      <link>https://vivarisk.github.io/posts/756833e6</link>
-      <guid>https://vivarisk.github.io/posts/756833e6</guid>
-      <pubDate>Thu, 02 Jun 2022 15:28:03 GMT</pubDate>
-      
-      <description>&lt;p&gt;关于分治的题，就记住吧&lt;br&gt;</description>
-      
-      
-      
-      
-      <category domain="https://vivarisk.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="https://vivarisk.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</category>
-      
-      <category domain="https://vivarisk.github.io/tags/%E5%88%86%E6%B2%BB/">分治</category>
-      
-      
-      <comments>https://vivarisk.github.io/posts/756833e6#disqus_thread</comments>
       
     </item>
     
