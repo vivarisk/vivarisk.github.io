@@ -32,10 +32,6 @@
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
   <!-- 代码块风格 -->
   
-    
-<link rel="stylesheet" href="/css/figcaption/mac-block.css">
-
-  
 
   <!-- jquery3.3.1 -->
   
@@ -62,7 +58,11 @@
       document.documentElement.setAttribute('color-mode', colorMode)
     }
   </script>
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
 </head>
 
 
@@ -73,7 +73,7 @@
     <a href="/">
       <!-- 头像取消懒加载，添加no-lazy -->
       
-        <img src="/images/white_pixel.png" alt="">
+        <img no-lazy src="/images/white_pixel.png" alt="">
       
     </a>
     <div class="nickname"><a href="/">航向树冠层</a></div>
@@ -85,12 +85,8 @@
           <a href="/">主页</a>
         </li>
       
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">归档</a>
-        </li>
-      
-        <li class="nav-item" data-path="/categories/weekly">
-          <a href="/categories/weekly">周记</a>
+        <li class="nav-item" data-path="/categories/fragments">
+          <a href="/categories/fragments">片段</a>
         </li>
       
         <li class="nav-item" data-path="/moments/">
@@ -165,7 +161,19 @@
       </div>
       <div class="markdown-body">
         <h3 id="任务控制"><a href="#任务控制" class="headerlink" title="任务控制"></a>任务控制</h3><h4 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h4><p>输入 <code>Ctrl-C</code> 时，shell 会发送一个<code>SIGINT</code> 信号到进程。<code>SIGQUIT</code> 信号，通过输入<code>Ctrl-\</code>可以发送该信号。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> signal, time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handler</span>(<span class="params">signum, time</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nI got a SIGINT, but I am not stopping&quot;</span>)</span><br><span class="line"></span><br><span class="line">signal.signal(signal.SIGINT, handler)</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    time.sleep(<span class="number">.1</span>)</span><br><span class="line">    <span class="comment"># \n 换新行 \r 刷新当前行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\r&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" style="" data-prismjs-copy-timeout="500" tabindex="0"><code id="57308e3e" class="language-python" data-prism-hydrate="{&quot;element&quot;:&quot;57308e3e&quot;,&quot;language&quot;:&quot;python&quot;,&quot;code&quot;:&quot;#!/usr/bin/env python3\nimport signal, time\n\ndef handler(signum, time):\n    print(\&quot;\\nI got a SIGINT, but I am not stopping\&quot;)\n\nsignal.signal(signal.SIGINT, handler)\ni = 0\nwhile True:\n    time.sleep(.1)\n    # \\n 换新行 \\r 刷新当前行\n    print(\&quot;\\r{}\&quot;.format(i), end=\&quot;\&quot;)\n    i += 1&quot;,&quot;settings&quot;:{},&quot;highlightedCode&quot;:&quot;\u003cspan class=\&quot;token comment\&quot;\u003e#!/usr/bin/env python3</span>\n<span class=\&quot;token keyword\&quot;>import</span> signal<span class=\&quot;token punctuation\&quot;>,</span> time\n\n<span class=\&quot;token keyword\&quot;>def</span> <span class=\&quot;token function\&quot;>handler</span><span class=\&quot;token punctuation\&quot;>(</span>signum<span class=\&quot;token punctuation\&quot;>,</span> time<span class=\&quot;token punctuation\&quot;>)</span><span class=\&quot;token punctuation\&quot;>:</span>\n    <span class=\&quot;token keyword\&quot;>print</span><span class=\&quot;token punctuation\&quot;>(</span><span class=\&quot;token string\&quot;>\&quot;\\nI got a SIGINT, but I am not stopping\&quot;</span><span class=\&quot;token punctuation\&quot;>)</span>\n\nsignal<span class=\&quot;token punctuation\&quot;>.</span>signal<span class=\&quot;token punctuation\&quot;>(</span>signal<span class=\&quot;token punctuation\&quot;>.</span>SIGINT<span class=\&quot;token punctuation\&quot;>,</span> handler<span class=\&quot;token punctuation\&quot;>)</span>\ni <span class=\&quot;token operator\&quot;>=</span> <span class=\&quot;token number\&quot;>0</span>\n<span class=\&quot;token keyword\&quot;>while</span> <span class=\&quot;token boolean\&quot;>True</span><span class=\&quot;token punctuation\&quot;>:</span>\n    time<span class=\&quot;token punctuation\&quot;>.</span>sleep<span class=\&quot;token punctuation\&quot;>(</span><span class=\&quot;token number\&quot;>.1</span><span class=\&quot;token punctuation\&quot;>)</span>\n    <span class=\&quot;token comment\&quot;># \\n 换新行 \\r 刷新当前行</span>\n    <span class=\&quot;token keyword\&quot;>print</span><span class=\&quot;token punctuation\&quot;>(</span><span class=\&quot;token string\&quot;>\&quot;\\r{}\&quot;</span><span class=\&quot;token punctuation\&quot;>.</span><span class=\&quot;token builtin\&quot;>format</span><span class=\&quot;token punctuation\&quot;>(</span>i<span class=\&quot;token punctuation\&quot;>)</span><span class=\&quot;token punctuation\&quot;>,</span> end<span class=\&quot;token operator\&quot;>=</span><span class=\&quot;token string\&quot;>\&quot;\&quot;</span><span class=\&quot;token punctuation\&quot;>)</span>\n    i <span class=\&quot;token operator\&quot;>+=</span> <span class=\&quot;token number\&quot;>1</span>&quot;,&quot;plugins&quot;:{&quot;lineNumbers&quot;:true}}"><span class="token comment">#!/usr/bin/env python3</span>
+<span class="token keyword">import</span> signal<span class="token punctuation">,</span> time
+
+<span class="token keyword">def</span> <span class="token function">handler</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> time<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nI got a SIGINT, but I am not stopping"</span><span class="token punctuation">)</span>
+
+signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGINT<span class="token punctuation">,</span> handler<span class="token punctuation">)</span>
+i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">.1</span><span class="token punctuation">)</span>
+    <span class="token comment"># \n 换新行 \r 刷新当前行</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\r{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+    i <span class="token operator">+=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>SIGTERM</code> 则是一个更加通用的、也更加优雅地退出信号。为了发出这个信号我们需要使用 <a target="_blank" rel="noopener" href="https://www.man7.org/linux/man-pages/man1/kill.1.html"><code>kill</code></a> 命令, 它的语法是： <code>kill -TERM &lt;PID&gt;</code>。</p>
 <h4 id="暂停和后台执行进程"><a href="#暂停和后台执行进程" class="headerlink" title="暂停和后台执行进程"></a>暂停和后台执行进程</h4><p><code>Ctrl-Z</code> 会让 shell 发送 <code>SIGTSTP</code> 信号</p>
 <p><code>jobs</code>列出当前终端会话的未完成任务，通过编号引用任务（直接123，或加%）</p>
@@ -173,7 +181,28 @@
 <p><code>jobs</code>中<code>+</code>为最后第一个放入后台的任务，<code>-</code>为倒数第二个放入后台的任务</p>
 <p>恢复暂停的工作<code>fg</code>、<code>bg</code>（前台、后台）</p>
 <p><code>pgrep</code>检索pid</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ python3 sigint.py</span><br><span class="line">24^Z</span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">fg</span> 1</span><br><span class="line">python3 sigint.py</span><br><span class="line">43^Z</span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[1]+  Stopped                 python3 sigint.py</span><br><span class="line">$ pgrep -l python</span><br><span class="line">2824 python3</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[1]-  Stopped                 python3 sigint.py</span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br><span class="line">$ <span class="built_in">kill</span> -SIGHUP %1</span><br><span class="line">[1]-  Stopped                 python3 sigint.py</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line"><span class="comment"># 贴心地再显示一次</span></span><br><span class="line">[1]-  Hangup                  python3 sigint.py</span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br><span class="line">$ <span class="built_in">jobs</span></span><br><span class="line">[2]+  Stopped                 <span class="built_in">sleep</span> 1000</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sh" style="" data-prismjs-copy-timeout="500" tabindex="0"><code id="13b9153e" class="language-sh" data-prism-hydrate="{&quot;element&quot;:&quot;13b9153e&quot;,&quot;language&quot;:&quot;sh&quot;,&quot;code&quot;:&quot;$ python3 sigint.py\n24^Z\n[1]+  Stopped                 python3 sigint.py\n$ fg 1\npython3 sigint.py\n43^Z\n[1]+  Stopped                 python3 sigint.py\n$ jobs\n[1]+  Stopped                 python3 sigint.py\n$ pgrep -l python\n2824 python3\n$ jobs\n[1]-  Stopped                 python3 sigint.py\n[2]+  Stopped                 sleep 1000\n$ kill -SIGHUP %1\n[1]-  Stopped                 python3 sigint.py\n$ jobs\n# 贴心地再显示一次\n[1]-  Hangup                  python3 sigint.py\n[2]+  Stopped                 sleep 1000\n$ jobs\n[2]+  Stopped                 sleep 1000&quot;,&quot;settings&quot;:{},&quot;highlightedCode&quot;:&quot;$ python3 sigint.py\n\u003cspan class=\&quot;token number\&quot;\u003e24</span>^Z\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 python3 sigint.py\n$ <span class=\&quot;token function\&quot;>fg</span> <span class=\&quot;token number\&quot;>1</span>\npython3 sigint.py\n<span class=\&quot;token number\&quot;>43</span>^Z\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 python3 sigint.py\n$ <span class=\&quot;token function\&quot;>jobs</span>\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 python3 sigint.py\n$ pgrep <span class=\&quot;token parameter variable\&quot;>-l</span> python\n<span class=\&quot;token number\&quot;>2824</span> python3\n$ <span class=\&quot;token function\&quot;>jobs</span>\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>-  Stopped                 python3 sigint.py\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>2</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 <span class=\&quot;token function\&quot;>sleep</span> <span class=\&quot;token number\&quot;>1000</span>\n$ <span class=\&quot;token function\&quot;>kill</span> <span class=\&quot;token parameter variable\&quot;>-SIGHUP</span> %1\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>-  Stopped                 python3 sigint.py\n$ <span class=\&quot;token function\&quot;>jobs</span>\n<span class=\&quot;token comment\&quot;># 贴心地再显示一次</span>\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>1</span><span class=\&quot;token punctuation\&quot;>]</span>-  Hangup                  python3 sigint.py\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>2</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 <span class=\&quot;token function\&quot;>sleep</span> <span class=\&quot;token number\&quot;>1000</span>\n$ <span class=\&quot;token function\&quot;>jobs</span>\n<span class=\&quot;token punctuation\&quot;>[</span><span class=\&quot;token number\&quot;>2</span><span class=\&quot;token punctuation\&quot;>]</span>+  Stopped                 <span class=\&quot;token function\&quot;>sleep</span> <span class=\&quot;token number\&quot;>1000</span>&quot;,&quot;plugins&quot;:{&quot;lineNumbers&quot;:true}}">$ python3 sigint.py
+<span class="token number">24</span>^Z
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>+  Stopped                 python3 sigint.py
+$ <span class="token function">fg</span> <span class="token number">1</span>
+python3 sigint.py
+<span class="token number">43</span>^Z
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>+  Stopped                 python3 sigint.py
+$ <span class="token function">jobs</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>+  Stopped                 python3 sigint.py
+$ pgrep <span class="token parameter variable">-l</span> python
+<span class="token number">2824</span> python3
+$ <span class="token function">jobs</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>-  Stopped                 python3 sigint.py
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>+  Stopped                 <span class="token function">sleep</span> <span class="token number">1000</span>
+$ <span class="token function">kill</span> <span class="token parameter variable">-SIGHUP</span> %1
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>-  Stopped                 python3 sigint.py
+$ <span class="token function">jobs</span>
+<span class="token comment"># 贴心地再显示一次</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>-  Hangup                  python3 sigint.py
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>+  Stopped                 <span class="token function">sleep</span> <span class="token number">1000</span>
+$ <span class="token function">jobs</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>+  Stopped                 <span class="token function">sleep</span> <span class="token number">1000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>命令中的 <code>&amp;</code> 后缀可以让命令在直接在后台运行，这使得可以直接在 shell 中继续做其他操作，不过它此时还是会使用 shell 的标准输出，这一点有时会比较恼人（这种情况可以使用 shell 重定向处理）。</p>
 </blockquote>
@@ -186,7 +215,7 @@
 <h3 id="终端多路复用：tmux"><a href="#终端多路复用：tmux" class="headerlink" title="终端多路复用：tmux"></a>终端多路复用：tmux</h3><p>tmux可以方便地在终端上操作多个窗口，通过三个层级管理：会话（session）、窗口（window）、面板（pane）</p>
 <p>这有篇很好的教程<a target="_blank" rel="noopener" href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">A Quick and Easy Guide to tmux</a></p>
 <p>tmux的快捷键都是先按<code>Ctrl+b</code>，再按某功能键</p>
-<p><img src="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230710151428980.png" alt="image-20230710151428980"></p>
+<p><img src="/images/Genshin Impact.svg" data-original="https://huangsl-1304681817.cos.ap-beijing.myqcloud.com/img/image-20230710151428980.png" alt="image-20230710151428980"></p>
 <ul>
 <li>session<ul>
 <li><code>tmux</code>开始一个新的会话</li>
@@ -307,5 +336,21 @@
 
       </div>
     </div>
-  </body>
+  <!-- hexo injector body_end start -->
+<script src="/assets/prism-bundle.js"></script>
+<script src="/assets/prism-plus.js" data-pjax=""></script>
+<!-- hexo injector body_end end -->
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 </html>

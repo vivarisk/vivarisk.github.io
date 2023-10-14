@@ -1763,6 +1763,18 @@ a:hover {
   white-space: nowrap;
 }
 
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.5em !important;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"] {
+  padding: 0.5em !important;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
 .footer {
   padding-top: 30px;
   font-size: 1.2rem;

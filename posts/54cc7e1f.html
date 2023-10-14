@@ -32,10 +32,6 @@
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
   <!-- 代码块风格 -->
   
-    
-<link rel="stylesheet" href="/css/figcaption/mac-block.css">
-
-  
 
   <!-- jquery3.3.1 -->
   
@@ -62,7 +58,11 @@
       document.documentElement.setAttribute('color-mode', colorMode)
     }
   </script>
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
 </head>
 
 
@@ -73,7 +73,7 @@
     <a href="/">
       <!-- 头像取消懒加载，添加no-lazy -->
       
-        <img src="/images/white_pixel.png" alt="">
+        <img no-lazy src="/images/white_pixel.png" alt="">
       
     </a>
     <div class="nickname"><a href="/">航向树冠层</a></div>
@@ -85,12 +85,8 @@
           <a href="/">主页</a>
         </li>
       
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">归档</a>
-        </li>
-      
-        <li class="nav-item" data-path="/categories/weekly">
-          <a href="/categories/weekly">周记</a>
+        <li class="nav-item" data-path="/categories/fragments">
+          <a href="/categories/fragments">片段</a>
         </li>
       
         <li class="nav-item" data-path="/moments/">
@@ -192,10 +188,10 @@
 </ul>
 <p>每一个对象都关联一个monitor，执行monitorenter时，会尝试获得对象对应的monitor的所有权，即尝试获得对象的锁。</p>
 <p>在 HotSpot 虚拟机中，对象在内存中的布局分为三块区域：对象头，实例数据和对齐填充。对象头中包含两部分：MarkWord 和 类型指针。如果是数组对象的话，对象头还有一部分是存储数组的长度。多线程下 synchronized 的加锁就是对同一个对象的对象头中的 MarkWord 中的变量进行CAS操作。</p>
-<p><img src="https://tech.youzan.com/content/images/2021/06/image-20210627210825952.png" alt="mariword"></p>
+<p><img src="/images/Genshin Impact.svg" data-original="https://tech.youzan.com/content/images/2021/06/image-20210627210825952.png" alt="mariword"></p>
 <p>epoch: 偏向时间戳<strong>后面再查查资料</strong></p>
 <p>如果当前锁<strong>已偏向其他线程</strong>||<strong>epoch值过期</strong>||<strong>class偏向模式关闭</strong>||<strong>获取偏向锁的过程中存在并发冲突</strong>，都会进入到<code>InterpreterRuntime::monitorenter</code>方法， 在该方法中会进行偏向锁撤销和升级。</p>
-<p><img src="https://tech.youzan.com/content/images/2021/07/---.svg" alt=""></p>
+<p><img src="/images/Genshin Impact.svg" data-original="https://tech.youzan.com/content/images/2021/07/---.svg" alt=""></p>
 <p><strong>只有匿名偏向的对象才能进入偏向锁模式</strong>。偏向锁是延时初始化的，默认是4000ms。初始化后会将所有加载的Klass的prototype header修改为匿名偏向样式。当创建一个对象时，会通过Klass的prototype_header来初始化该对象的对象头。简单的说，偏向锁初始化结束后，后续所有对象的对象头都为<strong>匿名偏向</strong>样式，在此之前创建的对象则为<strong>无锁状态</strong>。而对于无锁状态的锁对象，如果有竞争，会直接进入到轻量级锁。这也是为什么JVM启动前4秒对象会直接进入到轻量级锁的原因。</p>
 <p>为什么需要延迟初始化？</p>
 <p>JVM启动时必不可免会有大量sync的操作，而偏向锁并不是都有利。如果开启了偏向锁，会发生大量锁撤销和锁升级操作，大大降低JVM启动效率。</p>
@@ -306,5 +302,21 @@
 
       </div>
     </div>
-  </body>
+  <!-- hexo injector body_end start -->
+<script src="/assets/prism-bundle.js"></script>
+<script src="/assets/prism-plus.js" data-pjax=""></script>
+<!-- hexo injector body_end end -->
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 </html>
