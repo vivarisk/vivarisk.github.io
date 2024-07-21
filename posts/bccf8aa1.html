@@ -11,8 +11,8 @@
   
   <title>
     
-      标签 
-       : 新冠
+      周记 | 7.15-7.21 
+      
       
       |
     
@@ -107,25 +107,81 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container tag-details">
+
+
+
+  <!-- clipboard -->
+
   
-    <div class="post-list">
-      <div class="post-item" title="新冠日记">
-        <span class="time-m-d">2022-12-22</span>
-        <a href="/posts/44ed0285">
-          <span>新冠日记</span>
-        </a>
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">周记 | 7.15-7.21</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-07-21
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%89%87%E6%AE%B5/" title="片段">
+                    &nbsp;片段
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E5%91%A8%E8%AE%B0/" title="周记">
+                    &nbsp;周记
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
+      <div class="markdown-body">
+        <p>这周摸鱼较多。准备了初级考试，中银研修怎么做到这么烂的，真特么烂；多账户开始了新的改造，这半年来对部门业务算是有了基本了解</p>
+<p>周六上午去看了牙，骨钉上加了个光滑的小铁片，终于不扎嘴了；中午去动物园转了转，太热了，G100的对焦确实不够用，手动对焦也很难控制（绿色的边缘识别不出来）；动物园太致郁了，羚牛、藏野驴的神情让人难过</p>
+<!-- flag of hidden posts -->
+      </div>
+      
     </div>
-  
-  <nav class="post-navigation">
     
-    <span class="page-num">1 / 1</span>
+
     
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">

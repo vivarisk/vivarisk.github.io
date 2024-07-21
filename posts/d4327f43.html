@@ -11,8 +11,8 @@
   
   <title>
     
-      标签 
-       : 新冠
+      周记 | 12.4-12.31 
+      
       
       |
     
@@ -107,25 +107,86 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container tag-details">
+
+
+
+  <!-- clipboard -->
+
   
-    <div class="post-list">
-      <div class="post-item" title="新冠日记">
-        <span class="time-m-d">2022-12-22</span>
-        <a href="/posts/44ed0285">
-          <span>新冠日记</span>
-        </a>
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">周记 | 12.4-12.31</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-12-10
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%89%87%E6%AE%B5/" title="片段">
+                    &nbsp;片段
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E5%91%A8%E8%AE%B0/" title="周记">
+                    &nbsp;周记
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
+      <div class="markdown-body">
+        <p>12.4-12.10</p>
+<p>周一去医院把掉的托槽粘上了，请了两小时假，坐地铁回单位的时候，异常疲劳很是奇怪；和经理说了15号请假的事，经理人真很好，到时候请个事假；第二天发现那个病假被主管驳回了，说“不算病假”，我去医院挂号就诊缴费，然后请不了病假这合理吗😥</p>
+<p>周四发了工资，多了半年的房补，但没有双薪；看网上有说是结构性调整的，谁知道呢。前几天翻电脑的时候，看到了去年字节发的offer，26k好多啊，什么时候才能再拿到这个数，摆了摆了</p>
+<p>这周在单位也没什么事，排查一下UC里SQL没使用索引的情况，后续整理一下发篇博客写写索引和执行计划。周一部门发了不少防护用品，福利上还是没得说的，口罩洗手液消毒洗衣液；周围很多同事感冒了，时不时有咳嗽声，我的抵抗力也是神奇，总感觉自己有点虚但极少生病。还有一些团队的信息收集，这周确实比较闲，效率还是得提高点，本来能排查完的</p>
+<p>单位发过两次扶贫积分一共1000，给老姑和家里买了些吃的，还剩三百后面买点水果；周六上午去西北旺打球，感觉体力不如上周，平时每天还是要锻炼锻炼，不过投篮的感觉回来了！马上27了，身体素质还没感到有明显下滑，这几年得多打打球，就照着coach fui教练的视频练</p>
+<p>20240721</p>
+<p>半年多后才发现这篇戛然而止的片段，之后到年底只记得去南阳参加嘉良婚礼、圣诞节左右526重聚</p>
+<!-- flag of hidden posts -->
+      </div>
+      
     </div>
-  
-  <nav class="post-navigation">
     
-    <span class="page-num">1 / 1</span>
+
     
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">
