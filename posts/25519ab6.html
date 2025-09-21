@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="author" content="廿二" />
+  <meta name="description" content="行行重行行" />
+  
+  
+  <title>
+    
+      操作系统总结 
+      
+      
+      |
+    
+     航向树冠层
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/white_pixel.png">
+    <link rel="icon" href="/images/white_pixel.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="航向树冠层" type="application/rss+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/white_pixel.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">航向树冠层</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/片段/">
+          <a href="/categories/片段/">片段</a>
+        </li>
+      
+        <li class="nav-item" data-path="/moments/">
+          <a href="/moments/">树洞</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">操作系统总结</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2022-06-06
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习">
+                    &nbsp;学习
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">
+                    &nbsp;操作系统
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>操作系统知识点总结<span id="more"></span></p>
+<ol>
+<li><strong>进程、线程、协程的区别</strong></li>
+</ol>
+<ul>
+<li><p>进程指运行中的程序。一般我们希望同时运行多个程序，操作系统通过虚拟化CPU来提供这个假象，让一个进程只运行一个时间片，然后切换其他进程。进程是分配资源的单位，进程的机器状态（machine state，进程在运行时可以读取或更新的内容）：它的内存（地址空间）、寄存器。</p>
+</li>
+<li><p>线程是为单个进程提供的抽象，经典观点：一个程序只有一个执行点（一个PC），多线程程序有多个执行点（多个程序计数器，分别用于取指和执行），每个线程有一个程序计数器、一组寄存器。线程是调度的基本单位，把一个进程的资源分配和执行调度分开。线程间共享地址空间，能够访问相同的数据。</p>
+</li>
+</ul>
+<p>​    (线程上下文切换类似于进程上下文切换，进程切换将状态保存到进程控制块（PCB），线程对应线程控制块（TCB）。线程切换地址空间不变，不需要切换当前使用的页表。）</p>
+<ul>
+<li>java线程的实现基于内核线程（实际上是内核进程的一个接口：轻量级进程），各种线程操作、切换都要进行系统调用，代价较高，需要在用户态、内核态切换，同时也会消耗一定内核资源，容纳的线程数量有限。1：1</li>
+</ul>
+<p>​    协程：用户线程，1：N。用户线程的建立、同步、销毁和调度完全在用户态中完成。操作快、消耗低，但    实现上比较复杂，需要应用层实现的内容（调用栈、调度器）特别多。</p>
+<p>​    HotSpot中，java线程直接映射到操作系统原生线程，抢占式调度，调度最终由操作系统说了算。</p>
+<ol>
+<li><strong>进程间通信方式</strong></li>
+</ol>
+<p>每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，内核提供的这种机制称为<strong>进程间通信（IPC，InterProcess Communication）</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1015f5ffa74">https://www.jianshu.com/p/c1015f5ffa74</a></p>
+<p>1.匿名管道</p>
+<p>2.有名管道</p>
+<p>3.信号</p>
+<p>4.消息队列（内核中）</p>
+<p>5.共享内存：多个进程共享一段内存</p>
+<p>6.信号量：用于进程同步</p>
+<p>7.套接字</p>
+<p>3.<strong>死锁的产生条件和解决方案</strong></p>
+<p>多个进程可以竞争有限数量的资源。当一个进程申请资源时，如果这时没有可用资源，那么这个进程进入等待状态。有时，如果所申请的资源被其他等待进程占有，那么该等待进程有可能再也无法改变状态。这种情况称为 死锁。</p>
+<ul>
+<li><strong>互斥</strong>：资源必须处于非共享模式，即一次只有一个进程可以使用。如果另一进程申请该资源，那么必须等待直到该资源被释放为止。</li>
+<li><strong>占有并等待</strong>：一个进程至少应该占有一个资源，并等待另一资源，而该资源被其他进程所占有。</li>
+<li><strong>非抢占</strong>：资源不能被抢占。只能在持有资源的进程完成任务后，该资源才会被释放。</li>
+<li><strong>循环等待</strong>：有一组等待进程 <code>&#123;P0, P1,..., Pn&#125;</code>， <code>P0</code> 等待的资源被 <code>P1</code> 占有，<code>P1</code> 等待的资源被 <code>P2</code> 占有，……，<code>Pn-1</code> 等待的资源被 <code>Pn</code> 占有，<code>Pn</code> 等待的资源被 <code>P0</code> 占有。</li>
+</ul>
+<p>解决死锁的方法</p>
+<ul>
+<li><p><strong>预防</strong> 是采用某种策略，<strong>限制并发进程对资源的请求</strong>，从而使得死锁的必要条件在系统执行的任何时间上都不满足。</p>
+<p>1.<strong>静态分配策略</strong>：破坏第二个条件。一个进程必须在执行前就申请到它所需要的全部资源，并且知道它所要的资源都得到满足之后才开始执行。降低了资源利用率</p>
+<p>2.<strong>层次分配策略</strong>：破坏第二个条件。在层次分配策略下，所有的资源被分成了多个层次，一个进程得到某一次的一个资源后，它才能再申请较高一层的资源；当一个进程要释放某层的一个资源时，必须先释放所占用的较高层的资源，按这种策略，是不可能出现循环等待链的</p>
+</li>
+<li><p><strong>死锁避免</strong></p>
+<p>当一个进程申请使用资源的时候，<strong>银行家算法</strong> 通过先 <strong>试探</strong> 分配给该进程资源，然后通过 <strong>安全性算法</strong> 判断分配后系统是否处于安全状态，若不安全则试探分配作废，让该进程继续等待，若能够进入到安全的状态，则就 <strong>真的分配资源给该进程</strong>。需要花费较多的时间。</p>
+</li>
+<li><p>死锁检测</p>
+<ol>
+<li>如果进程-资源分配图中无环路，则此时系统没有发生死锁</li>
+<li>如果进程-资源分配图中有环路，且每个资源类仅有一个资源，则系统中已经发生了死锁。</li>
+<li>如果进程-资源分配图中有环路，且涉及到的资源类有多个资源，此时系统未必会发生死锁。如果能在进程-资源分配图中找出一个 <strong>既不阻塞又非独立的进程</strong> ，该进程能够在有限的时间内归还占有的资源，也就是把边给消除掉了，重复此过程，直到能在有限的时间内 <strong>消除所有的边</strong> ，则不会发生死锁，否则会发生死锁。(消除边的过程类似于 <strong>拓扑排序</strong>)</li>
+</ol>
+</li>
+<li><p>死锁解除</p>
+<ol>
+<li><strong>立即结束所有进程的执行，重新启动操作系统</strong> ：这种方法简单，但以前所在的工作全部作废，损失很大。</li>
+<li><strong>撤销涉及死锁的所有进程，解除死锁后继续运行</strong> ：这种方法能彻底打破<strong>死锁的循环等待</strong>条件，但将付出很大代价，例如有些进程可能已经计算了很长时间，由于被撤销而使产生的部分结果也被消除了，再重新执行时还要再次进行计算。</li>
+<li><strong>逐个撤销涉及死锁的进程，回收其资源直至死锁解除。</strong></li>
+<li><strong>抢占资源</strong> ：从涉及死锁的一个或几个进程中抢占资源，把夺得的资源再分配给涉及死锁的进程直至死锁解除。</li>
+</ol>
+</li>
+</ul>
+<p>4.<strong>虚拟内存及其作用介绍</strong></p>
+<p>操作系统提供了一个易用的物理内存抽象：地址空间。一个进程的地址空间包含运行程序的所有内存状态、代码、栈和堆。</p>
+<p>为什么要有虚拟内存：方便和易用性、支持多个并发进程</p>
+<p>3个目标：</p>
+<p>1.透明：程序感觉不到内存被虚拟化的事实，好像拥有自己的内存。操作系统和硬件完成了所有的工作。</p>
+<p>2.效率：时间上不会使程序执行得更慢，空间上不太需要额外的内存。依靠硬件支持。</p>
+<p>3.保护：一个进程不会影响其他进程或操作系统的内存内容（它的地址空间之外的内容），对进程之间提供隔离。</p>
+<p>5.<strong>线程间通信方式</strong></p>
+<ol>
+<li><strong>互斥量(Mutex)</strong>：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。比如 Java 中的 synchronized 关键词和各种 Lock 都是这种机制。</li>
+<li><strong>信号量(Semphares)</strong> ：它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件(Event)</strong> :Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</li>
+</ol>
+<p>6.<strong>进程调度算法</strong></p>
+<p>1.先进先出FIFO</p>
+<p>2.最短任务优先：非抢占式</p>
+<p>3.最短完成时间优先：抢占式</p>
+<p>4.时间片轮转</p>
+<p>5.多级反馈队列</p>
+<p>规则 1：如果 A 的优先级 &gt; B 的优先级，运行 A（不运行 B）。</p>
+<p> 规则 2：如果 A 的优先级 = B 的优先级，轮转运行 A 和 B。 </p>
+<p>规则 3：工作进入系统时，放在最高优先级（最上层队列）。 </p>
+<p>规则 4：一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次 CPU），就降低其优先级（移入低一级队列）。 </p>
+<p>规则 5：经过一段时间 S，就将系统中所有工作重新加入最高优先级队列。</p>
+<p>6.比例份额：确保每个工作获得一定比例的CPU时间。彩票份额、行程值</p>
+<ol>
+<li><strong>用户态内核态区别</strong></li>
+</ol>
+<p>用户空间:指的就是用户可以操作和访问的空间，这个空间通常存放我们用户自己写的数据等等；而内核空间则是系统内核来操作的一块空间，这块空间里面存放系统内核的函数、接口等。<br>不管对于Linux还是Windows， 他们都具有自己用户空间和内核空间。当一个程序运行时，如果它是在用户空间下执行，我们把此时运行得程序的这种状态成为用户态，而当这段程序执行在内核的空间执行时，这种状态称为内核态。</p>
+<p>用户模式（user mode）。在用户模式下运行的代码会受到限制。例如，在用户模式下运行时，进程不能发出 I/O 请求。这 样做会导致处理器引发异常，操作系统可能会终止进程。与用户模式不同的内核模式（kernel mode），操作系统（或内核）就以这种模式运行。 在此模式下，运行的代码可以做它喜欢的事，包括特权操作，如发出 I/O 请求和执行所有类 型的受限指令。</p>
+<p>作用1：安全执行受限制的指令</p>
+<p>作用2：实现进程切换</p>
+<ol>
+<li><strong>进程的状态</strong></li>
+</ol>
+<p>1.创建</p>
+<p>2.就绪</p>
+<p>3.运行</p>
+<p>4.阻塞</p>
+<p>5.结束</p>
+<ol>
+<li><strong>如何实现进程间共享内存？</strong></li>
+</ol>
+<p>为了支持共享，需要一些额外的硬件支持，这就是保护位（protection bit）。基本为每个段增加了几个位，标识程序是否能够读写该段，或执行其中的代码。通过将代码段标记为只 读，同样的代码可以被多个进程共享，而不用担心破坏隔离。虽然每个进程都认为自己独占 这块内存，但操作系统秘密地共享了内存，进程不能修改这些内存，所以假象得以保持。</p>
+<ul>
+<li><p>使得多个进程可以可以直接读写同一块内存空间，是最快的可用IPC形式。是针对其他通信机制运行效率较低而设计的。</p>
+</li>
+<li><p>为了在多个进程间交换信息，内核专门留出了一块内存区，可以由需要访问的进程将其映射到自己的私有地址空间。进程就可以直接读写这一块内存而不需要进行数据的拷贝，从而大大提高效率。</p>
+</li>
+<li><p>由于多个进程共享一段内存，因此需要依靠某种同步机制（如信号量）来达到进程间的同步及互斥。</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>原理</th>
+<th>易失性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mmap</td>
+<td>利用文件(open)映射共享内存区域</td>
+<td>会保存在磁盘上，不会丢失</td>
+</tr>
+<tr>
+<td>Posix shared memory</td>
+<td>利用/dev/shm文件系统(mmap)映射共享内存区域</td>
+<td>随内核持续，内核自举后会丢失</td>
+</tr>
+<tr>
+<td>SystemV shared memory</td>
+<td>利用/dev/shm文件系统(shmat)映射共享内存区域</td>
+<td>随内核持续，内核自举后会丢失</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><strong>线程状态</strong></li>
+</ol>
+<p>java线程状态：</p>
+<p>1.新建：创建后未启动</p>
+<p>2.运行：包括操作系统中的Running和Ready</p>
+<p>3.无限期等待（wait）：线程主动等待</p>
+<p>4.限期等待：带时间的wait、join等</p>
+<p>5.阻塞：等待获得一个排他锁</p>
+<p>6.结束（terminated）</p>
+<ol>
+<li><strong>内存泄露概念与产生原因与影响</strong></li>
+</ol>
+<p>为内存泄露（memory leak），如果忘记释放内存，就会发生。系统中实际存在两级内存管理。 第一级是由操作系统执行的内存管理，操作系统在进程运行时将内存交给进程，并在进程退出（或以其他方式结束）时将其回收。第二级管理在每个进程中，例如在调用 malloc()和 free()时，在堆内管理。 即使你没有调用 free()（并因此泄露了堆中的内存），操作系统也会在程序结束运行时，收回进程的所有 内存（包括用于代码、栈，以及相关堆的内存页）。无论地址空间中堆的状态如何，操作系统都会在进程终止时收回所有这些页面，从而确保即使没有释放内存，也不会丢失内存。 因此，对于短时间运行的程序，泄露内存通常不会导致任何操作问题（尽管它可能被认为是不好的形式）。如果你编写一个长期运行的服务器（例如 Web 服务器或数据库管理系统，它永远不会退出），泄露内存就是很大的问题，最终会导致应用程序在内存不足时崩溃。</p>
+<ol>
+<li><strong>如何查看端口占用</strong></li>
+</ol>
+<p>netstat</p>
+<ol>
+<li><strong>查看进程内存与CPU占用情况</strong></li>
+</ol>
+<p>top</p>
+<ol>
+<li><strong>内存溢出的产生原因与相关处理</strong></li>
+</ol>
+<p>没有分配足够的内存，有时称为缓冲区溢出。</p>
+<p>在某些情况下，这是无害的，可能会覆盖不再使用的变量。在某些情况下，这些溢出可 能具有令人难以置信的危害，实实上是系统中许多安全漏洞的来源。在其他情况下， malloc 库总是分配一些额外的空间，因此你的程序实实上不会在其他某个变量的值上涂写， 并且工作得很好。还有一些情况下，该程序确实会发生故障和崩溃。</p>
+<ol>
+<li><strong>操作系统分页、分段、TLB</strong></li>
+</ol>
+<p>操作系统需要把进程的地址空间映射到物理内存，如果完全照搬，将会有大量的空间浪费。具体怎么映射，就有了分段、分页。</p>
+<p>分段：需要多对基址、界限寄存器。会有外部碎片</p>
+<p>分页：将地址空间划分为固定的大小。需要额外的一次内存访问。</p>
+<p>TLB：用来解决分页中额外的一次内存访问</p>
+<p><strong>页表太大</strong></p>
+<ul>
+<li>段页式</li>
+<li>多级页表：与使用的地址空间成比例，更紧凑</li>
+</ul>
+<p>请求分页、请求分段：在硬盘上开辟一片空间用于物理页的移入和移出：交换空间。书P166</p>
+<blockquote>
+<p>正在运行的进程生成虚拟内存引用（用于获取指令 或访问数据），在这种情况下，硬件将其转换为物理地址，再从内存中获取所需数据。 硬件首先从虚拟地址获得 VPN，检查 TLB 是否匹配（TLB 命中），如果命中，则获得最终的物理地址并从内存中取回。这希望是常见情形，因为它很快（不需要额外的内存访问）。 如果在 TLB 中找不到 VPN（即 TLB 未命中），则硬件在内存中查找页表（使用页表基 址寄存器），并使用 VPN 查找该页的页表项（PTE）作为索引。如果页有效且存在于物理内存中，则硬件从 PTE 中获得 PFN，将其插入 TLB，并重试该指令，这次产生 TLB 命中。到现在为止还挺好。 但是，如果希望允许页交换到硬盘，必须添加更多的机制。具体来说，当硬件在 PTE 中查找时，可能发现页不在物理内存中。硬件（或操作系统，在软件管理 TLB 时）判断是否在内存中的方法，是通过页表项中的一条新信息，即存在位（present bit）。如果存在位设 置为 1，则表示该页存在于物理内存中，并且所有内容都如上所述进行。如果存在位设置为 零，则页不在内存中，而在硬盘上。访问不在物理内存中的页，这种行为通常被称为页错 误（page fault）。</p>
+<p>如果一个页不存在，它已被交换到硬盘，在处理页错误的时候，操作系统需要将该页 交换到内存中。那么，问题来了：操作系统如何知道所需的页在哪儿？在许多系统中，页 表是存储这些信息最自然的地方。因此，操作系统可以用 PTE 中的某些位来存储硬盘地址， 这些位通常用来存储像页的 PFN 这样的数据。当操作系统接收到页错误时，它会在 PTE 中 查找地址，并将请求发送到硬盘，将页读取到内存中。</p>
+</blockquote>
+<ol>
+<li>页面置换算法</li>
+</ol>
+<ul>
+<li>最优替换策略：只用来做对比</li>
+<li>先入先出</li>
+<li>随机</li>
+<li>LRU、LFU：P180，完美LRU实现代价较高</li>
+<li>时钟算法：近似LRU</li>
+</ul>
+<ol>
+<li>用户态如何切换到内核态</li>
+</ol>
+<p>每个进程都有一个内核栈，用来保存进程的上下文。P40</p>
+<p><strong>进程切换的具体过程</strong>：P43，上下文的保存/恢复有两种。</p>
+<ol>
+<li><em>epoll底层原理*</em>：看cyc</li>
+<li><strong>简述信号量机制</strong></li>
+</ol>
+<p>编写并发程序的强大而灵活的原语</p>
+<ol>
+<li>并发与并行的区别</li>
+</ol>
+<p>并发：一段时间</p>
+<p>并行：同时</p>
+<ol>
+<li><p>系统调用的全过程：参考17</p>
+</li>
+<li><p>僵尸进程、孤儿进程</p>
+</li>
+</ol>
+<p>孤儿进程</p>
+<p>如果父进程先退出，子进程还没退出，那么子进程的父进程将变为init进程。（注：任何一个进程都必须有父进程）。</p>
+<p>一个父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</p>
+<p>僵尸进程</p>
+<p>如果子进程先退出，父进程还没退出，那么子进程必须等到父进程捕获到了子进程的退出状态才真正结束，否则这个时候子进程就成为僵尸进程。</p>
+<p>设置<strong>僵尸进程的目</strong>的是维护子进程的信息，以便父进程在以后某个时候获取。这些信息至少包括进程ID，进程的终止状态，以及该进程使用的CPU时间，所以当终止子进程的父进程调用wait或waitpid时就可以得到这些信息。如果一个进程终止，而该进程有子进程处于僵尸状态，那么它的所有僵尸子进程的父进程ID将被重置为1（init进程）。继承这些子进程的init进程将清理它们（也就是说init进程将wait它们，从而去除它们的僵尸状态）。</p>
+<ol>
+<li>进程、线程切换的差别</li>
+</ol>
+<p>线程上下文切换类似于进程上下文切换，进程切换将状态保存到进程控制块（PCB），线程对应线程控制    块（TCB）。线程切换地址空间不变，不需要切换当前使用的页表。</p>
+<ol>
+<li>kill与kill -9的区别</li>
+</ol>
+<p>默认情况下<code>kill</code>命令的参数为-15， 代表的信号为<code>SIGTERM</code>，这是告诉进程你<strong>需要被关闭，请自行停止运行并退出</strong>；</p>
+<p>而<code>kill -9</code>代表的信号是<code>SIGKILL</code>，表示进程被终止，需要<strong>立即退出</strong>；</p>
+<p>因此<code>kill -9</code>表示强制杀死该进程，这个信号<strong>不能被捕获也不能被忽略</strong>。</p>
+<ol>
+<li>内存分配算法</li>
+</ol>
+<ul>
+<li>最优匹配：遍历查找，性能较差。产生很多难以利用的小块</li>
+<li>最差匹配：需要遍历、导致过量的碎片</li>
+<li>首次匹配：速度优势、空闲块按内存地址排序</li>
+<li>下次匹配：维护一个指针，指向上一个查找结束的位置，查找操作扩散到整个列表中去。</li>
+</ul>
+<ol>
+<li>零拷贝原理</li>
+</ol>
+
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" href="https://github.com/vivarisk" target="_blank">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mailto:letitbegin22@gmail.com" target="_blank">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/rss2.xml" target="_blank">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        Copyright © 2025 行行重行行
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://hexo.io">Powered by Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+
+
+        
+
+
+        
+
+      </div>
+    </div>
+  <!-- hexo injector body_end start -->
+<script src="/assets/prism-bundle.js"></script>
+<script src="/assets/prism-plus.js" data-pjax=""></script>
+<!-- hexo injector body_end end -->
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
